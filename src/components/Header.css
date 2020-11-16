@@ -1,0 +1,41 @@
+.header-main-container{
+    user-select: none;
+}
+.header-sub-container{
+    display: flex;
+}
+.header-left-container{
+    border-right: 1px solid black;
+    width: 20%;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.header-center-container{
+    width: 20%;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.header-right-container{
+
+}
+.header-title{
+    display: block;
+    font-size: 19px;
+}
+.header-image{
+    width: 2000%;
+    height: 200%;
+}
+.header-drop-down-options-container{
+    --ion-background-color: black;
+}
+.header-drop-down-buttons{
+    display: inline;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.header-drop-down-buttons-hover:hover{
+    color: dodgerblue;
+}

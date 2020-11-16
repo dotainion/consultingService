@@ -1,0 +1,7 @@
+.footer-main-container{
+    user-select: none;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
