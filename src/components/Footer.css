@@ -5,3 +5,9 @@
     color: white;
     padding-top: 20px;
 }
+
+@media screen and (max-width:500px){
+    .footer-main-container{
+        padding-top: 10px;
+    }
+}
