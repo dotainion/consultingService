@@ -3,6 +3,7 @@ import React from 'react';
 import './Home.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Offers } from '../components/Offers';
 import img from '../images/image.jpg';
 import img1 from '../images/image1.jpg';
 import img2 from '../images/image2.jpg';
@@ -15,9 +16,12 @@ const Home: React.FC = () => {
     <IonPage>
       <Header/>
       <IonContent fullscreen>
+        
         <IonThumbnail>
             <IonImg class="home-intro-image" src={images[0]}/>
         </IonThumbnail>
+        
+        <Offers/>
       </IonContent>
       <Footer/>
     </IonPage>
