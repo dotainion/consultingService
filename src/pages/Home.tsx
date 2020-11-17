@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonLabel, IonPage, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import './Home.css';
 import { Header } from '../components/Header';
@@ -15,7 +15,9 @@ const Home: React.FC = () => {
     <IonPage>
       <Header/>
       <IonContent fullscreen>
-          
+        <IonThumbnail>
+            <IonImg class="home-intro-image" src={images[0]}/>
+        </IonThumbnail>
       </IonContent>
       <Footer/>
     </IonPage>
