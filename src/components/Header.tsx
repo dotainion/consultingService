@@ -1,4 +1,4 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import img from '../images/image.jpg';
