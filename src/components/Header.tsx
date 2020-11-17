@@ -1,8 +1,20 @@
+<<<<<<< HEAD
 import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard } from '@ionic/react';
 import React, { useState } from 'react';
 import './Header.css';
 import image from '../images/image.jpg';
 import { tools } from './tools';
+=======
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import './Header.css';
+import img from '../images/image.jpg';
+import img1 from '../images/image1.jpg';
+import img2 from '../images/image2.jpg';
+import img3 from '../images/image3.jpg';
+import img4 from '../images/image4.jpg';
+import { Simulate } from 'react-dom/test-utils';
+>>>>>>> 8a223acbf61231f91d58f98d21631a8beac8df6f
 
 const DropDownList = (props:any) =>{
     return(
@@ -18,6 +30,7 @@ const DropDownList = (props:any) =>{
     )
 }
 export const Header: React.FC = ()=>{
+<<<<<<< HEAD
     const [drop_list, set_drop_list] = useState([] as any[]);
     const [drop_id, set_drop_id] = useState({
         service: false,
@@ -44,6 +57,25 @@ export const Header: React.FC = ()=>{
         {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[2]},
         {name: "Benefits of Gmes", value: benefits, display: drop_id.benefits, key: keys[3]}
     ]
+=======
+    const images = [img,img1,img2,img3,img4];
+    const dropDownOptions = ["Servicess","About Us","Our Program Model","Benefits of Gmes"]
+    const [slider, setSlider] = useState(images[0]);
+
+    let index = 1;
+    const sliderAuto = () =>{
+        console.log(index)
+        setTimeout(()=>{
+            setSlider(images[index]);
+            sliderAuto();
+            if (index === images.length-1) index = 0;
+            else index ++;
+        },2000)
+    }
+    useEffect(()=>{
+        sliderAuto();
+    },[]);
+>>>>>>> 8a223acbf61231f91d58f98d21631a8beac8df6f
     return(
         <IonHeader class="header-main-container">
             <div className="header-sub-container">
@@ -59,7 +91,7 @@ export const Header: React.FC = ()=>{
                 </div>
                 <div className="header-right-container">
                     <IonThumbnail>
-                        <IonImg class="header-image" src={image}/>
+                        <IonImg class="header-image" src={slider}/>
                     </IonThumbnail>
                 </div>
             </div>
