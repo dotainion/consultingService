@@ -27,13 +27,13 @@
     height: 200%;
 }
 .header-drop-down-options-container{
-    --ion-background-color: black;
+    --ion-background-color: var(--header-background-color);
 }
 .header-drop-down-buttons{
     display: inline;
     width: 100%;
     text-align: left;
-    color: white;
+    color: var(--header-color);
     font-weight: bold;
 }
 .header-drop-down-buttons-hover:hover{
@@ -45,9 +45,14 @@
     z-index: 99;
     background-color: white;
     min-width: 200px;
+    max-width: 320px;
     margin-left: -0px;
+    color: black;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 2px 0px lightgray;
 }
 .header-drop-down-list-item{
+    position: relative;
     display: block;
     padding: 5px;
 }

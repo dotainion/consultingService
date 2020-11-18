@@ -74,6 +74,13 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /*customize variable*/
+  --footer-color: white;
+  --footer-background-color: rgb(17, 16, 16);
+
+  --header-color: white;
+  --header-background-color: rgb(17, 16, 16);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -230,3 +237,5 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
+

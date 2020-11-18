@@ -1,12 +1,53 @@
+.offer-card-main-container{
+    width: 100%;
+    margin-top: 80px;
+}
+.offers-card-hover:hover{
+    background-color: blue;
+}
+.offer-card-header{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+.offer-card-sub-container{
+    display: flex;
+}
 .offers-card-container{
-    
+    width: 30%;
+    height: 300px;
+    color: white;
+    background-color: dodgerblue;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 3px 3px lightgray;
+}
+.offers-card-sub-container{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .offers-card-title{
-    
+    font-size: 30px;
+    font-weight: bold;
 }
 .offers-card-sub-title{
-    
+    font-size: 30px;
 }
 .offers-card-notes{
+    font-size: 30px;
+}
 
+@media screen and (max-width:500px){
+    .offer-card-sub-container{
+        display: block;
+    }
+    .offers-card-container{
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
 }

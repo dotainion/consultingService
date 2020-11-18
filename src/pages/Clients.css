@@ -1,0 +1,27 @@
+.clients-page-containe{
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+.clients-main-container{
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    user-select: none;
+}
+.clients-header{
+    font-size:30px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.clients-sub-container{
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+}
+.clients-items{
+    font-size: 18px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}

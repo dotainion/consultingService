@@ -1,3 +1,62 @@
-.home-intro-image{
+.home-main-content-container{
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+.home-child-content-container{
     width: 100%;
+    background-color: rgb(223, 215, 215);
+    padding: 20px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.home-child-container{
+    width: 100%;
+    background-color: rgb(223, 215, 215);
+    padding: 20px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.home-child-content-header{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.home-child-contents{
+    font-size: 20px;
+    width: 70%;
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+.home-child-contents-benefit{
+    font-size: 20px;
+    width: 80%;
+    text-align: left;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+.home-child-content-button{
+    color: dodgerblue;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.home-child-content-button-hover:hover{
+    color: blue;
+    text-decoration: underline;
+}
+@media screen and (max-width:500px){
+    .home-child-contents{
+        width: 90%;
+    }
+    .home-child-contents-benefit{
+        font-size: 20px;
+        width: 100%;
+        text-align: left;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        font-weight: normal;
+    }
 }

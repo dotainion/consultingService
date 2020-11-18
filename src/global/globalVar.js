@@ -1,0 +1,5 @@
+
+
+
+/*for footer*/
+footerTextColor =  "red";

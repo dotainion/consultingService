@@ -1,0 +1,31 @@
+.pricing-main-container{
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.pricing-header{
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+    color: black;
+}
+.pricing-sub-container{
+    padding: 20px;
+    color: black;
+    background-color: skyblue;
+    box-shadow: 2px 2px 3px 3px lightgray;
+}
+.pricing-info{
+    font-size: 25px;
+}
+.pricing-why-this-rates{
+    font-size: 20px;
+    padding-top: 20px;
+}
+.pricing-rate-container{
+
+}
+.pricing-rate-item{
+
+}
