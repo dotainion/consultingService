@@ -13,7 +13,7 @@ class Info{
         ]
     }
     contact = {
-        header: "Contact Us",
+        header: "CONTACT US",
         list: [
             {name: "example@gmail.com", style: "footer-content-items", hover: "footer-content-items-hover"},
             {name: "1 (473) 999-9999", style: "footer-content-items", hover: "footer-content-items-hover"},
@@ -23,12 +23,29 @@ class Info{
     }
     services = {
         header: "SERVICES",
+        subHeader: "Industries and Consulting Services",
         list: [
-            
+            "Gain Market Sector Knowledge",
+            "Planning and task",
+            "Vendor Sourcing",
+            "Custom Brokerage Services",
+            "Government Tax Reporting & Compliances",
+            "Business Start-up Consultation",
+            "Business Proposal Writing",
+            "Financial Planning and Management",
+            "Business branding and marketing",
+            "Payroll Management",
+            "Customer services training",
+            "IT Support (website and App Development)",
+            "Product Development",
+            "Business registration and Incorporation",
+            "NIS and VAT compliance services",
+            "Construction Project Management",
+            "Energy Management",
         ]
     }
     location = {
-        header: "Head Office Location",
+        header: "HEAD OFFICE LOCATION",
         list: [
             "GMCS is located on H.A. Blaise Street in St. George’s right behind the Fire Station on the Carenage in St. George’s Grenada. Our office is located on the third floor of the Caribbean Coding Building."
         ]
@@ -40,21 +57,21 @@ class Info{
     }
     offers = [
         {
-            title: "title 1",
-            subTitle: "sub title 1",
-            note: "note 1"
+            title: "Consulting Services",
+            subTitle: "Industries",
+            note: "Gain Market Sector Knowledge"
         },{
-            title: "title 2",
-            subTitle: "sub title 2",
-            note: "note 2"
+            title: "Consulting Services",
+            subTitle: "Industries",
+            note: "Vendor Sourcing"
         },{
-            title: "title 3",
-            subTitle: "sub title 3",
-            note: "note 3"
+            title: "Consulting Services",
+            subTitle: "Industries",
+            note: "Custom Brokerage Services"
         }
     ]
     pricing = {
-        header: "Our Pricing Model",
+        header: "OUR PRICING MODEL",
         info: "Our management professional analyzes startups or small businesses and create solutions, while helping companies meet their goals. Clients have the option to receive help from GMCS, as they need it without any long-term Contracts. Clients purchase hours as needed for specific tasks and projects.",
         whyThisRates: "Our rates are based on these four models, customers have the options to select most effective option that benefit them.",
         rates: [
@@ -87,7 +104,7 @@ class Info{
 
     }
     benefits = {
-        header: "Benefits of Hiring Grenada Management Consulting Services (GMCS)",
+        header: "BENEFITS OF HIRING GRENADA MANAGEMENT CONSULTING SERVICES (GMCS)",
         list: [
             "•	Gain access to expertise and knowledge immediately as a business startup or an entrepreneur.",
             "•	No NIS or taxes reporting, benefits, or human resource issues.",

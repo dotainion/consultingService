@@ -28,7 +28,6 @@ import Clients from './pages/Clients';
 import { Form } from './components/Form';
 
 const App: React.FC = () =>{
-  const [openForm, setOpenform] =useState(false);
 return (
     <IonApp>
       <Form/>

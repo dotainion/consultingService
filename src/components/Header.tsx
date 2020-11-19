@@ -1,6 +1,7 @@
 import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
+import { DropDownList } from './Widgets';
 import img from '../images/image.jpg';
 import img1 from '../images/image1.jpg';
 import img2 from '../images/image2.jpg';
@@ -8,19 +9,6 @@ import img3 from '../images/image3.jpg';
 import img4 from '../images/image4.jpg';
 import { tools } from './tools';
 
-const DropDownList = (props:any) =>{
-    return(
-        <div hidden={!props.display} className="header-drop-down-lists-main-container" onMouseLeave={()=>{
-            if (props.onClose) props.onClose();
-        }}>
-            {props.value.map((list:any,key:any)=>(
-                <IonLabel class="header-drop-down-list-item header-drop-down-list-item-hover" key={key} onClick={()=>{
-                    if (props.onClick) props.onClick(list);
-                }}>{list}</IonLabel>
-            ))}
-        </div>
-    )
-}
 export const Header = (props:any)=>{
     const images = [img,img1,img2,img3,img4];
     const [slider, setSlider] = useState(images[0]);
@@ -30,19 +18,22 @@ export const Header = (props:any)=>{
         aboutUs: false,
         programModel: false,
         benefits: false,
+        contact: false,
     });
     const services = tools.info.services.list;
     const abouts = tools.info.aboutus.list;
     const models = tools.info.models.list;
     const benefits:any = [];
+    const contact:any = [];
 
-    const keys = ["service","aboutus","programmodel","benefits"]
+    const keys = ["service","aboutus","programmodel","benefits","contact"];
 
     const dropDownOptions = [
         {name: "Services", value: services, display: drop_id.service, key: keys[0], shouldDrop: true},
         {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[1], shouldDrop: true},
         {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[2], shouldDrop: true},
-        {name: "Benefits of Gmes", value: benefits, display: drop_id.benefits, key: keys[3], shouldDrop: false}
+        {name: "Benefits of Gmes", value: benefits, display: drop_id.benefits, key: keys[3], shouldDrop: false},
+        {name: "Contact Us", value: contact, display: drop_id.contact, key: keys[4], shouldDrop: false},
     ]
     const setDropDown = (cmd:string) =>{
         set_drop_id({
@@ -50,6 +41,7 @@ export const Header = (props:any)=>{
             aboutUs: tools.compare(cmd,keys[1],true,false),
             programModel: tools.compare(cmd,keys[2],true,false),
             benefits: tools.compare(cmd,keys[3],true,false),
+            contact: tools.compare(cmd,keys[4],true,false),
         });
     }
 
@@ -60,12 +52,31 @@ export const Header = (props:any)=>{
             sliderAuto();
             if (index === images.length-1) index = 0;
             else index ++;
-        },2000)
+        },5000)
     }
 
     useEffect(()=>{
         sliderAuto();
     },[]);
+
+    const commands = (cmd:any) =>{
+        if (cmd == keys[0]){
+            //for service
+        }
+        else if (cmd == keys[1]){
+            //for aboutus
+        }
+        else if (cmd == keys[2]){
+            //for programmodel
+        }
+        else if (cmd == keys[3]){
+            //for benefits
+        }
+        else if (cmd == keys[4]){
+            //for contact
+            tools.open.form();
+        }
+    }
 
     return(
         <IonHeader class="header-main-container">
@@ -84,6 +95,11 @@ export const Header = (props:any)=>{
                     <IonThumbnail>
                         <IonImg class="header-image" src={slider}/>
                     </IonThumbnail>
+                    <div className="header-text-over-image-container">
+                        <div className="header-text-over-image-sub-container">
+                            <div className="header-text-over-image-item">Grenada</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <IonItem className="header-drop-down-options-container">
@@ -100,7 +116,7 @@ export const Header = (props:any)=>{
                             }
                         }} onClick={()=>{
                             if (!option.shouldDrop && option.value.length === 0){
-                                if (props.scrollTo) props.scrollTo({x:0,y:1300});
+                                commands(option.key);
                             }
                         }}>{option.name}</span>
                         <DropDownList value={drop_list} onClose={()=>{
@@ -111,6 +127,7 @@ export const Header = (props:any)=>{
                     </div>
                 ))}
             </IonItem>
+            
         </IonHeader>
     )
 }

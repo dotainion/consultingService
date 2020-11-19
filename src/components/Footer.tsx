@@ -6,6 +6,7 @@ import { tools } from './tools';
 export const Footer: React.FC = ()=>{
     return(
         <IonFooter class="footer-main-container">
+            <div style={{width:"100%",height:"50px",backgroundColor:"gray",borderTop:"1px solid dodgerblue"}}></div>
             <div className="footer-sub-container">
                 <div className="footer-box">
                     <div className="footer-content-main-container">
@@ -45,13 +46,9 @@ export const Footer: React.FC = ()=>{
                 </div>
                 <div className="footer-box">
                     <div className="footer-content-main-container">
-                        <div className="footer-content-header">{tools.info.aboutus.header}</div>
+                        <div className="footer-content-header">{tools.info.services.header}</div>
                         <div className="footer-content-sub-container">
-                            {tools.info.services.list.map((info, index)=>(
-                                <div key={index}>
-                                    <span className="footer-content-items">{info}</span>
-                                </div>
-                            ))}
+                            <span className="footer-content-items footer-content-items-hover">View Our Servies</span>
                         </div>
                     </div>
                 </div>

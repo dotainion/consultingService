@@ -1,0 +1,22 @@
+/*drop down lists*/
+.header-drop-down-lists-main-container{
+    position: fixed;
+    z-index: 999999;
+    background-color: white;
+    min-width: 200px;
+    margin-left: -0px;
+    padding: 5px;
+    color: black;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 2px 0px lightgray;
+}
+.header-drop-down-list-item{
+    position: relative;
+    display: block;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+}
+.header-drop-down-list-item-hover:hover{
+    color: dodgerblue;
+    background-color: lightgray;
+}

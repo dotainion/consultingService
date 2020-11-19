@@ -2,7 +2,6 @@
     background-color: var(--footer-background-color);
     text-align: center;
     color: var(--footer-color);
-    padding-top: 20px;
     bottom: 0;
     user-select: none;
 }

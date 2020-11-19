@@ -9,33 +9,22 @@ import img1 from '../images/image1.jpg';
 import img2 from '../images/image2.jpg';
 import img3 from '../images/image3.jpg';
 import img4 from '../images/image4.jpg';
-import { Introduction } from '../components/Intro';
-import { Pricing } from '../components/Pricing';
 import { Link } from 'react-router-dom';
 import { tools } from '../components/tools';
+import { Intro, Pricing, Benefits, Videos } from '../components/homeWgt';
 
 const Home: React.FC = () => {
-  const scrollRef = useRef<HTMLIonContentElement>(null);
   const images = [img,img1,img2,img3,img4];
   return (
     <IonPage>
-      <IonContent class="home-main-content-container" ref={scrollRef}>
-        <Header scrollTo={async(pos:any)=>{
-          const element = scrollRef?.current;
-          if (element) console.log(await element.scrollToPoint(pos.x,pos.y))
-        }}/>
-        <Introduction/>
+      <IonContent class="home-main-content-container">
+        <Header/>
+        
+        <Intro/>
+        <Videos/>
         <Pricing/>
         <Offers/>
-
-        <div className="home-child-content-container">
-          <div className="home-child-content-header">{tools.info.benefits.header}</div>
-              {
-                tools.info.benefits.list.map((benifit, index)=>(
-                  <ul className="home-child-contents-benefit" key={index}>{benifit}</ul>
-                ))
-              } 
-        </div>
+        <Benefits/>
 
         <div className="home-child-container">
           <div className="home-child-content-header">OUR CLIENTS</div>
