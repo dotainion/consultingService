@@ -1,16 +1,14 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { DropDownList } from './Widgets';
-import img from '../images/image.jpg';
-import img1 from '../images/image1.jpg';
-import img2 from '../images/image2.jpg';
-import img3 from '../images/image3.jpg';
-import img4 from '../images/image4.jpg';
 import { tools } from './tools';
+import { useHistory } from 'react-router';
 
-export const Header = (props:any)=>{
-    const images = [img,img1,img2,img3,img4];
+export const Header = ()=>{
+    const history = useHistory();
+    const images = tools.images.grenada();
+    const [view, setView] = useState(true);
     const [slider, setSlider] = useState(images[0]);
     const [drop_list, set_drop_list] = useState([] as any[]);
     const [drop_id, set_drop_id] = useState({
@@ -19,29 +17,29 @@ export const Header = (props:any)=>{
         programModel: false,
         benefits: false,
         contact: false,
+        home: false,
     });
-    const services = tools.info.services.list;
     const abouts = tools.info.aboutus.list;
     const models = tools.info.models.list;
-    const benefits:any = [];
-    const contact:any = [];
 
-    const keys = ["service","aboutus","programmodel","benefits","contact"];
+    const keys = ["home","service","aboutus","programmodel","benefits","contact"];
 
     const dropDownOptions = [
-        {name: "Services", value: services, display: drop_id.service, key: keys[0], shouldDrop: true},
-        {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[1], shouldDrop: true},
-        {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[2], shouldDrop: true},
-        {name: "Benefits of Gmes", value: benefits, display: drop_id.benefits, key: keys[3], shouldDrop: false},
-        {name: "Contact Us", value: contact, display: drop_id.contact, key: keys[4], shouldDrop: false},
+        {name: "Home", value: [], display: drop_id.home, key: keys[0]},
+        {name: "Services", value: [], display: drop_id.service, key: keys[1]},
+        {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[2]},
+        {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[3]},
+        {name: "Benefits of GMCS", value: [], display: drop_id.benefits, key: keys[4]},
+        {name: "Contact Us", value: [], display: drop_id.contact, key: keys[5]},
     ]
     const setDropDown = (cmd:string) =>{
         set_drop_id({
-            service: tools.compare(cmd,keys[0],true,false),
-            aboutUs: tools.compare(cmd,keys[1],true,false),
-            programModel: tools.compare(cmd,keys[2],true,false),
-            benefits: tools.compare(cmd,keys[3],true,false),
-            contact: tools.compare(cmd,keys[4],true,false),
+            home: tools.compare(cmd,keys[0],true,false),
+            service: tools.compare(cmd,keys[1],true,false),
+            aboutUs: tools.compare(cmd,keys[2],true,false),
+            programModel: tools.compare(cmd,keys[3],true,false),
+            benefits: tools.compare(cmd,keys[4],true,false),
+            contact: tools.compare(cmd,keys[5],true,false),
         });
     }
 
@@ -55,32 +53,36 @@ export const Header = (props:any)=>{
         },5000)
     }
 
-    useEffect(()=>{
-        sliderAuto();
-    },[]);
-
     const commands = (cmd:any) =>{
         if (cmd == keys[0]){
+            //for home
+            history.push("/home");
+        }else if (cmd == keys[1]){
             //for service
-        }
-        else if (cmd == keys[1]){
-            //for aboutus
+            history.push("/offers");
         }
         else if (cmd == keys[2]){
-            //for programmodel
+            //for aboutus
         }
         else if (cmd == keys[3]){
-            //for benefits
+            //for programmodel
         }
         else if (cmd == keys[4]){
+            //for benefits
+        }
+        else if (cmd == keys[5]){
             //for contact
             tools.open.form();
         }
     }
 
+    useEffect(()=>{
+        sliderAuto();
+    },[]);
+
     return(
         <IonHeader class="header-main-container">
-            <div className="header-sub-container">
+            <div hidden={!view} className="header-sub-container">
                 <div className="header-left-container">
                     <IonLabel class="header-title">Grenada Management</IonLabel>
                     <IonLabel class="header-title">Consulting Service</IonLabel>
@@ -88,8 +90,8 @@ export const Header = (props:any)=>{
                 </div>
                 <div className="header-center-container">
                     <IonLabel class="header-title">Grenada</IonLabel>
-                    <IonLabel class="header-title">Cariacou</IonLabel>
-                    <IonLabel class="header-title">Pitite martinique</IonLabel>
+                    <IonLabel class="header-title">Carriacou</IonLabel>
+                    <IonLabel class="header-title">Pitite Martinique</IonLabel>
                 </div>
                 <div className="header-right-container">
                     <IonThumbnail>
@@ -110,12 +112,12 @@ export const Header = (props:any)=>{
                         setDropDown("all");
                     }}>
                         <span className="header-drop-down-buttons-hover" onMouseEnter={()=>{
-                            if (option.shouldDrop && option.value.length !== 0){
+                            if (option.value.length !== 0){
                                 set_drop_list(option.value);
                                 setDropDown(option.key);
                             }
                         }} onClick={()=>{
-                            if (!option.shouldDrop && option.value.length === 0){
+                            if (option.value.length === 0){
                                 commands(option.key);
                             }
                         }}>{option.name}</span>
@@ -127,7 +129,21 @@ export const Header = (props:any)=>{
                     </div>
                 ))}
             </IonItem>
-            
+            <IonButton hidden id="header-top-view-show" onClick={()=>{
+                setView(true);
+            }}/>
+            <IonButton hidden id="header-top-view-hide" onClick={()=>{
+                setView(false);
+            }}/>
         </IonHeader>
     )
+}
+
+let scrollValue = 0;
+export const headerViewScroll = (pos:any) =>{
+    //this will hide or show the top header bor 
+    //base on the param value passed in
+    if (pos >= scrollValue) tools.open.headerViewHide();
+    else tools.open.headerViewShow();
+    scrollValue = pos;
 }

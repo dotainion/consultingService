@@ -77,10 +77,10 @@ http://ionicframework.com/docs/theming/ */
 
   /*customize variable*/
   --footer-color: white;
-  --footer-background-color: rgb(17, 16, 16);
+  --footer-background-color: rgb(13, 58, 102);
 
   --header-color: white;
-  --header-background-color: rgb(17, 16, 16);
+  --header-background-color: rgb(13, 58, 102);
 }
 
 @media (prefers-color-scheme: dark) {

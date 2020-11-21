@@ -7,7 +7,7 @@ import { tools } from '../components/tools';
 
 const Clients: React.FC = ()=>{
     return(
-        <IonPage class="clients-page-container">
+        <IonPage className="clients-page-container">
             <IonContent>
                 <Header/>
                 <div className="clients-main-container">
@@ -18,8 +18,8 @@ const Clients: React.FC = ()=>{
                         ))}
                     </div>
                 </div>
+                <Footer/>
             </IonContent>
-            <Footer/>
         </IonPage>
     )
 }

@@ -1,0 +1,53 @@
+.intro-main-container{
+    position: relative;
+    display: flex;
+}
+.intro-thumbnail-container{
+    width: 100%;
+    height: 500px;
+}
+.intro-sub-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.intro-content-container{
+    position: relative;
+    text-align: left;
+    width: 90%;
+    top: 50%;
+    margin-left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.intro-header{
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(13, 58, 102);
+    font-family: 'Times New Roman', Times, serif;
+}
+.intro-button{
+    position: relative;
+    font-size: 35px;
+    color: white;
+    top: 15px;
+    padding: 2px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-shadow: 1px 1px 1px rgb(13, 58, 102);
+    border: 2px solid white;
+    box-shadow: 1px 1px 3px rgb(13, 58, 102);
+}
+.intro-button-hover:hover{
+    background-color: white;
+}
+
+@media screen and (max-width:500px){
+    .intro-header{
+        font-size: 25px;
+        color: white;
+        font-weight: bold;
+    }
+}
+

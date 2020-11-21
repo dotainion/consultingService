@@ -1,6 +1,42 @@
 import { createImmediatelyInvokedFunctionExpression } from "typescript"
+import brokerage from '../images/brokerage.jpg';
+import brokerage2 from '../images/brokerage2.jpg';
+import consulting from '../images/consulting.jpg';
+import consulting2 from '../images/consulting2.png';
+import grenada1 from '../images/grenada1.jpg';
+import grenada2 from '../images/grenada2.jpg';
+import grenada3 from '../images/grenada3.jpg';
+import grenada4 from '../images/grenada4.jpg';
+import grenada5 from '../images/grenada5.jpg';
+import roundTable from '../images/roundTable.jpg';
+import vendering from '../images/vendering.jpg';
+import vendering2 from '../images/vendering2.jpg';
+import pricing from '../images/pricing.jpg';
+import consulter from '../images/consulter.webp';
+import pricing3 from '../images/pricing3.webp';
 
+class SysImages{
+    brokerage = brokerage;
+    brokerage2 = brokerage2;
+    consulting = consulting;
+    consulting2 = consulting2;
+    grenada1 = grenada1;
+    grenada2 = grenada2;
+    grenada3 = grenada3;
+    grenada4 = grenada4;
+    grenada5 = grenada5;
+    roundTable = roundTable;
+    vendering = vendering;
+    vendering2 = vendering2;
+    pricing = pricing;
+    consulter = consulter;
+    pricing3 = pricing3;
+    grenada(){
+        return [grenada1,grenada2,grenada3,grenada4,grenada5];
+    } 
+}
 class Info{
+    img = new SysImages();
     aboutus = {
         header: "ABOUT US",
         list: [
@@ -59,15 +95,18 @@ class Info{
         {
             title: "Consulting Services",
             subTitle: "Industries",
-            note: "Gain Market Sector Knowledge"
+            note: "Gain Market Sector Knowledge",
+            image: this.img.vendering2
         },{
             title: "Consulting Services",
             subTitle: "Industries",
-            note: "Vendor Sourcing"
+            note: "Vendor Sourcing",
+            image: this.img.vendering
         },{
             title: "Consulting Services",
             subTitle: "Industries",
-            note: "Custom Brokerage Services"
+            note: "Custom Brokerage Services",
+            image: this.img.brokerage
         }
     ]
     pricing = {
@@ -131,14 +170,25 @@ class Clicks{
     form(){
         tools.click.id("form-display-hander-id");
     }
+    headerViewShow(){
+        tools.click.id("header-top-view-show");
+    }
+    headerViewHide(){
+        tools.click.id("header-top-view-hide");
+    }
 }
 class Tools{
+    images = new SysImages();
     click = new Clicks();
     open = new Clicks();
     info = new Info();
     compare(compareThis,withThat,returnIfTrue,returnIfFalse){
         if (compareThis === withThat) return returnIfTrue;
         else return returnIfFalse;
+    }
+    isMobile(){
+        if (window.innerWidth <= 767) return true;
+        return false;
     }
 }
 const tools = new Tools();

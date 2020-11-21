@@ -1,36 +1,37 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList } from '@ionic/react';
 import React, { useRef } from 'react';
 import './Home.css';
-import { Header } from '../components/Header';
+import { Header, headerViewScroll } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Offers } from '../components/Offers';
-import img from '../images/image.jpg';
-import img1 from '../images/image1.jpg';
-import img2 from '../images/image2.jpg';
-import img3 from '../images/image3.jpg';
-import img4 from '../images/image4.jpg';
 import { Link } from 'react-router-dom';
 import { tools } from '../components/tools';
-import { Intro, Pricing, Benefits, Videos } from '../components/homeWgt';
+import { Intro } from '../components/onHome/Intro';
+import { Pricing } from '../components/onHome/Pricing';
+import { Benefits } from '../components/onHome/Benefit';
+import { Videos } from '../components/onHome/Videos';
+import { Offers } from '../components/onHome/Offers';
 
 const Home: React.FC = () => {
-  const images = [img,img1,img2,img3,img4];
+  const scrollRef = useRef<HTMLIonContentElement>(null);
+  const images = ["img","img1","img2","img3","img4"];
   return (
     <IonPage>
-      <IonContent class="home-main-content-container">
+      
+      <IonContent class="home-main-content-container" onIonScroll={async(e)=>{
+        //headerViewScroll(e.detail.scrollTop);
+      }} ref={scrollRef} scrollEvents={true}>
         <Header/>
-        
         <Intro/>
+        <Offers/>
         <Videos/>
         <Pricing/>
-        <Offers/>
         <Benefits/>
 
         <div className="home-child-container">
           <div className="home-child-content-header">OUR CLIENTS</div>
           <p className="home-child-contents">
-            PAC Worldwide has worked with thousands of 
-            customers from a variety of industries. 
+            GMCS has worked with many customers from a variety of industries and 
+            is willing to help small or larg business improve on their service quality. 
             <Link to="/clients" style={{textDecoration:"none"}}>
               <span className="home-child-content-button home-child-content-button-hover">Click here</span>
             </Link> 

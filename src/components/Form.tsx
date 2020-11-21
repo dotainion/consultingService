@@ -55,13 +55,13 @@ export const Form = ()=>{
                         </div>
                         <div className="form-input-container">
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel position="floating">First Name</IonLabel>
+                                <IonLabel class="firm-input-floating-text" position="floating">First Name</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("f",e.detail.value);
                                 }} value={inputs.firstName}/>
                             </IonItem>
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel position="floating">Last Name</IonLabel>
+                                <IonLabel class="firm-input-floating-text" position="floating">Last Name</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("l",e.detail.value);
                                 }} value={inputs.lastName}/>
@@ -69,26 +69,26 @@ export const Form = ()=>{
                         </div>
                         <div className="form-input-container">
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel position="floating">Email</IonLabel>
+                                <IonLabel class="firm-input-floating-text" position="floating">Email</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("e",e.detail.value);
                                 }} value={inputs.email}/>
                             </IonItem>
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel position="floating">Phone</IonLabel>
+                                <IonLabel class="firm-input-floating-text" position="floating">Phone</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("p",e.detail.value);
                                 }} value={inputs.phone}/>
                             </IonItem>
                         </div>
                         <IonItem class="form-input-sub-container" lines="none">
-                            <IonLabel position="floating">Address</IonLabel>
+                            <IonLabel class="firm-input-floating-text" position="floating">Address</IonLabel>
                             <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("a",e.detail.value);
                                 }} value={inputs.address}/>
                         </IonItem>
                         <IonItem class="form-input-sub-container" lines="none">
-                            <IonLabel position="floating">Company</IonLabel>
+                            <IonLabel class="firm-input-floating-text" position="floating">Company</IonLabel>
                             <IonInput class="form-input" onIonChange={(e)=>{
                                     updateInputs("c",e.detail.value);
                                 }} value={inputs.company}/>
@@ -116,7 +116,7 @@ export const Form = ()=>{
                             }}>Submit</IonButton>
                             <IonButton fill="outline" class="form-button" onClick={()=>{
                                 setIsOpen(false);
-                            }} color="danger">Cancel</IonButton>
+                            }}>Cancel</IonButton>
                         </IonItem> 
                     </IonCardContent>
                 </div>

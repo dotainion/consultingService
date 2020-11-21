@@ -2,29 +2,40 @@
     user-select: none;
 }
 .header-sub-container{
+    position: relative;
     display: flex;
+    overflow: hidden;
+    height: 66%;
 }
 .header-left-container{
-    border-right: 1px solid black;
+    border-right: 3px solid rgb(13, 58, 102);
     width: 20%;
     padding-left: 20px;
     padding-top: 10px;
+    background-color: white;
 }
 .header-center-container{
     width: 20%;
     padding-left: 20px;
     padding-top: 10px;
+    background-color: white;
 }
 .header-right-container{
-
+    user-select: none;
 }
 .header-title{
     display: block;
     font-size: 19px;
+    color: rgb(13, 58, 102);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: bold;
+    text-shadow: 1px 1px lightgray;
+    font-family: 'Times New Roman', Times, serif;
 }
 .header-image{
     width: 2100%;
-    height: 200%;
+    height: 195%;
 }
 .header-drop-down-options-container{
     --ion-background-color: var(--header-background-color);
@@ -52,7 +63,7 @@
     transform: translateX(-50%);
 }
 .header-text-over-image-item{
-    color: white;
+    color: dodgerblue;
     font-size: 50px;
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
@@ -61,6 +72,7 @@
 @media screen and (max-width:500px){
     .header-sub-container{
         display: block;
+        height: 74%;
     }
     .header-left-container{
         border-right: none;
@@ -80,7 +92,7 @@
     .header-image{
         position: absolute;
         width: 100%;
-        height: 20%;
+        height: 32%;
     }
     .header-title{
         display: inline;
@@ -98,5 +110,11 @@
         color: white;
         font-weight: normal;
         font-size: 10px;
+    }
+    .header-text-over-image-item{
+        margin-top: 40px;
+        margin-left: -60px;
+        font-size: 20px;
+        font-weight: normal;
     }
 }

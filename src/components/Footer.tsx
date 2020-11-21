@@ -6,7 +6,9 @@ import { tools } from './tools';
 export const Footer: React.FC = ()=>{
     return(
         <IonFooter class="footer-main-container">
-            <div style={{width:"100%",height:"50px",backgroundColor:"gray",borderTop:"1px solid dodgerblue"}}></div>
+            <div style={{width:"100%",height:"50px",backgroundColor:"gray",borderTop:"1px solid dodgerblue"}}>
+                
+            </div>
             <div className="footer-sub-container">
                 <div className="footer-box">
                     <div className="footer-content-main-container">

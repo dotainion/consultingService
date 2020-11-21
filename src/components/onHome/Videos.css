@@ -1,0 +1,54 @@
+.video-main-container{
+    position: relative;
+    margin-top: 100px;
+}
+.video-sub-container{
+    display: flex;
+    background-color: navy;
+    padding: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: navy;
+}
+.video-left-container{
+    width: 100%;
+    padding-right: 20px;
+}
+.video-right-container{
+    width: 50%;
+}
+.video-header{
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}
+.video-more-button{
+    position: relative;
+    font-size: 15px;
+    color: white;
+    top: 10px;
+}
+.video-more-hover:hover{
+    color: lightgray;
+}
+
+@media screen and (max-width:500px){
+    .video-header{
+        font-size: 25px;
+        color: white;
+        font-weight: bold;
+    }
+    .video-sub-container{
+        display: block;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .video-left-container{
+        padding-right: 0px;
+    }
+    .video-right-container{
+        
+    }
+}
+

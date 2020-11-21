@@ -1,0 +1,30 @@
+.page-offer-main-container{
+    --ion-background-color: skyblue;
+}
+.page-offer-sub-container{
+    height: 100%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.page-offer-header{
+    text-align: center;
+    width: 100%;
+    font-size: 50px;
+    margin-top: 40px;
+    color: navy;
+}
+.page-offer-content-main-container{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.page-offer-content-container{
+    width: 50%;
+    padding-top: 10px;
+    margin-left: 10%;
+    padding-left: 10px;
+    color: black;
+}
+.page-offer-items{
+    font-size: 25px;
+}

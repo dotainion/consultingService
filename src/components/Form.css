@@ -37,9 +37,9 @@
     margin-left: 50%;
     transform: translate3d(-50%, -50%, 0);
     border: 1px solid lightgray;
-    background-color: rgb(241, 245, 247);
-    --ion-background-color: rgb(241, 245, 247);
-    box-shadow: 2px 2px 3px lightgray;
+    background-color: white;
+    --ion-background-color: white;
+    box-shadow: 2px 2px 3px gray;
 }
 .form-input-container{
     display: flex;
@@ -47,9 +47,13 @@
 .form-input-sub-container{
     width: 100%;
 }
+.firm-input-floating-text{
+    z-index: 9;
+}
 .form-input{
     border: 1px solid gray;
     border-radius: 3px;
+    background-color: white;
 }
 .form-service-button-container{
     border: 1px solid gray;
@@ -60,6 +64,7 @@
     height: 42px;
     font-size: 17px;
     display: flex;
+    background-color: white;
 }
 .form-service-button-sub-container{
     display: inline;
@@ -76,8 +81,10 @@
 .form-textarea{
     border: 1px solid gray;
     border-radius: 3px;
+    padding-left: 5px;
     height: 150px;
     margin-top: 22px;
+    background-color: white;
 }
 .form-input-focus:focus{
     border: 1px solid blue;
