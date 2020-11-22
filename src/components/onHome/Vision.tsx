@@ -29,7 +29,9 @@ export const Vision = () =>{
                     <li><span className="vision-capital-letter">E</span>fficiency </li>
                 </ul>
                 <span>in all our business transactions.</span>
-                <div className="vision-button vision-hover">Contact Us</div>
+                <div className="vision-button vision-hover" onClick={()=>{
+                    tools.open.form();
+                }}>Contact Us</div>
                 <div className="vision-button-back-style"/>
             </div>
             <div className="vision-info-count-main-container">
