@@ -22,9 +22,6 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-/*global widgets*/
-import { Form } from './components/Form';
-
 /* Pages */
 import Home from './pages/Home';
 import Clients from './pages/Clients';
@@ -33,7 +30,6 @@ import Offers from './pages/Offers';
 const App: React.FC = () =>{
 return (
     <IonApp>
-      <Form/>
       <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/clients" component={Clients} exact={true} />

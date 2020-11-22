@@ -29,21 +29,28 @@
 }
 .intro-button{
     position: relative;
-    font-size: 35px;
+    font-size: 25px;
     color: white;
     top: 15px;
-    padding: 2px;
-    font-weight: bold;
-    border-radius: 8px;
-    text-shadow: 1px 1px 1px rgb(13, 58, 102);
-    border: 2px solid white;
-    box-shadow: 1px 1px 3px rgb(13, 58, 102);
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: navy;
+    box-shadow: 4px 4px 10px black;
+}
+.intro-back-button-style{
+    width: 110px;
+    height: 20px;
+    margin-top: -1px;
+    margin-left: 15px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px black;
 }
 .intro-button-hover:hover{
-    background-color: white;
+    background-color: black;
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:767px){
     .intro-header{
         font-size: 25px;
         color: white;

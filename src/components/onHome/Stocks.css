@@ -1,0 +1,83 @@
+.stocks-main-container{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: rgb(110, 110, 109);
+    font-family: 'Times New Roman', Times, serif;
+}
+.stocks-content-container{
+    width: 100%;
+    margin: 20px;
+}
+.stocks-sub-container{
+    position: relative;
+    width: 100%;
+}
+.stocks-video-container{
+    position: relative;
+    width: 700px;
+    margin-top: 10px;
+    margin-bottom: 180px;
+    box-shadow: 4px 4px 20px black;
+}
+.stocks-video-contents{
+    position: relative;
+    color: white;
+    font-size: 25px;
+    top: 50%;
+    transform: translateY(-100%);
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+}
+.stocks-container{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white;
+}
+.stocks-image{
+    font-size: 100px;
+}
+.stocks-title{
+    margin-top: 20px;
+}
+.stocks-sub-title{
+    
+}
+.stocks-content{
+
+}
+.stocks-hover:hover{
+    color: coral;
+    background-color: white;
+}
+
+@media screen and (max-width:767px){
+    .stocks-main-container{
+        display: block;
+    }
+    .stocks-content-container{
+        margin: 5px;
+    }
+    .stocks-container{
+        width: 40%;
+        padding: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin: 10px;
+    }
+    .stocks-video-container{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .stocks-video-contents{
+        font-size: 20px;
+        top: 0%;
+        transform: translateY(0%);
+    }
+}

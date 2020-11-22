@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList } from '@ionic/react';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './Home.css';
 import { Header, headerViewScroll } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -10,22 +10,32 @@ import { Pricing } from '../components/onHome/Pricing';
 import { Benefits } from '../components/onHome/Benefit';
 import { Videos } from '../components/onHome/Videos';
 import { Offers } from '../components/onHome/Offers';
+import { Stocks } from '../components/onHome/Stocks';
+import { Welcome } from '../components/onHome/Welcome';
+import { Vision } from '../components/onHome/Vision';
+import { Pop } from '../components/Pop';
+import { Form } from '../components/Form';
 
 const Home: React.FC = () => {
+  const [opacity, setOpacity] = useState("");
   const scrollRef = useRef<HTMLIonContentElement>(null);
   const images = ["img","img1","img2","img3","img4"];
   return (
     <IonPage>
-      
+      <Form onOpen={()=>{setOpacity("0.3")}} onClose={()=>{setOpacity("")}}/>
+      <Pop onOpen={()=>{setOpacity("0.3")}} onClose={()=>{setOpacity("")}}/>
       <IonContent class="home-main-content-container" onIonScroll={async(e)=>{
         //headerViewScroll(e.detail.scrollTop);
-      }} ref={scrollRef} scrollEvents={true}>
+      }} ref={scrollRef} scrollEvents={true} style={{opacity:opacity}}>
         <Header/>
         <Intro/>
         <Offers/>
-        <Videos/>
+        <Stocks/>
+        <Welcome/>
+        <Vision/>
+        {/*<Videos/>
         <Pricing/>
-        <Benefits/>
+        <Benefits/>*/}
 
         <div className="home-child-container">
           <div className="home-child-content-header">OUR CLIENTS</div>

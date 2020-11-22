@@ -47,6 +47,11 @@
     color: var(--header-color);
     font-weight: bold;
 }
+
+.header-drop-down-text{
+    padding-top: 100%;
+    padding-bottom: 100%;;
+}
 .header-drop-down-buttons-hover:hover{
     color: dodgerblue;
 }
@@ -68,8 +73,12 @@
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
 }
+.header-down-icon{
+    position: absolute;
+    font-size: 20px;
+}
 
-@media screen and (max-width:500px){
+@media screen and (max-width:767px){
     .header-sub-container{
         display: block;
         height: 74%;

@@ -5,7 +5,7 @@ import { tools } from './tools';
 import { DropDownList } from './Widgets';
 import { chevronDown } from 'ionicons/icons';
 
-export const Form = ()=>{
+export const Form = (props:any)=>{
     const [ifOpen, setIsOpen] = useState(false);
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
@@ -122,8 +122,14 @@ export const Form = ()=>{
                 </div>
             </div>
             <IonButton hidden onClick={()=>{
-                if (ifOpen) setIsOpen(false);
-                else setIsOpen(true); 
+                if (ifOpen){
+                    setIsOpen(false);
+                    if (props.onClose) props.onClose();
+                }
+                else{
+                    setIsOpen(true);
+                    if (props.onOpen) props.onOpen();
+                } 
             }} id="form-display-hander-id"/>
         </>
     )

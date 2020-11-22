@@ -1,9 +1,12 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { DropDownList } from './Widgets';
 import { tools } from './tools';
 import { useHistory } from 'react-router';
+import { checkmarkCircleOutline, chevronDown } from 'ionicons/icons';
+import { Icon } from 'ionicons/dist/types/components/icon/icon';
+import { isFunctionOrConstructorTypeNode } from 'typescript';
 
 export const Header = ()=>{
     const history = useHistory();
@@ -25,12 +28,12 @@ export const Header = ()=>{
     const keys = ["home","service","aboutus","programmodel","benefits","contact"];
 
     const dropDownOptions = [
-        {name: "Home", value: [], display: drop_id.home, key: keys[0]},
-        {name: "Services", value: [], display: drop_id.service, key: keys[1]},
-        {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[2]},
-        {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[3]},
-        {name: "Benefits of GMCS", value: [], display: drop_id.benefits, key: keys[4]},
-        {name: "Contact Us", value: [], display: drop_id.contact, key: keys[5]},
+        {name: "Home", value: [], display: drop_id.home, key: keys[0],icon:""},
+        {name: "Services", value: [], display: drop_id.service, key: keys[1],icon:""},
+        {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[2],icon:chevronDown},
+        {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[3],icon:""},
+        {name: "Benefits of GMCS", value: [], display: drop_id.benefits, key: keys[4],icon:""},
+        {name: "Contact Us", value: [], display: drop_id.contact, key: keys[5],icon:""},
     ]
     const setDropDown = (cmd:string) =>{
         set_drop_id({
@@ -76,6 +79,10 @@ export const Header = ()=>{
         }
     }
 
+    const isIcon = (icon:any) =>{
+        if (icon !== "") return <IonIcon class="header-down-icon" icon={icon}/>
+        return "";
+    }
     useEffect(()=>{
         sliderAuto();
     },[]);
@@ -111,7 +118,7 @@ export const Header = ()=>{
                     }} onMouseLeave={()=>{
                         setDropDown("all");
                     }}>
-                        <span className="header-drop-down-buttons-hover" onMouseEnter={()=>{
+                        <span className="header-drop-down-text header-drop-down-buttons-hover" onMouseEnter={()=>{
                             if (option.value.length !== 0){
                                 set_drop_list(option.value);
                                 setDropDown(option.key);
@@ -120,7 +127,7 @@ export const Header = ()=>{
                             if (option.value.length === 0){
                                 commands(option.key);
                             }
-                        }}>{option.name}</span>
+                        }}>{option.name}{isIcon(option.icon)}</span>
                         <DropDownList value={drop_list} onClose={()=>{
                             setDropDown("all");
                         }} onClick={(value:string)=>{

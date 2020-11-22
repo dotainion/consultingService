@@ -16,6 +16,7 @@ export const Intro = () =>{
                     <span className="intro-button intro-button-hover" onClick={()=>{
                         tools.open.form()
                     }}>Contact us</span>
+                    <div className="intro-back-button-style"/>
                 </div>
             </div>
         </div>

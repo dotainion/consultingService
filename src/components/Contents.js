@@ -1,43 +1,11 @@
-import { createImmediatelyInvokedFunctionExpression } from "typescript"
-import brokerage from '../images/brokerage.jpg';
-import brokerage2 from '../images/brokerage2.jpg';
-import consulting from '../images/consulting.jpg';
-import consulting2 from '../images/consulting2.png';
-import grenada1 from '../images/grenada1.jpg';
-import grenada2 from '../images/grenada2.jpg';
-import grenada3 from '../images/grenada3.jpg';
-import grenada4 from '../images/grenada4.jpg';
-import grenada5 from '../images/grenada5.jpg';
-import roundTable from '../images/roundTable.jpg';
-import vendering from '../images/vendering.jpg';
-import vendering2 from '../images/vendering2.jpg';
-import pricing from '../images/pricing.jpg';
-import consulter from '../images/consulter.webp';
-import pricing3 from '../images/pricing3.webp';
+import React from 'react';
+import { images } from './Images';
+import '../components/onHome/Stocks.css';
 
+class Texts{
 
-class SysImages{
-    brokerage = brokerage;
-    brokerage2 = brokerage2;
-    consulting = consulting;
-    consulting2 = consulting2;
-    grenada1 = grenada1;
-    grenada2 = grenada2;
-    grenada3 = grenada3;
-    grenada4 = grenada4;
-    grenada5 = grenada5;
-    roundTable = roundTable;
-    vendering = vendering;
-    vendering2 = vendering2;
-    pricing = pricing;
-    consulter = consulter;
-    pricing3 = pricing3;
-    grenada(){
-        return [grenada1,grenada2,grenada3,grenada4,grenada5];
-    } 
 }
-class Info{
-    img = new SysImages();
+class Objects{
     aboutus = {
         header: "ABOUT US",
         list: [
@@ -97,17 +65,17 @@ class Info{
             title: "Consulting Services",
             subTitle: "Industries",
             note: "Gain Market Sector Knowledge",
-            image: this.img.vendering2
+            image: images.picture.vendering2
         },{
             title: "Consulting Services",
             subTitle: "Industries",
             note: "Vendor Sourcing",
-            image: this.img.vendering
+            image: images.picture.vendering
         },{
             title: "Consulting Services",
             subTitle: "Industries",
             note: "Custom Brokerage Services",
-            image: this.img.brokerage
+            image: images.picture.brokerage
         }
     ]
     pricing = {
@@ -161,36 +129,51 @@ class Info{
 
         ]
     }
+    stocks = [
+        [
+            {
+                title: "Benefits of CMCS",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.benefit
+            },{
+                title: "Our Pricing Model",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.coins
+            },{
+                title: "Our Services",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.glob
+            }
+        ],[
+            {
+                title: "Business Planing Guide",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.calendar
+            },{
+                title: "Marketing",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.sales
+            },{
+                title: "Training Service",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.training
+            }
+        ]
+    ]
 }
-class Clicks{
-    id(elementId){
-        try{
-            document.getElementById(elementId).click();
-        }catch{console.log(`${elementId} not found`);}
-    }
-    form(){
-        tools.click.id("form-display-hander-id");
-    }
-    headerViewShow(){
-        tools.click.id("header-top-view-show");
-    }
-    headerViewHide(){
-        tools.click.id("header-top-view-hide");
-    }
+class Sentence{
+
 }
-class Tools{
-    images = new SysImages();
-    click = new Clicks();
-    open = new Clicks();
-    info = new Info();
-    compare(compareThis,withThat,returnIfTrue,returnIfFalse){
-        if (compareThis === withThat) return returnIfTrue;
-        else return returnIfFalse;
-    }
-    isMobile(){
-        if (window.innerWidth <= 767) return true;
-        return false;
-    }
+class Contents{
+    texts = new Texts();
+    objects = new Objects();
+    sentense = new Sentence();
 }
-const tools = new Tools();
-export { tools }
+const content = new Contents();
+export { content };

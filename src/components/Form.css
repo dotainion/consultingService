@@ -39,7 +39,7 @@
     border: 1px solid lightgray;
     background-color: white;
     --ion-background-color: white;
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 10px 10px 10px gray;
 }
 .form-input-container{
     display: flex;
@@ -100,7 +100,7 @@
     height: 30px;
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:767px){
     .form-main-container{
         width: 100%;
         height: 100%;

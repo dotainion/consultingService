@@ -49,7 +49,7 @@
     color: gray;
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:767px){
     .offers-card-container{
         display: block;
         width: 100%;
