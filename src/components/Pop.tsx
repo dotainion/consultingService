@@ -15,7 +15,7 @@ export const Pop = (props:any)=>{
         setTimeout(() => {
             setIsOpen(true);
             if (props.onOpen) props.onOpen();
-        }, 10000);
+        }, 30000);
     },[])
     return(
         <div hidden={!isOpen} className="pop-background-container">
