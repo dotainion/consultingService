@@ -3,9 +3,11 @@ import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNo
 import './Vision.css';
 import { tools } from '../tools';
 import { images } from '../Images';
+import { useHistory } from 'react-router';
 
 
 export const Vision = () =>{
+    const history = useHistory();
     return(
         <div className="vision-main-container">
             <div className="vision-image-container">
@@ -30,7 +32,7 @@ export const Vision = () =>{
                 </ul>
                 <span>in all our business transactions.</span>
                 <div className="vision-button vision-hover" onClick={()=>{
-                    tools.open.form();
+                    history.push("/form");
                 }}>Contact Us</div>
                 <div className="vision-button-back-style"/>
             </div>

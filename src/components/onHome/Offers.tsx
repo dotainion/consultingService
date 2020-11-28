@@ -3,6 +3,7 @@ import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNo
 import './Offers.css';
 import { tools } from '../tools';
 import { Link } from 'react-router-dom';
+import { content } from '../Contents';
 
 
 export const Offers = () =>{
@@ -15,8 +16,8 @@ export const Offers = () =>{
             </Link>
             <div className="offer-card-sub-container">
                 {
-                    tools.info.offers.map((offer:any, index:any)=>(
-                        <div className="offers-card-container" onClick={()=>{tools.click.id("offer-link")}} key={index}>
+                    content.objects.offers.map((offer:any, index:any)=>(
+                        <div className="offers-card-container offers-card-hovor" onClick={()=>{tools.click.id("offer-link")}} key={index}>
                             <div className="offers-card-img-container">
                                 <img className="offers-image" src={offer.image}/>
                             </div>

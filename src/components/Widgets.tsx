@@ -13,7 +13,7 @@ export const DropDownList = (props:any) =>{
                 <IonLabel class="header-drop-down-list-item header-drop-down-list-item-hover" key={key} onClick={()=>{
                     if (props.onClick) props.onClick(list);
                     if (props.onClose) props.onClose();
-                }}>{list}</IonLabel>
+                }}>{list.title || list}</IonLabel>
             ))}
         </div>
     )

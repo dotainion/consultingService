@@ -33,6 +33,15 @@
 .footer-content-items-hover:hover{
     color: gray;
 }
+.footer-app-links-container{
+ background-color: lightgray;
+ border-top: 1px solid navy;
+ border-bottom: 1px solid navy;
+}
+.footer-app-image{
+    font-size: 30px;
+    margin: 3px;
+}
 
 @media screen and (max-width:767px){
     .footer-main-container{

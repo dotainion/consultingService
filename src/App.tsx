@@ -26,6 +26,7 @@ import './theme/variables.css';
 import Home from './pages/Home';
 import Clients from './pages/Clients';
 import Offers from './pages/Offers';
+import Form from './pages/Form';
 
 const App: React.FC = () =>{
 return (
@@ -33,6 +34,7 @@ return (
       <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/clients" component={Clients} exact={true} />
+          <Route path="/form" component={Form} exact={true} />
           <Route path="/offers" component={Offers} exact={true} />
           <Route path="/home" component={Home} exact={true} />
           <Route exact path="/" render={() => <Redirect to="/home" />} />

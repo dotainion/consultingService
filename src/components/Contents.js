@@ -20,8 +20,8 @@ class Objects{
     contact = {
         header: "CONTACT US",
         list: [
-            {name: "example@gmail.com", style: "footer-content-items", hover: "footer-content-items-hover"},
-            {name: "1 (473) 999-9999", style: "footer-content-items", hover: "footer-content-items-hover"},
+            {name: "gmcs473@gmail.com", style: "footer-content-items", hover: "footer-content-items-hover"},
+            {name: "1 (473) 533-08399", style: "footer-content-items", hover: "footer-content-items-hover"},
             {name: "or", style: "footer-content-items", hover: ""},
             {name: "1 (473) 999-8888", style: "footer-content-items", hover: "footer-content-items-hover"},
         ]
@@ -30,23 +30,58 @@ class Objects{
         header: "SERVICES",
         subHeader: "Industries and Consulting Services",
         list: [
-            "Gain Market Sector Knowledge",
-            "Planning and task",
-            "Vendor Sourcing",
-            "Custom Brokerage Services",
-            "Government Tax Reporting & Compliances",
-            "Business Start-up Consultation",
-            "Business Proposal Writing",
-            "Financial Planning and Management",
-            "Business branding and marketing",
-            "Payroll Management",
-            "Customer services training",
-            "IT Support (website and App Development)",
-            "Product Development",
-            "Business registration and Incorporation",
-            "NIS and VAT compliance services",
-            "Construction Project Management",
-            "Energy Management",
+            {
+                title:"Gain Market Sector Knowledge",
+                content:"test contents"
+            },{
+                title:"Planning and task",
+                content:"test contents"
+            },{
+                title:"Vendor Sourcing",
+                content:"test contents"
+            },{
+                title:"Custom Brokerage Services",
+                content:"test contents"
+            },{
+                title:"Government Tax Reporting & Compliances",
+                content:"test contents"
+            },{
+                title:"Business Start-up Consultation",
+                content:"test contents"
+            },{
+                title:"Business Proposal Writing",
+                content:"test contents"
+            },{
+                title:"Financial Planning and Management",
+                content:"test contents"
+            },{
+                title:"Business branding and marketing",
+                content:"test contents"
+            },{
+                title:"Payroll Management",
+                content:"test contents"
+            },{
+                title:"Customer services training",
+                content:"test contents"
+            },{
+                title:"IT Support (website and App Development)",
+                content:"test contents"
+            },{
+                title:"Product Development",
+                content:"test contents"
+            },{
+                title:"Business registration and Incorporation",
+                content:"test contents"
+            },{
+                title:"NIS and VAT compliance services",
+                content:"test contents"
+            },{
+                title:"Construction Project Management",
+                content:"test contents"
+            },{
+                title:"Energy Management",
+                content:"test contents"
+            },
         ]
     }
     location = {
@@ -135,34 +170,60 @@ class Objects{
                 title: "Benefits of CMCS",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.benefit
+                icon: images.icons.benefit,
+                route: "#"
             },{
                 title: "Our Pricing Model",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.coins
+                icon: images.icons.coins,
+                route: "#"
             },{
                 title: "Our Services",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.glob
+                icon: images.icons.glob,
+                route: "/offers"
             }
         ],[
             {
                 title: "Business Planing Guide",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.calendar
+                icon: images.icons.calendar,
+                route: "#"
             },{
                 title: "Marketing",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.sales
+                icon: images.icons.sales,
+                route: "#"
             },{
                 title: "Training Service",
                 subTitle: "Empowerment",
                 content: "",
-                icon: images.icons.training
+                icon: images.icons.training,
+                route: "#"
+            }
+        ],[
+            {
+                title: "IT Software Engineering",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.software,
+                route: "#"
+            },{
+                title: "Fibre Optics",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.fiberOptic,
+                route: "#"
+            },{
+                title: "Suggest your idea",
+                subTitle: "Empowerment",
+                content: "",
+                icon: images.icons.idea,
+                route: "#"
             }
         ]
     ]

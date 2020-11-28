@@ -20,10 +20,12 @@ import planning from '../images/planning.jpg';
 import learning from '../images/learning.jpg';
 import marketing from '../images/marketing.png';
 import acountsandtax from '../images/acountsandtax.jpg';
+import clientbg from '../images/clientbg.jpg';
+import fingerpoint from '../images/fingerpoint.jpg';
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
 
-import { FaMoneyBill, FaCoins, FaDonate, FaGlobe, FaRegCalendarCheck, FaPeopleCarry, FaChartLine } from "react-icons/fa";
+import { FaMoneyBill, FaCoins, FaInstagram, FaLightbulb , FaDonate, FaGlobe, FaRegCalendarCheck, FaPeopleCarry, FaChartLine, FaLaptopCode, FaNetworkWired, FaFacebook } from "react-icons/fa";
 
 
 
@@ -50,6 +52,9 @@ class Picture{
     learning = learning;
     marketing = marketing;
     acountsandtax = acountsandtax;
+    clientbg = clientbg;
+    fingerpoint = fingerpoint;
+
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];
     } 
@@ -58,6 +63,7 @@ class Icons{
     peopleCircle = peopleCircle;
     rocketOutline = rocketOutline;
     pricetagOutline = pricetagOutline;
+    pricetag = pricetag;
 
     moneyBill = FaMoneyBill;
     coins = FaCoins;
@@ -66,6 +72,11 @@ class Icons{
     calendar = FaRegCalendarCheck;
     training = FaPeopleCarry;
     sales = FaChartLine;
+    software = FaLaptopCode;
+    fiberOptic = FaNetworkWired;
+    idea = FaLightbulb;
+    facebook = FaFacebook;
+    instagram= FaInstagram; 
 }
 class Images{
     icons = new Icons();

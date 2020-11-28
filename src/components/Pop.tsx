@@ -10,6 +10,7 @@ import { isFunctionOrConstructorTypeNode } from 'typescript';
 import { images } from './Images';
 
 export const Pop = (props:any)=>{
+    const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
     useEffect(()=>{
         setTimeout(() => {
@@ -26,7 +27,9 @@ export const Pop = (props:any)=>{
                     if (props.onClose) props.onClose();
                 }}>X</span>
                 <div className="pop-image-container">
-                    <img className="pop-image" src={images.picture.businessplan}/>
+                    <IonThumbnail className="pop-image">
+                        <img src={images.picture.businessplan}/>
+                    </IonThumbnail>
                 </div>
                 <div className="pop-content-container">
                     <div>Business Planning Guide</div>
@@ -38,8 +41,8 @@ export const Pop = (props:any)=>{
                     </p>
                     <div className="pop-button pop-hover" onClick={()=>{
                         setIsOpen(false);
-                        tools.open.form()
                         if (props.onClose) props.onClose();
+                        history.push("/form");
                     }}>Yes, I Want This!</div>
                     <div className="pop-back-button-style"/>
                 </div>

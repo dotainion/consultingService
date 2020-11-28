@@ -4,13 +4,13 @@ import './Header.css';
 import { DropDownList } from './Widgets';
 import { tools } from './tools';
 import { useHistory } from 'react-router';
-import { checkmarkCircleOutline, chevronDown } from 'ionicons/icons';
-import { Icon } from 'ionicons/dist/types/components/icon/icon';
-import { isFunctionOrConstructorTypeNode } from 'typescript';
+import { chevronDown } from 'ionicons/icons';
+import { images as Images } from './Images';
+import { content } from './Contents';
 
 export const Header = ()=>{
     const history = useHistory();
-    const images = tools.images.grenada();
+    const images = Images.picture.grenada();
     const [view, setView] = useState(true);
     const [slider, setSlider] = useState(images[0]);
     const [drop_list, set_drop_list] = useState([] as any[]);
@@ -22,8 +22,8 @@ export const Header = ()=>{
         contact: false,
         home: false,
     });
-    const abouts = tools.info.aboutus.list;
-    const models = tools.info.models.list;
+    const abouts = content.objects.aboutus.list;
+    const models = content.objects.models.list;
 
     const keys = ["home","service","aboutus","programmodel","benefits","contact"];
 
@@ -57,25 +57,21 @@ export const Header = ()=>{
     }
 
     const commands = (cmd:any) =>{
-        if (cmd == keys[0]){
+        if (cmd === keys[0]){
             //for home
             history.push("/home");
-        }else if (cmd == keys[1]){
+        }else if (cmd === keys[1]){
             //for service
             history.push("/offers");
-        }
-        else if (cmd == keys[2]){
+        }else if (cmd === keys[2]){
             //for aboutus
-        }
-        else if (cmd == keys[3]){
+        }else if (cmd === keys[3]){
             //for programmodel
-        }
-        else if (cmd == keys[4]){
+        }else if (cmd === keys[4]){
             //for benefits
-        }
-        else if (cmd == keys[5]){
-            //for contact
-            tools.open.form();
+        }else if (cmd === keys[5]){
+            //for contact form
+            history.push("/form");
         }
     }
 
@@ -132,6 +128,7 @@ export const Header = ()=>{
                             setDropDown("all");
                         }} onClick={(value:string)=>{
                             console.log(value);
+                            tools.click.id(value);
                         }} display={option.display}/>
                     </div>
                 ))}
@@ -142,6 +139,7 @@ export const Header = ()=>{
             <IonButton hidden id="header-top-view-hide" onClick={()=>{
                 setView(false);
             }}/>
+            <IonButton hidden id="Clients" routerLink="/clients"/>
         </IonHeader>
     )
 }

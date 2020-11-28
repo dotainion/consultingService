@@ -2,14 +2,15 @@ import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, I
 import React, { useEffect, useState } from 'react';
 import './AboutUs.css';
 import { tools } from '../components/tools';
+import { content } from '../components/Contents';
 
 
 export const AboutUs: React.FC = ()=>{
     return(
         <div className="about-us-main-container">
-            <div className="about-us-header">{tools.info.aboutus.header}</div>
+            <div className="about-us-header">{content.objects.aboutus.header}</div>
             <div className="about-us-sub-container">
-                {tools.info.aboutusData.list.map((aboutus, index)=>(
+                {content.objects.aboutusData.list.map((aboutus, index)=>(
                     <div className="about-us-items" key={index}>{aboutus}</div>
                 ))}
             </div>
