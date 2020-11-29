@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList } from '@ionic/react';
 import React, { useRef, useState } from 'react';
 import './Home.css';
-import { Header, headerViewScroll } from '../components/Header';
+import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { tools } from '../components/tools';
@@ -11,6 +11,8 @@ import { Stocks } from '../components/onHome/Stocks';
 import { Welcome } from '../components/onHome/Welcome';
 import { Vision } from '../components/onHome/Vision';
 import { Pop } from '../components/Pop';
+import { constants } from 'buffer';
+import { content } from '../components/Contents';
 
 const Home: React.FC = () => {
   const [opacity, setOpacity] = useState("");
@@ -22,7 +24,7 @@ const Home: React.FC = () => {
       <IonContent class="home-main-content-container" onIonScroll={async(e)=>{
         //headerViewScroll(e.detail.scrollTop);
       }} ref={scrollRef} scrollEvents={true} style={{opacity:opacity}}>
-        <Header/>
+        <Header hidden={[content.objects.headerLists[0].name]}/>
         <Intro/>
         <Offers/>
         <Stocks/>

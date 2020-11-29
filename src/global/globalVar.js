@@ -1,5 +1,14 @@
 
+class Routes{
+    Clients = "/clients";
+    Design = "/design";
+    Form = "/form";
+    Offers = "/offers";
+    Home = "/home";
+}
+class GlobalVar{
+    route = new Routes();
+}
 
-
-/*for footer*/
-footerTextColor =  "red";
+const globalVar = new GlobalVar();
+export { globalVar };

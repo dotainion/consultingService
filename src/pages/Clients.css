@@ -51,3 +51,26 @@
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 4px 4px 10px black;
 }
+
+@media screen and (max-width:767px){
+    .clients-image-container{
+        height: 320px;
+    }
+    .clients-header{
+        font-size:20px;
+    }
+    .clients-list-container{
+        width: 95%;
+        margin-right: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .clients-items{
+        font-size: 10px;
+        padding-bottom: 10px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: 4px 4px 10px black;
+    }
+}

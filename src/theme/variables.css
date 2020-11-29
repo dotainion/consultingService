@@ -79,7 +79,7 @@ http://ionicframework.com/docs/theming/ */
   --footer-color: white;
   --footer-background-color: rgb(13, 58, 102);
 
-  --header-color: white;
+  --header-text-color: rgb(13, 58, 102);
   --header-background-color: rgb(13, 58, 102);
 
   --offer-text-header: rgb(13, 58, 102);

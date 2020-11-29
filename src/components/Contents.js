@@ -1,6 +1,7 @@
 import React from 'react';
 import { images } from './Images';
 import '../components/onHome/Stocks.css';
+import { globalVar } from '../global/globalVar';
 
 class Texts{
 
@@ -9,14 +10,51 @@ class Objects{
     aboutus = {
         header: "ABOUT US",
         list: [
-            "About GCMS",
-            "FAQ’s",
-            "Clients",
-            "News / Press Releases",
-            "Video",
-            "Sustainability",
+            {
+                name: "About GCMS",
+                route: "#"
+            },{
+                name: "FAQ’s",
+                route: "#"
+            },{
+                name: "Clients",
+                route: globalVar.route.Clients
+            },{
+                name: "Video",
+                route: "#"
+            },{
+                name: "Sustainability",
+                route: "#"
+            },
         ]
     }
+    headerLists = [
+        {
+            name: "home",
+            route: "/home",
+            list: []
+        },{
+            name: "service",
+            route: globalVar.route.Offers,
+            list: []
+        },{
+            name: "aboutus",
+            route: "#",
+            list: this.aboutus.list
+        },{
+            name: "program model",
+            route: "#",
+            list: []
+        },{
+            name: "benefits",
+            route: "#",
+            list: []
+        },{
+            name: "contact",
+            route: "/form",
+            list: []
+        }
+    ];
     contact = {
         header: "CONTACT US",
         list: [
@@ -226,6 +264,33 @@ class Objects{
                 route: "#"
             }
         ]
+    ];
+    designs = [
+        {
+            title: "Logo Design",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        },{
+            title: "Flyers Design",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        },{
+            title: "Business Cards",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        },{
+            title: "Poster Design",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        },{
+            title: "Web Design",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        },{
+            title: "Advertising",
+            content: "Empowerment",
+            image: images.picture.acountsandtax
+        }
     ]
 }
 class Sentence{

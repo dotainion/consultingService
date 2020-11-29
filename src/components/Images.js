@@ -26,6 +26,7 @@ import fingerpoint from '../images/fingerpoint.jpg';
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
 
 import { FaMoneyBill, FaCoins, FaInstagram, FaLightbulb , FaDonate, FaGlobe, FaRegCalendarCheck, FaPeopleCarry, FaChartLine, FaLaptopCode, FaNetworkWired, FaFacebook } from "react-icons/fa";
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 
 
@@ -77,6 +78,7 @@ class Icons{
     idea = FaLightbulb;
     facebook = FaFacebook;
     instagram= FaInstagram; 
+    menu = GiHamburgerMenu;
 }
 class Images{
     icons = new Icons();

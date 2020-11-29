@@ -4,6 +4,7 @@ import './Footer.css';
 import { tools } from './tools';
 import { content } from './Contents';
 import { images } from './Images';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = ()=>{
     return(
@@ -19,7 +20,7 @@ export const Footer: React.FC = ()=>{
                         <div className="footer-content-sub-container">
                             {content.objects.aboutus.list.map((info, index)=>(
                                 <div key={index}>
-                                    <span className="footer-content-items footer-content-items-hover">{info}</span>
+                                    <span className="footer-content-items footer-content-items-hover">{info.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -53,7 +54,10 @@ export const Footer: React.FC = ()=>{
                     <div className="footer-content-main-container">
                         <div className="footer-content-header">{content.objects.services.header}</div>
                         <div className="footer-content-sub-container">
-                            <span className="footer-content-items footer-content-items-hover">View Our Servies</span>
+                            <Link to="offers" id="to-offers" hidden/>
+                            <span className="footer-content-items footer-content-items-hover" onClick={()=>{
+                                tools.click.id("to-offers");
+                            }}>View Our Servies</span>
                         </div>
                     </div>
                 </div>

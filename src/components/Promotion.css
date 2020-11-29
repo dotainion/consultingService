@@ -50,8 +50,11 @@
 }
 
 @media screen and (max-width:767px){
-    .promo-thumbnail-container{
-        width: 100%;
+    .promo-main-container{
+        font-size: 12px;
         height: 150px;
+    }
+    .promo-content-button{
+        width: 90px;
     }
 }

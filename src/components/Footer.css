@@ -4,6 +4,7 @@
     color: var(--footer-color);
     bottom: 0;
     user-select: none;
+    font-family: 'Times New Roman', Times, serif;
 }
 .footer-sub-container{
     display: flex;

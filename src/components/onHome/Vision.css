@@ -83,7 +83,7 @@
 @media screen and (max-width:767px){
     .vision-main-container{
         margin-top: 50px;
-        font-size: 14px;
+        font-size: 12px;
     }
     .vision-image-container{
         width: 50%;
@@ -104,7 +104,7 @@
         font-size: 20px;
     }
     .vision-button{
-        width: 80px;
+        width: 90px;
         font-size: 14px;
         padding: 5px;
         box-shadow: 1px 1px 5px black;

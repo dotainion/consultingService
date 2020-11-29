@@ -8,6 +8,8 @@ import { checkmarkCircleOutline, chevronDown } from 'ionicons/icons';
 import { Icon } from 'ionicons/dist/types/components/icon/icon';
 import { isFunctionOrConstructorTypeNode } from 'typescript';
 import { images } from './Images';
+import { Link } from 'react-router-dom';
+import { globalVar } from '../global/globalVar';
 
 export const Promotion = ()=>{
     return(
@@ -21,7 +23,10 @@ export const Promotion = ()=>{
                     <div className="promo-content-sub-title">sub title</div>
                     <div className="promo-content-info">Take your business to the next level with expertly designed marketing materials.</div>
                     <div className="promo-content-info">Business Cards, Posters, Flyers, Web Design and more...</div>
-                    <div className="promo-content-button promo-click promo-hover">Take me there</div> 
+                    <Link to={globalVar.route.Design} id="to-design"/>
+                    <div className="promo-content-button promo-click promo-hover" onClick={()=>{
+                        tools.click.id("to-design")
+                    }}>Take me there</div> 
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon, IonPopover } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { DropDownList } from './Widgets';
@@ -8,42 +8,56 @@ import { chevronDown } from 'ionicons/icons';
 import { images as Images } from './Images';
 import { content } from './Contents';
 
-export const Header = ()=>{
+export const Header = (headerProps:any)=>{
     const history = useHistory();
     const images = Images.picture.grenada();
-    const [view, setView] = useState(true);
     const [slider, setSlider] = useState(images[0]);
-    const [drop_list, set_drop_list] = useState([] as any[]);
-    const [drop_id, set_drop_id] = useState({
-        service: false,
-        aboutUs: false,
-        programModel: false,
-        benefits: false,
-        contact: false,
-        home: false,
+    const [mobileDropDown, setMobileDropDown] = useState({state:false,list:[]as any[]});
+    const [menuList, setMenuList] = useState({
+        btnBg: "var(--header-text-color)",
+        state: false
     });
-    const abouts = content.objects.aboutus.list;
-    const models = content.objects.models.list;
 
-    const keys = ["home","service","aboutus","programmodel","benefits","contact"];
-
-    const dropDownOptions = [
-        {name: "Home", value: [], display: drop_id.home, key: keys[0],icon:""},
-        {name: "Services", value: [], display: drop_id.service, key: keys[1],icon:""},
-        {name: "About Us", value: abouts, display: drop_id.aboutUs, key: keys[2],icon:chevronDown},
-        {name: "Our Program Model", value: models, display: drop_id.programModel, key: keys[3],icon:""},
-        {name: "Benefits of GMCS", value: [], display: drop_id.benefits, key: keys[4],icon:""},
-        {name: "Contact Us", value: [], display: drop_id.contact, key: keys[5],icon:""},
-    ]
-    const setDropDown = (cmd:string) =>{
-        set_drop_id({
-            home: tools.compare(cmd,keys[0],true,false),
-            service: tools.compare(cmd,keys[1],true,false),
-            aboutUs: tools.compare(cmd,keys[2],true,false),
-            programModel: tools.compare(cmd,keys[3],true,false),
-            benefits: tools.compare(cmd,keys[4],true,false),
-            contact: tools.compare(cmd,keys[5],true,false),
-        });
+    const MenuList = (props:any) =>{
+        let hiddenByProps = false;
+        if (headerProps.home === false) hiddenByProps = true;
+        const checkHidden = (value:any) =>{
+            if (headerProps.hidden){
+                for (var item of headerProps.hidden){
+                    if (value === item) return true;
+                }
+            }
+            return false
+        }
+        return(
+            <>
+            {content.objects.headerLists.map((info, index)=>(
+                <div hidden={checkHidden(info.name)} className="header-dropdown-item-container" onMouseLeave={()=>{
+                    const element = document.getElementById(`${info.name}${props.id}`);
+                    if (element) element.hidden = true;
+                }} key={index}>
+                    <span className="header-menu-item header-hover" onMouseEnter={()=>{
+                        if (info.list.length > 0 && !tools.isMobile()){
+                            const element = document.getElementById(`${info.name}${props.id}`);
+                            if (element) element.hidden = false;
+                        }
+                    }} onClick={()=>{
+                        if (info.list.length <= 0){
+                            history.push(info.route);
+                        }else if (tools.isMobile()){
+                            setMobileDropDown({state:true,list:info.list});
+                        }
+                    }}>{info.name}</span>
+                    <DropDownList hidden value={info.list} onClose={()=>{
+                        const element = document.getElementById(`${info.name}${props.id}`);
+                        if (element) element.hidden = true;
+                    }} onClick={(route:string)=>{
+                        history.push(route);
+                    }} id={`${info.name}${props.id}`}/>
+                </div>
+            ))}
+            </>
+        )
     }
 
     let index = 0;
@@ -56,99 +70,54 @@ export const Header = ()=>{
         },5000)
     }
 
-    const commands = (cmd:any) =>{
-        if (cmd === keys[0]){
-            //for home
-            history.push("/home");
-        }else if (cmd === keys[1]){
-            //for service
-            history.push("/offers");
-        }else if (cmd === keys[2]){
-            //for aboutus
-        }else if (cmd === keys[3]){
-            //for programmodel
-        }else if (cmd === keys[4]){
-            //for benefits
-        }else if (cmd === keys[5]){
-            //for contact form
-            history.push("/form");
-        }
-    }
-
-    const isIcon = (icon:any) =>{
-        if (icon !== "") return <IonIcon class="header-down-icon" icon={icon}/>
-        return "";
-    }
     useEffect(()=>{
         sliderAuto();
     },[]);
-
     return(
         <IonHeader class="header-main-container">
-            <div hidden={!view} className="header-sub-container">
-                <div className="header-left-container">
-                    <IonLabel class="header-title">Grenada Management</IonLabel>
-                    <IonLabel class="header-title">Consulting Service</IonLabel>
-                    <IonLabel class="header-title">GMCS</IonLabel>
-                </div>
-                <div className="header-center-container">
-                    <IonLabel class="header-title">Grenada</IonLabel>
-                    <IonLabel class="header-title">Carriacou</IonLabel>
-                    <IonLabel class="header-title">Pitite Martinique</IonLabel>
-                </div>
-                <div className="header-right-container">
-                    <IonThumbnail>
-                        <IonImg class="header-image" src={slider}/>
+            <IonPopover isOpen={mobileDropDown.state} onDidDismiss={()=>{
+                setMobileDropDown({state:false,list:[]});
+            }}>
+                {mobileDropDown.list.map((info,index)=>(
+                    <IonItem key={index}>
+                        <IonLabel onClick={()=>{
+                            setMobileDropDown({state:false,list:[]});
+                            setMenuList({btnBg: "var(--header-text-color)",state: false});
+                            history.push(info.route);
+                        }}>{info.name}</IonLabel>
+                    </IonItem>
+                ))}
+            </IonPopover>
+            <div className="header-sub-container">
+                <IonList className="header-item-container">
+                    <IonLabel class="header-item">Grenada Management</IonLabel>
+                    <IonLabel class="header-item">Consulting Service</IonLabel>
+                    <IonLabel class="header-item">GMCS</IonLabel>
+                </IonList>
+                <IonList className="header-item-container">
+                    <IonLabel class="header-item">Grenada</IonLabel>
+                    <IonLabel class="header-item">Carriacou</IonLabel>
+                    <IonLabel class="header-item">Pitite Martinique</IonLabel>
+                </IonList>
+                <IonList class="header-image-container">
+                    <IonThumbnail class="header-image">
+                        <IonImg src={slider}/>
                     </IonThumbnail>
-                    <div className="header-text-over-image-container">
-                        <div className="header-text-over-image-sub-container">
-                            <div className="header-text-over-image-item">Grenada</div>
-                        </div>
+                    <IonLabel class="header-image-content">Grenada</IonLabel>
+                </IonList>
+                <div className="header-menu-container">
+                    <Images.icons.menu color={menuList.btnBg} onClick={()=>{
+                        if (menuList.state) setMenuList({btnBg: "var(--header-text-color)",state: false});
+                        else setMenuList({btnBg: "white",state: true});
+                    }} className="header-menu-button"/>
+                    <div hidden={!menuList.state}>
+                        <MenuList id="mobile"/>
                     </div>
                 </div>
             </div>
-            <IonItem className="header-drop-down-options-container">
-                {dropDownOptions.map((option,key)=>(
-                    <div className="header-drop-down-buttons" key={key} onMouseEnter={()=>{
-                        setDropDown("all");
-                    }} onMouseLeave={()=>{
-                        setDropDown("all");
-                    }}>
-                        <span className="header-drop-down-text header-drop-down-buttons-hover" onMouseEnter={()=>{
-                            if (option.value.length !== 0){
-                                set_drop_list(option.value);
-                                setDropDown(option.key);
-                            }
-                        }} onClick={()=>{
-                            if (option.value.length === 0){
-                                commands(option.key);
-                            }
-                        }}>{option.name}{isIcon(option.icon)}</span>
-                        <DropDownList value={drop_list} onClose={()=>{
-                            setDropDown("all");
-                        }} onClick={(value:string)=>{
-                            console.log(value);
-                            tools.click.id(value);
-                        }} display={option.display}/>
-                    </div>
-                ))}
-            </IonItem>
-            <IonButton hidden id="header-top-view-show" onClick={()=>{
-                setView(true);
-            }}/>
-            <IonButton hidden id="header-top-view-hide" onClick={()=>{
-                setView(false);
-            }}/>
-            <IonButton hidden id="Clients" routerLink="/clients"/>
+            <div className="header-drop-down-container">
+                <MenuList id="desktop"/>
+            </div>
         </IonHeader>
     )
-}
-
-let scrollValue = 0;
-export const headerViewScroll = (pos:any) =>{
-    //this will hide or show the top header bor 
-    //base on the param value passed in
-    if (pos >= scrollValue) tools.open.headerViewHide();
-    else tools.open.headerViewShow();
-    scrollValue = pos;
 }

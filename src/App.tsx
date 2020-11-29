@@ -19,6 +19,9 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+/* import other tools */
+import { globalVar } from './global/globalVar';
+
 /* Theme variables */
 import './theme/variables.css';
 
@@ -27,17 +30,19 @@ import Home from './pages/Home';
 import Clients from './pages/Clients';
 import Offers from './pages/Offers';
 import Form from './pages/Form';
+import Design from './pages/Design';
 
 const App: React.FC = () =>{
 return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route path="/clients" component={Clients} exact={true} />
-          <Route path="/form" component={Form} exact={true} />
-          <Route path="/offers" component={Offers} exact={true} />
-          <Route path="/home" component={Home} exact={true} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route path={globalVar.route.Clients} component={Clients} exact={true} />
+          <Route path={globalVar.route.Design} component={Design} exact={true} />
+          <Route path={globalVar.route.Form} component={Form} exact={true} />
+          <Route path={globalVar.route.Offers} component={Offers} exact={true} />
+          <Route path={globalVar.route.Home} component={Home} exact={true} />
+          <Route exact path="/" render={() => <Redirect to={globalVar.route.Home} />} />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
