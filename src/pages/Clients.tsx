@@ -12,7 +12,7 @@ const Clients: React.FC = ()=>{
     return(
         <IonPage className="clients-page-container">
             <IonContent>
-                <Header/>
+                <Header id="clients"/>
                 <Promotion/>
                 <div className="clients-main-container">
                     <div className="clients-sub-container">

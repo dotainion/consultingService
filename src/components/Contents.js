@@ -12,7 +12,7 @@ class Objects{
         list: [
             {
                 name: "About GCMS",
-                route: "#"
+                route: globalVar.route.AboutUs
             },{
                 name: "FAQ’s",
                 route: "#"
@@ -43,11 +43,11 @@ class Objects{
             list: this.aboutus.list
         },{
             name: "program model",
-            route: "#",
+            route: globalVar.route.Model,
             list: []
         },{
             name: "benefits",
-            route: "#",
+            route: globalVar.route.Benefits,
             list: []
         },{
             name: "contact",
@@ -156,10 +156,10 @@ class Objects{
         info: "Our management professional analyzes startups or small businesses and create solutions, while helping companies meet their goals. Clients have the option to receive help from GMCS, as they need it without any long-term Contracts. Clients purchase hours as needed for specific tasks and projects.",
         whyThisRates: "Our rates are based on these four models, customers have the options to select most effective option that benefit them.",
         rates: [
-            "•	Charging by hourly rate-starting at EC$125.",
-            "•	Charging by project.",
-            "•	Charging based on ROI.",
-            "•	Charging an initial fee plus monthly retainer.",
+            "Charging by hourly rate-starting at EC$125.",
+            "Charging by project.",
+            "Charging based on ROI.",
+            "Charging an initial fee plus monthly retainer.",
         ]
     }
     aboutusData = {
@@ -187,19 +187,51 @@ class Objects{
     benefits = {
         header: "BENEFITS OF HIRING GRENADA MANAGEMENT CONSULTING SERVICES (GMCS)",
         list: [
-            "•	Gain access to expertise and knowledge immediately as a business startup or an entrepreneur.",
-            "•	No NIS or taxes reporting, benefits, or human resource issues.",
-            "•	Contract work is scalable",
-            "•	Easy to terminate when no longer needed",
-            "•	Independent advice",
-            "•	Diversity of ideas from other experiences",
-            "•	Flexible for project specific work",
+            {
+                name: "Gain access to expertise and knowledge immediately as a business startup or an entrepreneur.",
+                image: images.picture.benefiticon
+            },{
+                name: "No NIS or taxes reporting, benefits, or human resource issues.",
+                image: images.picture.benefiticon
+            },{
+                name: "Contract work is scalable",
+                image: images.picture.benefiticon
+            },{
+                name: "Easy to terminate when no longer needed",
+                image: images.picture.benefiticon
+            },{
+                name: "Independent advice",
+                image: images.picture.benefiticon
+            },{
+                name: "Diversity of ideas from other experiences",
+                image: images.picture.benefiticon
+            },{
+                name: "Flexible for project specific work",
+                image: images.picture.benefiticon
+            },
         ]
     }
     models = {
-        header: "",
+        header: `Our management professional analyzes startups or small businesses and create
+            solutions, while helping companies meet their goals. Clients have the option to
+            receive help from GMCS, as they need it without any long-term Contracts. Clients
+            purchase hours as needed for specific tasks and projects.",
+            subHeader: "Our rates are based on these four models, customers have the options to
+            select most effective option that benefit them.`,
         list: [
-
+            {
+                name: "Charging by hourly rate-starting at EC$125",
+                image: images.picture.businessplan,
+            },{
+                name: "Charging by project",
+                image: images.picture.businessplan,
+            },{
+                name: "Charging based on ROI",
+                image: images.picture.businessplan,
+            },{
+                name: "Charging an initial fee plus monthly retainer",
+                image: images.picture.businessplan,
+            },
         ]
     }
     stocks = [

@@ -1,4 +1,6 @@
 .header-main-container{
+    position: relative;
+    z-index: 999;
     user-select: none;
     font-family: 'Times New Roman', Times, serif;
 }

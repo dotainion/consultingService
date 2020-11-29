@@ -40,7 +40,7 @@ const Form: React.FC = () => {
     return(
         <IonPage>
             <IonContent>
-                <Header/>
+                <Header id="form"/>
                 <IonList>
                     <IonCard class="form-main-container">
                         <IonItem lines="none"class="form-header-container">
@@ -48,11 +48,11 @@ const Form: React.FC = () => {
                         </IonItem>
                         <IonCardContent>
                             <div className="form-drop-down-container">
-                                <DropDownList display={dropdown} onClose={()=>{
+                                <DropDownList hidden={!dropdown} onClose={()=>{
                                     setDropdown(false);
                                 }} onClick={(value:any)=>{
                                     setDropTextHolder({margin:"-18px",color:"black"});
-                                    updateInputs("s",value);
+                                    updateInputs("s",value.title);
                                 }} value={content.objects.services.list}/>
                             </div>
                             <div className="form-input-container">

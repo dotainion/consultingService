@@ -1,19 +1,28 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonPage, IonContent } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './AboutUs.css';
 import { tools } from '../components/tools';
 import { content } from '../components/Contents';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 
-export const AboutUs: React.FC = ()=>{
+const AboutUs: React.FC = ()=>{
     return(
-        <div className="about-us-main-container">
-            <div className="about-us-header">{content.objects.aboutus.header}</div>
-            <div className="about-us-sub-container">
-                {content.objects.aboutusData.list.map((aboutus, index)=>(
-                    <div className="about-us-items" key={index}>{aboutus}</div>
-                ))}
-            </div>
-        </div>
+        <IonPage>
+            <IonContent>
+                <Header id="about-us"/>
+                <div className="about-us-main-container">
+                    <div className="about-us-header">{content.objects.aboutus.header}</div>
+                    <div className="about-us-sub-container">
+                        {content.objects.aboutusData.list.map((aboutus, index)=>(
+                            <div className="about-us-items" key={index}>{aboutus}</div>
+                        ))}
+                    </div>
+                </div>
+                <Footer/>
+            </IonContent>
+        </IonPage>
     )
 }
+export default AboutUs

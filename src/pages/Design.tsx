@@ -25,7 +25,7 @@ const Design: React.FC = ()=>{
     return(
         <IonPage>
             <IonContent>
-                <Header/>
+                <Header id="design"/>
                 <IonList class="design-intro-container">
                     <IonThumbnail class="design-intro-image">
                         <IonImg src={images.picture.businessplan}/>

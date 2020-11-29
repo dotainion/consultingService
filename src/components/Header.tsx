@@ -33,12 +33,12 @@ export const Header = (headerProps:any)=>{
             <>
             {content.objects.headerLists.map((info, index)=>(
                 <div hidden={checkHidden(info.name)} className="header-dropdown-item-container" onMouseLeave={()=>{
-                    const element = document.getElementById(`${info.name}${props.id}`);
+                    const element = document.getElementById(`${info.name}${props.id}${headerProps.id}`);
                     if (element) element.hidden = true;
                 }} key={index}>
                     <span className="header-menu-item header-hover" onMouseEnter={()=>{
                         if (info.list.length > 0 && !tools.isMobile()){
-                            const element = document.getElementById(`${info.name}${props.id}`);
+                            const element = document.getElementById(`${info.name}${props.id}${headerProps.id}`);
                             if (element) element.hidden = false;
                         }
                     }} onClick={()=>{
@@ -49,11 +49,11 @@ export const Header = (headerProps:any)=>{
                         }
                     }}>{info.name}</span>
                     <DropDownList hidden value={info.list} onClose={()=>{
-                        const element = document.getElementById(`${info.name}${props.id}`);
+                        const element = document.getElementById(`${info.name}${props.id}${headerProps.id}`);
                         if (element) element.hidden = true;
-                    }} onClick={(route:string)=>{
-                        history.push(route);
-                    }} id={`${info.name}${props.id}`}/>
+                    }} onClick={(value:any)=>{
+                        history.push(value.route);
+                    }} id={`${info.name}${props.id}${headerProps.id}`}/>
                 </div>
             ))}
             </>

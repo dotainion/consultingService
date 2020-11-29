@@ -12,7 +12,7 @@ const Offers: React.FC = () => {
   return (
     <IonPage>
         <IonContent>
-            <Header/>
+            <Header id="offer"/>
             <Promotion/>
             <div className="offer-main-container">
                 {content.objects.services.list.map((offers, key)=>(

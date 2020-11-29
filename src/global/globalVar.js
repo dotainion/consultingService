@@ -5,6 +5,9 @@ class Routes{
     Form = "/form";
     Offers = "/offers";
     Home = "/home";
+    AboutUs = "/about/us";
+    Model = "/program/model";
+    Benefits = "/benefits";
 }
 class GlobalVar{
     route = new Routes();

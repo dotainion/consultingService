@@ -24,7 +24,7 @@ const Home: React.FC = () => {
       <IonContent class="home-main-content-container" onIonScroll={async(e)=>{
         //headerViewScroll(e.detail.scrollTop);
       }} ref={scrollRef} scrollEvents={true} style={{opacity:opacity}}>
-        <Header hidden={[content.objects.headerLists[0].name]}/>
+        <Header hidden={[content.objects.headerLists[0].name]} id="home"/>
         <Intro/>
         <Offers/>
         <Stocks/>
