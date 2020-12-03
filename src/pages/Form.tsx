@@ -7,9 +7,9 @@ import { chevronDown } from 'ionicons/icons';
 import { content } from '../components/Contents';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { images } from '../components/Images';
 
 const Form: React.FC = () => {
-    const [ifOpen, setIsOpen] = useState(false);
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
     const [inputs, setInputs] = useState({
@@ -34,8 +34,29 @@ const Form: React.FC = () => {
             details: tools.compare(cmd,"d",value,inputs.details),
         })
     }
-    const onSubmit = (values:any) =>{
-        console.log(values);
+    const onSubmit = (form:any) =>{
+        if (tools.isEmailValid(form.email)){
+            const mailConfig = {
+                body: `
+                    First Name: ${form.firstName}
+                    Last Name: ${form.lastName}
+                    Email: ${form.email}
+                    Phone: ${form.phone}
+                    Address: ${form.address}
+                    Company: ${form.company}
+                    Service: ${form.services}
+                    Details: ${form.details}
+                `
+            }
+            const compose = {
+                from: form.email,
+                subject: "GMCS Application",
+                body: mailConfig.body
+            }
+            tools.email.send(compose);
+        }else{
+            console.log("invalid email address");
+        }
     }
     return(
         <IonPage>
@@ -57,13 +78,13 @@ const Form: React.FC = () => {
                             </div>
                             <div className="form-input-container">
                                 <IonItem class="form-input-sub-container" lines="none">
-                                    <IonLabel class="firm-input-floating-text" position="floating">First Name</IonLabel>
+                                    <IonLabel class="form-input-floating-text" position="floating">First Name</IonLabel>
                                     <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("f",e.detail.value);
                                     }} value={inputs.firstName}/>
                                 </IonItem>
                                 <IonItem class="form-input-sub-container" lines="none">
-                                    <IonLabel class="firm-input-floating-text" position="floating">Last Name</IonLabel>
+                                    <IonLabel class="form-input-floating-text" position="floating">Last Name</IonLabel>
                                     <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("l",e.detail.value);
                                     }} value={inputs.lastName}/>
@@ -71,26 +92,26 @@ const Form: React.FC = () => {
                             </div>
                             <div className="form-input-container">
                                 <IonItem class="form-input-sub-container" lines="none">
-                                    <IonLabel class="firm-input-floating-text" position="floating">Email</IonLabel>
+                                    <IonLabel class="form-input-floating-text" position="floating">Email</IonLabel>
                                     <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("e",e.detail.value);
                                     }} value={inputs.email}/>
                                 </IonItem>
                                 <IonItem class="form-input-sub-container" lines="none">
-                                    <IonLabel class="firm-input-floating-text" position="floating">Phone</IonLabel>
+                                    <IonLabel class="form-input-floating-text" position="floating">Phone</IonLabel>
                                     <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("p",e.detail.value);
                                     }} value={inputs.phone}/>
                                 </IonItem>
                             </div>
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel class="firm-input-floating-text" position="floating">Address</IonLabel>
+                                <IonLabel class="form-input-floating-text" position="floating">Address</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("a",e.detail.value);
                                     }} value={inputs.address}/>
                             </IonItem>
                             <IonItem class="form-input-sub-container" lines="none">
-                                <IonLabel class="firm-input-floating-text" position="floating">Company</IonLabel>
+                                <IonLabel class="form-input-floating-text" position="floating">Company</IonLabel>
                                 <IonInput class="form-input" onIonChange={(e)=>{
                                         updateInputs("c",e.detail.value);
                                     }} value={inputs.company}/>
@@ -117,13 +138,20 @@ const Form: React.FC = () => {
                                     onSubmit(inputs);
                                 }}>Submit</IonButton>
                                 <IonButton fill="outline" class="form-button" onClick={()=>{
-                                    setIsOpen(false);
+                                    
                                 }}>Cancel</IonButton>
                             </IonItem> 
                         </IonCardContent>
                     </IonCard>
                     <div className="form-side-info-container">
-                        <div className="form-side-info-sub-container">GMCS Services</div>
+                        <div className="form-side-info-sub-container">
+                            <IonThumbnail className="form-side-info-logo">
+                                <IonImg src={images.picture.logo}/>
+                            </IonThumbnail>
+                            <IonList>
+                                <IonLabel class="form-side-info-content">Working to build your business to its max.</IonLabel>
+                            </IonList>
+                        </div>
                     </div>
                 </IonList>
                 <Footer/>

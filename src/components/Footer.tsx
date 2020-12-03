@@ -10,6 +10,7 @@ export const Footer: React.FC = ()=>{
     return(
         <IonFooter class="footer-main-container">
             <div className="footer-app-links-container">
+                <IonLabel className="footer-app-content">Visit us on</IonLabel>
                 <images.icons.facebook color="rgb(13, 58, 102)" className="footer-app-image"/>
                 <images.icons.instagram color="rgb(170, 7, 185)" className="footer-app-image"/>
             </div>

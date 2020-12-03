@@ -30,27 +30,27 @@ class Objects{
     }
     headerLists = [
         {
-            name: "home",
+            name: "Home",
             route: "/home",
             list: []
         },{
-            name: "service",
+            name: "Service",
             route: globalVar.route.Offers,
             list: []
         },{
-            name: "aboutus",
+            name: "Aboutus",
             route: "#",
             list: this.aboutus.list
         },{
-            name: "program model",
-            route: globalVar.route.Model,
+            name: "Program Model",
+            route: globalVar.route.Pricing,
             list: []
         },{
-            name: "benefits",
+            name: "Benefits",
             route: globalVar.route.Benefits,
             list: []
         },{
-            name: "contact",
+            name: "Contact",
             route: "/form",
             list: []
         }
@@ -150,18 +150,7 @@ class Objects{
             note: "Custom Brokerage Services",
             image: images.picture.brokerage
         }
-    ]
-    pricing = {
-        header: "OUR PRICING MODEL",
-        info: "Our management professional analyzes startups or small businesses and create solutions, while helping companies meet their goals. Clients have the option to receive help from GMCS, as they need it without any long-term Contracts. Clients purchase hours as needed for specific tasks and projects.",
-        whyThisRates: "Our rates are based on these four models, customers have the options to select most effective option that benefit them.",
-        rates: [
-            "Charging by hourly rate-starting at EC$125.",
-            "Charging by project.",
-            "Charging based on ROI.",
-            "Charging an initial fee plus monthly retainer.",
-        ]
-    }
+    ];
     aboutusData = {
         header: "ABOUT US",
         list: [
@@ -212,12 +201,14 @@ class Objects{
         ]
     }
     models = {
-        header: `Our management professional analyzes startups or small businesses and create
+        header: "OUR PRICING MODEL",
+        model: `Our management professional analyzes startups or small businesses and create
             solutions, while helping companies meet their goals. Clients have the option to
             receive help from GMCS, as they need it without any long-term Contracts. Clients
             purchase hours as needed for specific tasks and projects.",
             subHeader: "Our rates are based on these four models, customers have the options to
             select most effective option that benefit them.`,
+        whyThisRates: "Our rates are based on these four models, customers have the options to select most effective option that benefit them.",
         list: [
             {
                 name: "Charging by hourly rate-starting at EC$125",
@@ -241,19 +232,22 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.benefit,
-                route: "#"
+                route: "#",
+                newTab: false
             },{
                 title: "Our Pricing Model",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.coins,
-                route: "#"
+                route: globalVar.route.Pricing,
+                newTab: false
             },{
                 title: "Our Services",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.glob,
-                route: "/offers"
+                route: globalVar.route.Offers,
+                newTab: false,
             }
         ],[
             {
@@ -261,19 +255,22 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.calendar,
-                route: "#"
+                route: "#",
+                newTab: false
             },{
                 title: "Marketing",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.sales,
-                route: "#"
+                route: "#",
+                newTab: false
             },{
                 title: "Training Service",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.training,
-                route: "#"
+                route: "#",
+                newTab: false
             }
         ],[
             {
@@ -281,19 +278,22 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.software,
-                route: "#"
+                route: globalVar.siteUrl.academy,
+                newTab: true
             },{
                 title: "Fibre Optics",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.fiberOptic,
-                route: "#"
+                route: "#",
+                newTab: false
             },{
                 title: "Suggest your idea",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.idea,
-                route: "#"
+                route: "#",
+                newTab: false
             }
         ]
     ];

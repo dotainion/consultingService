@@ -13,39 +13,19 @@ export const Stocks = () =>{
         <div className="stocks-main-container">
             <div className="stocks-content-container">
                 <div className="stocks-sub-container">
-                    {content.objects.stocks[0].map((stock:any, key:any)=>(
-                        <div className="stocks-container stocks-hover" key={key} onClick={()=>{
-                            history.push(stock.route); 
-                        }}>
-                            <stock.icon className="stocks-image"/>
-                            {/*<img className="stocks-image" src={stock.icon}/>*/}
-                            <div className="stocks-title">{stock.title}</div>
-                            <div className="stocks-sub-title">{stock.subTitle}</div>
-                            <div className="stocks-content">{stock.content}</div>
-                        </div>
-                    ))}
-                </div>
-                <div className="stocks-sub-container">
-                    {content.objects.stocks[1].map((stock:any, key:any)=>(
-                        <div className="stocks-container stocks-hover" key={key} onClick={()=>{
-                            history.push(stock.route); 
-                        }}>
-                            <stock.icon className="stocks-image"/>
-                            <div className="stocks-title">{stock.title}</div>
-                            <div className="stocks-sub-title">{stock.subTitle}</div>
-                            <div className="stocks-content">{stock.content}</div>
-                        </div>
-                    ))}
-                </div>
-                <div className="stocks-sub-container">
-                    {content.objects.stocks[2].map((stock:any, key:any)=>(
-                        <div className="stocks-container stocks-hover" key={key} onClick={()=>{
-                            history.push(stock.route); 
-                        }}>
-                            <stock.icon className="stocks-image"/>
-                            <div className="stocks-title">{stock.title}</div>
-                            <div className="stocks-sub-title">{stock.subTitle}</div>
-                            <div className="stocks-content">{stock.content}</div>
+                    {content.objects.stocks.map((stockArray:any[], key:any)=>(
+                        <div key={key}>
+                            {stockArray.map((stock:any,key:any)=>(
+                                <div className="stocks-container stocks-hover" key={key} onClick={()=>{
+                                    if (stock.newTab) window.open(stock.route);
+                                    else history.push(stock.route); 
+                                }}>
+                                    <stock.icon className="stocks-image"/>
+                                    <div className="stocks-title">{stock.title}</div>
+                                    <div className="stocks-sub-title">{stock.subTitle}</div>
+                                    <div className="stocks-content">{stock.content}</div>
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>

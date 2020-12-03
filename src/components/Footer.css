@@ -35,13 +35,22 @@
     color: gray;
 }
 .footer-app-links-container{
- background-color: lightgray;
- border-top: 1px solid navy;
- border-bottom: 1px solid navy;
+    position: relative;
+    background-color: lightgray;
+    border-top: 1px solid navy;
+    border-bottom: 1px solid navy;
 }
 .footer-app-image{
     font-size: 30px;
     margin: 3px;
+}
+.footer-app-content{
+    position: absolute;
+    color: var(--footer-background-color);
+    font-weight: bold;
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%);
 }
 
 @media screen and (max-width:767px){
@@ -64,5 +73,8 @@
     }
     .footer-content-items{
         font-size: 13px;
+    }
+    .footer-app-content{
+        left: 20%;
     }
 }

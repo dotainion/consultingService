@@ -22,6 +22,7 @@ import marketing from '../images/marketing.png';
 import acountsandtax from '../images/acountsandtax.jpg';
 import clientbg from '../images/clientbg.jpg';
 import fingerpoint from '../images/fingerpoint.jpg';
+import logo from '../images/logo.png';
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
 
@@ -55,6 +56,7 @@ class Picture{
     acountsandtax = acountsandtax;
     clientbg = clientbg;
     fingerpoint = fingerpoint;
+    logo = logo; 
 
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];

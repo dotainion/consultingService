@@ -32,7 +32,7 @@ import Offers from './pages/Offers';
 import Form from './pages/Form';
 import Design from './pages/Design';
 import AboutUs from './pages/AboutUs';
-import Model from './pages/Model';
+import Model from './pages/PriceModel';
 import Benefits from './pages/Benefits';
 
 const App: React.FC = () =>{
@@ -42,7 +42,7 @@ return (
         <IonRouterOutlet>
           <Route path={globalVar.route.Clients} component={Clients} exact={true} />
           <Route path={globalVar.route.Benefits} component={Benefits} exact={true} />
-          <Route path={globalVar.route.Model} component={Model} exact={true} />
+          <Route path={globalVar.route.Pricing} component={Model} exact={true} />
           <Route path={globalVar.route.AboutUs} component={AboutUs} exact={true} />
           <Route path={globalVar.route.Design} component={Design} exact={true} />
           <Route path={globalVar.route.Form} component={Form} exact={true} />

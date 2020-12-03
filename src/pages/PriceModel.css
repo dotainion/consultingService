@@ -7,10 +7,17 @@
     font-size: 20px;
     color: white;
     padding: 80px;
+    text-align: center;
     background-color: rgb(73, 30, 71);
     font-family: 'Times New Roman', Times, serif;
 }
+.model-header-sub{
+    text-align: center;
+    color: white;
+    --ion-background-color: rgb(73, 30, 71);
+}
 .model-item-container{
+    position: relative;
     display: inline-block;
     text-align: center;
     width: 44%;
@@ -38,7 +45,7 @@
 }
 .model-center-image-container{
     position: absolute;
-    top: 63%;
+    top: 50%;
     left: 50%;
     transform: translateX(-65%);
     background: transparent;
