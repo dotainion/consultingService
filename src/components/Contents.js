@@ -292,8 +292,8 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.idea,
-                route: "#",
-                newTab: false
+                route: globalVar.id.suggestionPopup,
+                newTab: null
             }
         ]
     ];

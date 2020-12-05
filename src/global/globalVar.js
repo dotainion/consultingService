@@ -12,7 +12,11 @@ class Routes{
 class SiteUrl{
     academy = "http://www.caribbeancodingacademygrenada.com/";
 }
+class Ids{
+    suggestionPopup = "suggestion-form";
+}
 class GlobalVar{
+    id = new Ids();
     route = new Routes();
     siteUrl = new SiteUrl();
 }

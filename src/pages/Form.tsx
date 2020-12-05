@@ -134,12 +134,17 @@ const Form: React.FC = () => {
                                 }} value={inputs.details} placeholder="Additional Details"/>
                             </IonItem>  
                             <IonItem class="form-button-container" lines="none"> 
-                                <IonButton fill="outline" class="form-button" onClick={()=>{
+                                <IonButton color="tertiary" fill="outline" class="form-button" onClick={()=>{
                                     onSubmit(inputs);
                                 }}>Submit</IonButton>
-                                <IonButton fill="outline" class="form-button" onClick={()=>{
-                                    
-                                }}>Cancel</IonButton>
+                                <IonButton color="tertiary" fill="outline" class="form-button" onClick={()=>{
+                                    setInputs({
+                                        firstName: "",lastName: "",email: "",
+                                        phone: "",address: "",company: "",
+                                        services: "",details: "",
+                                    });
+                                    setDropTextHolder({margin:"0px",color:"black"});
+                                }}>Clear</IonButton>
                             </IonItem> 
                         </IonCardContent>
                     </IonCard>

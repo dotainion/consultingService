@@ -13,17 +13,15 @@ import { Vision } from '../components/onHome/Vision';
 import { Pop } from '../components/Pop';
 import { constants } from 'buffer';
 import { content } from '../components/Contents';
+import { SuggestionBox } from '../components/Widgets';
 
 const Home: React.FC = () => {
   const [opacity, setOpacity] = useState("");
-  const scrollRef = useRef<HTMLIonContentElement>(null);
-  const images = ["img","img1","img2","img3","img4"];
   return (
     <IonPage>
+      <SuggestionBox/>
       <Pop onOpen={()=>{setOpacity("0.3")}} onClose={()=>{setOpacity("")}}/>
-      <IonContent class="home-main-content-container" onIonScroll={async(e)=>{
-        //headerViewScroll(e.detail.scrollTop);
-      }} ref={scrollRef} scrollEvents={true} style={{opacity:opacity}}>
+      <IonContent class="home-main-content-container" style={{opacity:opacity}}>
         <Header hidden={[content.objects.headerLists[0].name]} id="home"/>
         <Intro/>
         <Offers/>
