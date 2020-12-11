@@ -32,6 +32,8 @@
 .form-input{
     border: 1px solid var(--header-text-color);
     border-radius: 3px;
+    color: navy;
+    font-weight: bold;
     background-color: white;
 }
 .form-service-button-container{
@@ -49,6 +51,11 @@
     display: inline;
     width: 100%;
     color: black;
+}
+.form-service-div-as-input{
+    margin-top: 5px;
+    color: navy;
+    font-weight: bold;
 }
 .form-drop-down-container{
     padding-left: 16px;
@@ -99,6 +106,20 @@
 .form-side-info-logo{
     width: 130%;
     height: 130%;
+}
+.form-side-info-promo-container{
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: -60px;
+    padding: 30px;
+    background-color: var(--header-text-color);
+    font-family: 'Times New Roman', Times, serif;
+}
+.form-side-info-promo-header{
+    font-size: 40px;
+    font-weight: bold;
 }
 
 @media screen and (max-width:767px){

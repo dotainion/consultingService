@@ -1,16 +1,17 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon, IonPopover } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon, IonPopover, IonInput } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { DropDownList } from './Widgets';
 import { tools } from './tools';
 import { useHistory } from 'react-router';
-import { chevronDown } from 'ionicons/icons';
+import { chevronDown, search } from 'ionicons/icons';
 import { images as Images } from './Images';
 import { content } from './Contents';
 
 export const Header = (headerProps:any)=>{
     const history = useHistory();
     const images = Images.picture.grenada();
+    const [showSearch, setShowSearch] = useState(false);
     const [slider, setSlider] = useState(images[0]);
     const [mobileDropDown, setMobileDropDown] = useState({state:false,list:[]as any[]});
     const [menuList, setMenuList] = useState({
@@ -74,6 +75,7 @@ export const Header = (headerProps:any)=>{
         sliderAuto();
     },[]);
     return(
+        <>
         <IonHeader class="header-main-container">
             <IonPopover isOpen={mobileDropDown.state} onDidDismiss={()=>{
                 setMobileDropDown({state:false,list:[]});
@@ -119,5 +121,23 @@ export const Header = (headerProps:any)=>{
                 <MenuList id="desktop"/>
             </div>
         </IonHeader>
+            <div className="header-search-container">
+                <div hidden={!showSearch} className="header-search-input-container">
+                    <input className="header-search-input header-search-focus" placeholder="Search..."/>
+                    <IonIcon class="header-search-button" onClick={()=>{
+                        setShowSearch(false);
+                    }} icon={search}/>
+                </div>
+                <div hidden={showSearch} onClick={()=>{
+                        setShowSearch(true);
+                }} className="header-open-search header-search-click">
+                    <span style={{padding:"8px"}}>Search</span>
+                    <IonIcon class="header-open-search-icon" icon={search}/>
+                </div>
+                <div hidden={!showSearch} className="header-search-suggestion">
+                    <div hidden className="header-suggestion-hover">test</div>
+                </div>
+            </div>
+        </>
     )
 }

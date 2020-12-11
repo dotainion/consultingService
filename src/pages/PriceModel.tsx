@@ -15,9 +15,9 @@ const Benefits: React.FC = () => {
   return (
     <IonPage>
         <IonContent>
-            <Header id="benefits"/>
+            <Header hidden={[content.objects.headerLists[3].name]} id="benefits"/>
             <IonList className="model-header">
-                <IonItem class="model-header-sub">
+                <IonItem class="model-header-sub" lines="none">
                     <IonLabel>{content.objects.models.header}</IonLabel>
                 </IonItem>
                 <IonLabel>{content.objects.models.model}</IonLabel>

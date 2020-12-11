@@ -19,8 +19,8 @@ export const Promotion = ()=>{
             </IonThumbnail>
             <div className="promo-content-on-image-container">
                 <div className="promo-content-container">
-                    <div className="promo-content-title">title</div>
-                    <div className="promo-content-sub-title">sub title</div>
+                    <div className="promo-content-title">GMCS</div>
+                    <div className="promo-content-sub-title">Paving the way for you.</div>
                     <div className="promo-content-info">Take your business to the next level with expertly designed marketing materials.</div>
                     <div className="promo-content-info">Business Cards, Posters, Flyers, Web Design and more...</div>
                     <Link to={globalVar.route.Design} id="to-design"/>

@@ -12,6 +12,7 @@ import { images } from '../components/Images';
 const Form: React.FC = () => {
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
+    const [borderStyle, setBorderStyle] = useState("");
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
@@ -58,10 +59,20 @@ const Form: React.FC = () => {
             console.log("invalid email address");
         }
     }
+
+    useEffect(()=>{
+        const preValue = tools.state.get();
+        if (preValue){
+            updateInputs("s",preValue.title);
+            setDropTextHolder({margin:"-18px",color:"dodgerblue"});
+            setBorderStyle("1px solid green");
+        }
+    });
+
     return(
         <IonPage>
             <IonContent>
-                <Header id="form"/>
+                <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
                 <IonList>
                     <IonCard class="form-main-container">
                         <IonItem lines="none"class="form-header-container">
@@ -118,13 +129,14 @@ const Form: React.FC = () => {
                             </IonItem>
                             <div className="form-service-button-container" onClick={()=>{
                                 setDropdown(true);
+                                setBorderStyle("");
                                 setDropTextHolder({margin:"-18px",color:"dodgerblue"});
                             }} onMouseLeave={()=>{
                                 if (inputs.services.length <= 0) setDropTextHolder({margin:"0px",color:"black"});
-                            }}>
+                            }} style={{border:borderStyle}}>
                                 <div className="form-service-button-sub-container">
                                     <IonLabel style={{marginTop:dropTextHolder.margin,color:dropTextHolder.color,position:"absolute"}}>Service Required</IonLabel>
-                                    <div style={{marginTop:"5px"}}>{inputs.services}</div>
+                                    <div className="form-service-div-as-input">{inputs.services}</div>
                                 </div>
                                 <IonIcon class="form-down-icon" slot="end" icon={chevronDown}/>
                             </div>
@@ -149,9 +161,13 @@ const Form: React.FC = () => {
                         </IonCardContent>
                     </IonCard>
                     <div className="form-side-info-container">
+                        <div className="form-side-info-promo-container">
+                            <div className="form-side-info-promo-header">Let's meet</div>
+                            <div>Schedule a meet to see how GMCS can help your business grow.</div>
+                        </div>
                         <div className="form-side-info-sub-container">
                             <IonThumbnail className="form-side-info-logo">
-                                <IonImg src={images.picture.logo}/>
+                                <IonImg src={images.picture.buildingBlocks}/>
                             </IonThumbnail>
                             <IonList>
                                 <IonLabel class="form-side-info-content">Working to build your business to its max.</IonLabel>

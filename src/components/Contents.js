@@ -38,7 +38,7 @@ class Objects{
             route: globalVar.route.Offers,
             list: []
         },{
-            name: "Aboutus",
+            name: "Aboutus/More",
             route: "#",
             list: this.aboutus.list
         },{
@@ -69,57 +69,78 @@ class Objects{
         subHeader: "Industries and Consulting Services",
         list: [
             {
-                title:"Gain Market Sector Knowledge",
-                content:"test contents"
+                title: "Gain Market Sector Knowledge",
+                content: "test contents",
+                image: images.picture.learning
             },{
-                title:"Planning and task",
-                content:"test contents"
+                title: "Planning and task",
+                content: "test contents",
+                image: images.picture.planning
             },{
-                title:"Vendor Sourcing",
-                content:"test contents"
+                title: "Vendor Sourcing",
+                content: "test contents",
+                image: images.picture.vendering2
             },{
-                title:"Custom Brokerage Services",
-                content:"test contents"
+                title: "Custom Brokerage Services",
+                content: "test contents",
+                image: images.picture.brokerage
             },{
-                title:"Government Tax Reporting & Compliances",
-                content:"test contents"
+                title: "Government Tax Reporting & Compliances",
+                content: "test contents",
+                image: images.picture.governmentTaxes
             },{
-                title:"Business Start-up Consultation",
-                content:"test contents"
+                title: "Business Start-up Consultation",
+                content: "test contents",
+                image: images.picture.creativeStartUps
             },{
-                title:"Business Proposal Writing",
-                content:"test contents"
+                title: "Business Proposal Writing",
+                content: "test contents",
+                image: images.picture.proposal
             },{
-                title:"Financial Planning and Management",
-                content:"test contents"
+                title: "Financial Planning and Management",
+                content: "test contents",
+                image: images.picture.financialPlanning
             },{
-                title:"Business branding and marketing",
-                content:"test contents"
+                title: "Business branding and marketing",
+                content: "test contents",
+                image: images.picture.branding
             },{
-                title:"Payroll Management",
-                content:"test contents"
+                title: "Payroll Management",
+                content: "test contents",
+                image: images.picture.payroll
             },{
-                title:"Customer services training",
-                content:"test contents"
+                title: "Customer services training",
+                content: "test contents",
+                image: images.picture.customerService
             },{
-                title:"IT Support (website and App Development)",
-                content:"test contents"
+                title: "IT Support (website and App Development)",
+                content: "test contents",
+                image: images.picture.development
             },{
-                title:"Product Development",
-                content:"test contents"
+                title: "Product Development",
+                content: "test contents",
+                image: images.picture.productDevelopment
             },{
-                title:"Business registration and Incorporation",
-                content:"test contents"
+                title: "Business registration and Incorporation",
+                content: "test contents",
+                image: images.picture.businessRegistration
             },{
-                title:"NIS and VAT compliance services",
-                content:"test contents"
+                title: "NIS and VAT compliance services",
+                content: "test contents",
+                image: images.picture.vatCompliance
             },{
                 title:"Construction Project Management",
-                content:"test contents"
+                content:"test contents",
+                image: images.picture.construction
             },{
-                title:"Energy Management",
-                content:"test contents"
-            },
+                title: "Energy Management",
+                content: "test contents",
+                image: images.picture.energyManagement
+            },{
+                title:" Real Estate Consultation and Development",
+                content:  "test contents",
+                image: images.picture.realEstate
+            }
         ]
     }
     location = {
@@ -198,6 +219,38 @@ class Objects{
                 name: "Flexible for project specific work",
                 image: images.picture.benefiticon
             },
+        ],
+        more: [
+            {
+                title: "Look Professional",
+                content: "Rather than just being the “corner shop” down the street, having a website (especially a well made one) gives the impression that you are serious, and ready to do business with all kinds of customers. It lends to the credibility mentioned in the survey result above."
+            },{
+                title: "Become An Information Resource",
+                content: "If your business is in something of a niche industry, having a website is an excellent opportunity to build your reputation as an authority in your field. Create a blog section on your site with informative articles that take advantage of your experience. Potential customers doing web searches on common problems related to your industry will be more likely to find you – and after they read your blog articles, they’ll see how helpful you can be for them. According to one survey, 61% of consumers reported a blog influenced their decision to make a purchase. Even if those who read these blog posts don’t become customers right away, you’ve spread the name of your business without spending a dime on traditional advertising."
+            },{
+                title: "Own Your Name",
+                content: "Creating a site and buying a domain name (www.businessexample.com) helps stake your claim to your business’s name, and is a quick and easy way to improve your brand identity."
+            },{
+                title: "Improve SEO Rankings",
+                content: "When you search online through sites like Google, Bing, or Yahoo you will see a list of websites with answers to your request. There are SEO (Search Engine Optimization) tactics that you can apply to your company website to improve its rankings on those search engines."
+            },{
+                title: "Increase Leads From Online",
+                content: "Gaining visitors to your website is good, but gaining customers is even better! With a well-optimized website, you get your potential leads to call, sign up, or purchase a product from your company. You can turn your website into a leading salesperson for your company."
+            },{
+                title: "Save Money on Printing",
+                content: "Paper catalogs and brochures can still be helpful in point-of-sale situations, but what if item information changes? It is much easier to have all relevant info on your website, where it will be much cheaper to edit and revise. A combination of print and web marketing materials will likely be the most cost-effective way forward."
+            },{
+                title: "Be Where Your Customers Are. They’re On The Web.",
+                content: `According to a 2015 study: about 43% of the entire planet’s population, over 3 billion people, have internet access.
+                        In the US: a study from March 2018 found that only 11% of Americans do not use the internet. That means that most Americans have internet access, across all demographics (including income).
+                        Even having a fundamental website is helpful. For many people, if they can’t find it online, it doesn’t exist as far as they are concerned.`
+            },{
+                title: "Help Train Staff",
+                content: "If you’ve taken the time to build out a website with detailed info about products and services, you now have an information resource that is available for you to use internally. You can direct new employees to specific web pages and give them the “homework” of reading up on the products they will be selling."
+            },{
+                title: "Attract New Staff",
+                content: "Create a “Careers” or “Job Opportunities” webpage on your site. You’ll be able to get potential job candidates to come to you, rather than spending time on trying to recruit employees or spending money placing listings on job websites."
+            }
         ]
     }
     models = {
@@ -212,16 +265,16 @@ class Objects{
         list: [
             {
                 name: "Charging by hourly rate-starting at EC$125",
-                image: images.picture.businessplan,
+                image: images.picture.chargeByHourlyrates,
             },{
                 name: "Charging by project",
-                image: images.picture.businessplan,
+                image: images.picture.chargeByProject,
             },{
                 name: "Charging based on ROI",
-                image: images.picture.businessplan,
+                image: images.picture.chargeByRoi,
             },{
                 name: "Charging an initial fee plus monthly retainer",
-                image: images.picture.businessplan,
+                image: images.picture.chargeByMonthly,
             },
         ]
     }
@@ -301,27 +354,27 @@ class Objects{
         {
             title: "Logo Design",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.logoDesign
         },{
             title: "Flyers Design",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.flyersDesign
         },{
             title: "Business Cards",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.businessCardDesign
         },{
             title: "Poster Design",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.posterDesign
         },{
             title: "Web Design",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.webDesign
         },{
             title: "Advertising",
             content: "Empowerment",
-            image: images.picture.acountsandtax
+            image: images.picture.advertise
         }
     ]
 }

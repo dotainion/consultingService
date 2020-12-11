@@ -35,7 +35,7 @@ export const Stocks = () =>{
                 <ReactPlayer
                     url="https://www.youtube.com/watch?v=vlpKyLklDDY"//"https://youtu.be/luai0p0y2zE"
                     controls
-                    playbackRate = {2}
+                    playbackRate = {1}
                     width = "100%"
                     height = "100%"
                 />

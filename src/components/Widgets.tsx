@@ -30,13 +30,13 @@ export const SuggestionBox = () =>{
     const [openSuggestion, setOpenSuggestion] = useState(false);
     const [showError, setShowError] = useState({state:false,msg:"",link: ""});
     const [mySuggestion, setMySuggestion] = useState({
-        from: "",
+        email: "",
         subject: "", 
         suggestion: ""
     });
     
     const sendSuggestion = (suggests:any) =>{
-        if (!tools.isEmailValid(suggests.from)){
+        if (!tools.isEmailValid(suggests.email)){
             setShowError({
                 state:true,
                 msg:`Email is invalid. Your email is use to send an email
@@ -51,7 +51,7 @@ export const SuggestionBox = () =>{
             });
         }else{
             const emailData = {
-                from: "",
+                from: suggests.email,
                 subject: suggests.subject,
                 body: suggests.suggestion
             }
@@ -85,7 +85,7 @@ export const SuggestionBox = () =>{
                     <IonLabel className="suggest-input-header">Email</IonLabel>
                     <IonInput class="suggest-input" onIonChange={(e)=>{
                         if (e.detail.value) setMySuggestion({
-                            from: e.detail.value,
+                            email: e.detail.value,
                             subject: mySuggestion.subject,
                             suggestion: mySuggestion.suggestion
                         });
@@ -95,7 +95,7 @@ export const SuggestionBox = () =>{
                     <IonLabel className="suggest-input-header">Subject</IonLabel>
                     <IonInput class="suggest-input" onIonChange={(e)=>{
                         if (e.detail.value) setMySuggestion({
-                            from: mySuggestion.from,
+                            email: mySuggestion.email,
                             subject: e.detail.value,
                             suggestion: mySuggestion.suggestion
                         });
@@ -105,7 +105,7 @@ export const SuggestionBox = () =>{
                     <IonLabel className="suggest-input-header">Suggestions</IonLabel>
                     <IonTextarea class="suggest-textarea" onIonChange={(e)=>{
                         if (e.detail.value) setMySuggestion({
-                            from: mySuggestion.from,
+                            email: mySuggestion.email,
                             subject: mySuggestion.subject,
                             suggestion: e.detail.value
                         });

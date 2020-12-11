@@ -1,32 +1,14 @@
-import nodemailer from 'nodemailer';
-import { EMAIL_AUTH } from '../auth/Config';
+import axios from 'axios';
 
 class Email{
-    emailer = nodemailer.createTransport({
-        service: EMAIL_AUTH.provider,
-        auth: {
-            user: EMAIL_AUTH.email,
-            pass: EMAIL_AUTH.password
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
     send(data){
-        try{
-            const mailOptions = {
-                from: data.from,
-                to: EMAIL_AUTH.email,
-                subject: data.subject,
-                text: data.body
-            };
-            this.emailer.sendMail(mailOptions,(error, _)=>{
-                if (error) return false;
-                else return true;
-            });
-        }catch{
-            return true;
-        }
+        axios.post("http://localhost:4000/",data)
+        .then((response)=>{
+            console.log(response);
+        })
+        .then((error)=>{
+            console.log(error);
+        });
     }
 }
 
@@ -36,15 +18,31 @@ class Clicks{
             document.getElementById(elementId).click();
         }catch{console.log(`${elementId} not found`);}
     }
-    headerViewShow(){
-        tools.click.id("header-top-view-show");
-    }
-    headerViewHide(){
-        tools.click.id("header-top-view-hide");
-    }
 }
 
+class State{
+    tempState = "temp-state";
+    set(stateToSet){
+        const tempState = tools.state.tempState;
+        window.localStorage.setItem(tempState,JSON.stringify(stateToSet));
+        return;
+    }
+    get(){
+        //if value not null then value will be store in valueState
+        //after that value will be set to null
+        //then valueState will be return
+        //if functions return then its value will be null or 
+        //will have to reset value by calling set function and pass its value.
+        const tempState = tools.state.tempState;
+        const valueState = window.localStorage.getItem(tempState);
+        if (valueState){ 
+            tools.state.set(null);
+            return JSON.parse(valueState);
+        }return null;
+    }
+}
 class Tools{
+    state = new State();
     click = new Clicks();
     open = new Clicks();
     email = new Email();
