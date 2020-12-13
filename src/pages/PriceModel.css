@@ -13,6 +13,7 @@
     background-color: rgb(72, 178, 192);
     font-family: 'Times New Roman', Times, serif;
     text-shadow: 1px 1px black;
+    user-select: none;
 }
 .model-header-sub{
     text-align: center;
