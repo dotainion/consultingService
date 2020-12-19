@@ -174,6 +174,14 @@ class Objects{
     ];
     aboutusData = {
         header: "ABOUT US",
+        subHeader: `Grenada Management Consulting Services (GMCS) is founded by experience key
+            experts and non-key experts with over 20 years of management and business
+            experiences. Out team has experience in starting companies and dealing with the
+            early stages of a new business.
+            Our clients receive assistance with a multitude of tasks and challenges, moreover,
+            we can quickly create movement and momentum for clients when starting a new
+            business. GMCS consulting services are here to help organizations improve their
+            performance and efficiency.`,
         list: [
             
         ]

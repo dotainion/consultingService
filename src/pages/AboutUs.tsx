@@ -13,7 +13,8 @@ const AboutUs: React.FC = ()=>{
             <IonContent>
                 <Header id="about-us"/>
                 <div className="about-us-main-container">
-                    <div className="about-us-header">{content.objects.aboutus.header}</div>
+                    <div className="about-us-header">{content.objects.aboutusData.header}</div>
+                    <p>{content.objects.aboutusData.subHeader}</p>
                     <div className="about-us-sub-container">
                         {content.objects.aboutusData.list.map((aboutus, index)=>(
                             <div className="about-us-items" key={index}>{aboutus}</div>

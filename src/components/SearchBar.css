@@ -1,0 +1,110 @@
+/* for SearchBar*/
+.suggestion-search-container{
+    position: absolute;
+    padding-top: 10px;
+    width: 100%;
+    z-index: 9;
+    text-align: center;
+    font-size: 20px;
+}
+.suggestion-search-input-container{
+    position: relative;
+}
+.suggestion-search-input{
+    border: none;
+    width: 25%;
+    height: 30px;
+    padding-left: 10px;
+    border-top: 1px solid skyblue;
+    border-left: 1px solid skyblue;
+    border-bottom: 1px solid skyblue;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 4px 4px 5px gray;
+}
+.suggestion-search-button{
+    position: absolute;
+    top: 50%;
+    padding: 4px;
+    transform: translateY(-50%);
+    color: var(--header-text-color );
+    background-color: white;
+    border-top: 1px solid skyblue;
+    border-right: 1px solid skyblue;
+    border-bottom: 1px solid skyblue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 4px 4px 5px gray;
+}
+.suggestion-open-search{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    font-size: 17px;
+    margin-right: 30px;
+    border-radius: 3px;
+    color: var(--header-text-color);
+    text-shadow: 1px 1px 1px white;
+    font-weight: bold;
+    background: transparent;
+    user-select: none;
+    border: 1px solid var(--header-text-color);
+}
+.suggestion-open-search-icon{
+    padding-right: 5px;
+    padding-top: 3px;
+}
+.suggestion-search-focus:focus{
+    outline: none;
+}
+.suggestion-search-click:active{
+    box-shadow: 1px 1px 2px gray;
+}
+
+/* for suggestions*/
+.suggestion-search-suggestion{
+    position: relative;
+    width: 25%;
+    top: -20px;
+    margin-left: 50%;
+    color: navy;
+    transform: translateX(-50%);
+    user-select: none;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1px 1px 2px gray;
+}
+.suggestion-hover:hover{
+    color: var(--header-text-color);
+    background-color: lightgray;
+}
+.suggestion-item-picker-container{
+    position: relative;
+    width: 25%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.suggestion-item-picker{
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 20px;
+    color: var(--header-text-color);
+    border: 1px solid lightgray;
+    background-color: white;
+    box-shadow: 1px 1px 2px lightgray;
+}
+
+@media screen and (max-width:767px){
+    .header-search-input{
+        width: 55%;
+    }
+    .header-search-suggestion{
+        width: 55%;
+    }
+}
