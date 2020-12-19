@@ -99,7 +99,7 @@ export const Header = (headerProps:any)=>{
                 <IonList className="header-item-container">
                     <IonLabel class="header-item">Grenada</IonLabel>
                     <IonLabel class="header-item">Carriacou</IonLabel>
-                    <IonLabel class="header-item">Pitite Martinique</IonLabel>
+                    <IonLabel class="header-item">Petite Martinique</IonLabel>
                 </IonList>
                 <IonList class="header-image-container">
                     <IonThumbnail class="header-image">
