@@ -1,15 +1,37 @@
 .about-us-main-container{
-
+    font-family: 'Times New Roman', Times, serif;
 }
 .about-us-header{
     text-align: center;
     padding-top: 40px;
     padding-bottom: 10px;
     font-size: 30px;
+    text-decoration: underline;
+}
+.about-us-sub-header{
+    width: 80%;
+    font-size: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 .about-us-sub-container{
     height: 500px;
 }
 .about-us-items{
     
+}
+
+@media screen and (max-width:767px){
+    .about-us-header{
+        padding-bottom: 0px;
+        font-size: 20px;
+    }
+    .about-us-sub-header{
+        width: 80%;
+        font-size: 18px;
+        text-align: justify;
+    }
+    .about-us-sub-container{
+        height: 0px;
+    }
 }

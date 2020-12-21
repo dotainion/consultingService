@@ -8,8 +8,11 @@ import { content } from '../components/Contents';
 import { images } from '../components/Images';
 import { Promotion } from '../components/Promotion';
 import { FaLeaf } from 'react-icons/fa';
+import { useHistory } from 'react-router';
+import { globalVar } from '../global/globalVar';
 
 const Design: React.FC = ()=>{
+    const history = useHistory();
     const showWidget = (ids:any,state:boolean) =>{
         for (var id of ids){
             const element = document.getElementById(id);
@@ -50,7 +53,10 @@ const Design: React.FC = ()=>{
                                 <IonImg src={obj.image}/>
                             </IonThumbnail>
                             <div className="design-content-container">{obj.title}</div>
-                            <div hidden className="design-button design-button-click" id={`${obj.title}${index}`}>BOOK NOW</div>
+                            <div hidden className="design-button design-button-click" onClick={()=>{
+                                tools.state.set({other: obj.title});
+                                history.push(globalVar.route.Form);
+                            }} id={`${obj.title}${index}`}>BOOK NOW</div>
                             <div hidden className="design-content-info" id={`${obj.content}${index}`}>{obj.content}</div>
                         </div>
                     ))}

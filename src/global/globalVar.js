@@ -8,6 +8,8 @@ class Routes{
     AboutUs = "/about/us";
     Pricing = "/program/model";
     Benefits = "/benefits";
+    FAQs = "/FAQ's";
+    Sustainability = "/sustainability";
 }
 class SiteUrl{
     academy = "http://www.caribbeancodingacademygrenada.com/";

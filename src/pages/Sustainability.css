@@ -1,0 +1,139 @@
+.sustainability-container{
+    padding-bottom: 20px;
+    user-select: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/sustainability.jpg);
+}
+.sustainability-header{
+    text-align: center;
+    font-size: 40px;
+    padding-top: 20px;
+}
+.sustainability-sub-header{
+    text-align: center;
+    padding-top: 20px;
+}
+.sustainability-item-container{
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+    margin-top: 50px;
+}
+.sustainability-rounds{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid var(--header-text-color);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    background: transparent;
+}
+.sustainability-rounds-child{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+.sustainability-values{
+    font-size: 20px;
+}
+.sustainability-link{
+    font-weight: bold;
+    color: var(--header-text-color);
+}
+.sustainability-tag-container{
+    display: flex;
+    width: 50%;
+    margin: 20px;
+    padding: 20px;
+    border: 5px solid rgb(59, 112, 59);
+}
+.sustainability-tag-left-container{
+    border: 1px solid var(--header-text-color);
+    padding: 5px;
+    width: 400px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px rgb(58, 57, 57);
+}
+.sustainability-tag-right-container{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.sustainability-tag-right-button{
+    position: absolute;
+    z-index: 999;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: var(--header-text-color);
+    box-shadow: 2px 2px 4px black;
+}
+.sustainability-tag-button-shadow{
+    position: absolute;
+    width: 30%;
+    height: 20px;
+    top: 64%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate3d(-50%,-50%,0);
+    background-color: black;
+    box-shadow: 4px 4px 5px black;
+}
+.sustainability-tag-hover:hover{
+    color: white;
+    background-color: black;
+}
+.sustainability-tag-click:active{
+    box-shadow: 1px 1px 2px black;
+}
+
+@media screen and (max-width:767px){
+    .sustainability-header{
+        padding-top: 40px;
+    }
+    .sustainability-item-container{
+        display: block;
+        width: 95%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .sustainability-tag-container{
+        position: relative;
+        display: block;
+        width: 95%;
+        top: 20px;
+        margin: 0px;
+        padding: 10px;
+        border: 2px solid rgb(59, 112, 59);
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 20px;
+    }
+    .sustainability-tag-left-container{
+        width: 100%;
+    }
+    .sustainability-tag-right-container{
+        margin-bottom: 0px;
+    }
+    .sustainability-tag-right-button{
+        position: relative;
+        width: 100%;
+        top: 5px;
+        left: 0;
+        transform: none;
+    }
+    .sustainability-rounds{
+        color: white;
+        border: 1px solid white;
+    }
+}

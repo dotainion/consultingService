@@ -34,6 +34,8 @@ import Design from './pages/Design';
 import AboutUs from './pages/AboutUs';
 import Model from './pages/PriceModel';
 import Benefits from './pages/Benefits';
+import FAQs from './pages/FAQ';
+import Sustainability from './pages/Sustainability';
 
 const App: React.FC = () =>{
 return (
@@ -48,6 +50,8 @@ return (
           <Route path={globalVar.route.Form} component={Form} exact={true} />
           <Route path={globalVar.route.Offers} component={Offers} exact={true} />
           <Route path={globalVar.route.Home} component={Home} exact={true} />
+          <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
+          <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route exact path="/" render={() => <Redirect to={globalVar.route.Home} />} />
         </IonRouterOutlet>
       </IonReactRouter>

@@ -81,7 +81,7 @@
 
 @media screen and (max-width:767px){
     .benefits-header{
-        padding: 20px;
+        padding-top: 50px;
     }
     .benefits-item-container{
         display: block;
@@ -104,5 +104,39 @@
     }
     .benefits-content{
         padding: 10px;
+    }
+    .benefits-left-right-container{
+        display: block;
+        height: auto;
+    }
+    .benefits-left-container{
+        width: 100%;
+        font-size: 15px;
+        padding-top: 10px;
+    }
+    .benefits-right-container{
+        width: 100%;
+    }
+    .benefits-header-image{
+        width: 100%;
+    }
+    .benefits-promo-container{
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+    }
+    .benefits-promo-button{
+        width: 100%;
+    }
+    .benefits-content{
+        font-size: 20px;
+        margin-top: -50px;
+    }
+    .benefits-more-title{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .benefits-more-content{
+        font-size: 15px;
     }
 }

@@ -52,6 +52,7 @@ import energyManagement from '../images/energyManagement.jpg';
 import benefits from '../images/benefits.jpg';
 import bgImg from '../images/bgImg.jpg';
 import bgImg2 from '../images/bgImg2.jpg';
+import sustainability from '../images/sustainability.jpg';
 
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
@@ -114,6 +115,7 @@ class Picture{
     benefits = benefits;
     bgImg = bgImg;
     bgImg2 = bgImg2;
+    sustainability = sustainability;
 
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];

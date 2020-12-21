@@ -15,16 +15,16 @@ class Objects{
                 route: globalVar.route.AboutUs
             },{
                 name: "FAQ’s",
-                route: "#"
+                route: globalVar.route.FAQs
             },{
                 name: "Clients",
                 route: globalVar.route.Clients
             },{
-                name: "Video",
-                route: "#"
+                name: "Business Designs",
+                route: globalVar.route.Design
             },{
                 name: "Sustainability",
-                route: "#"
+                route: globalVar.route.Sustainability
             },
         ]
     }

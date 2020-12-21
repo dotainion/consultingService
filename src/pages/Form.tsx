@@ -22,6 +22,7 @@ const Form: React.FC = () => {
         company: "",
         services: "",
         details: "",
+        other: ""
     })
     const updateInputs = (cmd:any, value:any) =>{
         setInputs({
@@ -33,6 +34,7 @@ const Form: React.FC = () => {
             company: tools.compare(cmd,"c",value,inputs.company),
             services: tools.compare(cmd,"s",value,inputs.services),
             details: tools.compare(cmd,"d",value,inputs.details),
+            other: tools.compare(cmd,"o",value,inputs.other)
         })
     }
     const onSubmit = (form:any) =>{
@@ -62,8 +64,9 @@ const Form: React.FC = () => {
 
     useEffect(()=>{
         const preValue = tools.state.get();
-        if (preValue){
-            updateInputs("s",preValue.title);
+        if (preValue?.other) updateInputs("o",preValue?.other);
+        else if (preValue?.title){
+            updateInputs("s",preValue?.title);
             setDropTextHolder({margin:"-18px",color:"dodgerblue"});
             setBorderStyle("1px solid green");
         }
@@ -140,6 +143,12 @@ const Form: React.FC = () => {
                                 </div>
                                 <IonIcon class="form-down-icon" slot="end" icon={chevronDown}/>
                             </div>
+                            <IonItem class="form-input-sub-container" lines="none">
+                                <IonLabel class="form-input-floating-text" position="floating">Other</IonLabel>
+                                <IonInput class="form-input" onIonChange={(e)=>{
+                                        updateInputs("o",e.detail.value);
+                                    }} value={inputs.other}/>
+                            </IonItem>
                             <IonItem class="form-input-sub-container" lines="none"> 
                                 <IonTextarea class="form-textarea" onIonChange={(e)=>{
                                     updateInputs("d",e.detail.value);
@@ -153,7 +162,7 @@ const Form: React.FC = () => {
                                     setInputs({
                                         firstName: "",lastName: "",email: "",
                                         phone: "",address: "",company: "",
-                                        services: "",details: "",
+                                        services: "",details: "",other: ""
                                     });
                                     setDropTextHolder({margin:"0px",color:"black"});
                                 }}>Clear</IonButton>
