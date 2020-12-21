@@ -4,9 +4,11 @@ import './Footer.css';
 import { tools } from './tools';
 import { content } from './Contents';
 import { images } from './Images';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { globalVar } from '../global/globalVar';
 
 export const Footer: React.FC = ()=>{
+    const history = useHistory();
     return(
         <IonFooter class="footer-main-container">
             <div className="footer-app-links-container">
@@ -55,9 +57,8 @@ export const Footer: React.FC = ()=>{
                     <div className="footer-content-main-container">
                         <div className="footer-content-header">{content.objects.services.header}</div>
                         <div className="footer-content-sub-container">
-                            <Link to="offers" id="to-offers" hidden/>
                             <span className="footer-content-items footer-content-items-hover" onClick={()=>{
-                                tools.click.id("to-offers");
+                                history.push(globalVar.route.Offers);
                             }}>View Our Servies</span>
                         </div>
                     </div>
