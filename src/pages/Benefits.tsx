@@ -61,7 +61,7 @@ const Benefits: React.FC = () => {
                     <PromoButton/>
                     <div>
                         {content.objects.benefits.more.map((info, index)=>(
-                            <div className="benefits-more-container">
+                            <div className="benefits-more-container" key={index}>
                                 <div className="benefits-more-title">{info.title}</div>
                                 <IonNote className="benefits-more-content">{info.content}</IonNote>
                             </div>

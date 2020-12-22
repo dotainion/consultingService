@@ -41,11 +41,81 @@ class State{
         }return null;
     }
 }
+class Slide{
+    counter = 0;
+    switch = "forward";
+    intervalRef = [];
+    farword(id){
+        const farw = setInterval(()=>{
+            let slideElement = document.getElementById(id);
+            slideElement.style.transform = `translateX(${this.counter}%)`;
+            if (this.counter >= 100){ 
+                this.switch = "backword";
+                this.clear();
+            }
+            this.counter ++;
+        },50);
+        this.intervalRef.push(farw);
+    }
+    backword(id){
+        let back = setInterval(()=>{
+            let slideElement = document.getElementById(id);
+            slideElement.style.transform = `translateX(${this.counter}%)`;
+            if (this.counter <= 0){ 
+                this.switch = "forward";
+                this.clear();
+            }
+            this.counter --;
+        },50);
+        this.intervalRef.push(back);
+    }
+    clear(){
+        for (let interval of this.intervalRef){
+            clearInterval(interval);
+        }
+        this.intervalRef = [];
+    }
+    setId(id, muted, inerval=142000){
+        setInterval(()=>{
+            this.clear();
+            if (this.switch === "forward"){ 
+                this.farword(id);
+                muted(true);
+            }else{ 
+                this.backword(id);
+                muted(false);
+            }
+        },inerval);
+    }
+}
+class Visible{
+    isVisible(id,callBack){
+        const isInViewPort = (element) =>{
+            const rect = element.getBoundingClientRect()
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        const elementRef = document.getElementById(id);
+        const loopRef = setInterval(async()=>{
+            callBack(isInViewPort(elementRef));
+        },400);
+        return loopRef;
+    }
+    deVisibleCheck(element){
+        clearInterval(element);
+    }
+}
 class Tools{
     state = new State();
     click = new Clicks();
     open = new Clicks();
     email = new Email();
+    slide = new Slide()
+    element = new Visible();
     compare(compareThis,withThat,returnIfTrue,returnIfFalse){
         if (compareThis === withThat) return returnIfTrue;
         else return returnIfFalse;

@@ -23,7 +23,9 @@ export const Footer: React.FC = ()=>{
                         <div className="footer-content-sub-container">
                             {content.objects.aboutus.list.map((info, index)=>(
                                 <div key={index}>
-                                    <span className="footer-content-items footer-content-items-hover">{info.name}</span>
+                                    <span className="footer-content-items footer-content-items-hover" onClick={()=>{
+                                        history.push(info.route);
+                                    }}>{info.name}</span>
                                 </div>
                             ))}
                         </div>

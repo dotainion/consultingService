@@ -11,7 +11,7 @@ class Objects{
         header: "ABOUT US",
         list: [
             {
-                name: "About GCMS",
+                name: "About GMCS",
                 route: globalVar.route.AboutUs
             },{
                 name: "FAQ’s",
@@ -146,7 +146,7 @@ class Objects{
     location = {
         header: "HEAD OFFICE LOCATION",
         list: [
-            "GMCS is located on H.A. Blaise Street in St. George’s right behind the Fire Station on the Carenage in St. George’s Grenada. Our office is located on the third floor of the Caribbean Coding Building."
+            "GMCS is located on H.A. Blaize Street in St. George’s right behind the Fire Station on the Carenage in St. George’s Grenada. Our office is located on the third floor of the Caribbean Coding Building."
         ]
     }
     intro = {
@@ -293,7 +293,7 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.benefit,
-                route: "#",
+                route: globalVar.route.Benefits,
                 newTab: false
             },{
                 title: "Our Pricing Model",
