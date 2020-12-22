@@ -25,7 +25,7 @@ export const Intro = () =>{
             </IonThumbnail>
             <div className="intro-sub-container">
                 <div className="intro-content-container">
-                    <div className="intro-header">Make that step towords greatness</div>
+                    <div className="intro-header">Make that step towards greatness</div>
                     <div className="intro-header">improve your business</div>
                     <span className="intro-button intro-button-hover" onClick={()=>{
                         history.push("/form");
