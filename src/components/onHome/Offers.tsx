@@ -17,7 +17,7 @@ export const Offers = () =>{
             <div className="offer-card-sub-container">
                 {
                     content.objects.offers.map((offer:any, index:any)=>(
-                        <div className="offers-card-container offers-card-hovor" onClick={()=>{tools.click.id("offer-link")}} key={index}>
+                        <div className="offers-card-container offers-card-hovor" onClick={()=>{tools.click.byId("offer-link")}} key={index}>
                             <div className="offers-card-img-container">
                                 <img className="offers-image" src={offer.image}/>
                             </div>

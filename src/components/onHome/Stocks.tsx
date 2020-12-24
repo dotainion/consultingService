@@ -32,7 +32,7 @@ export const Stocks = () =>{
                             {stockArray.map((stock:any,key:any)=>(
                                 <div className="stocks-container stocks-hover" key={key} onClick={()=>{
                                     if (stock.newTab) window.open(stock.route);
-                                    else if (stock.newTab === null) tools.click.id(stock.route);
+                                    else if (stock.newTab === null) tools.click.byId(stock.route);
                                     else history.push(stock.route); 
                                 }}>
                                     <stock.icon className="stocks-image"/>

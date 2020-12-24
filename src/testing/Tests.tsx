@@ -31,7 +31,7 @@ const Test: React.FC = () =>{
                     </IonSlide>
                 </IonSlides>
                 <IonButton onClick={()=>{
-                    tools.click.id("slide");
+                    tools.click.byId("slide");
                 }}>Click Me</IonButton>
             </IonContent>
         </IonPage>

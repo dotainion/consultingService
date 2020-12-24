@@ -13,7 +13,7 @@ class Email{
 }
 
 class Clicks{
-    id(elementId){
+    byId(elementId){
         try{
             document.getElementById(elementId).click();
         }catch{console.log(`${elementId} not found`);}
