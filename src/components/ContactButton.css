@@ -1,0 +1,40 @@
+.contactButton-main-container{
+    position: relative;
+    height: 150px;
+    user-select: none;
+    background-color: var(--header-text-color);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.contactButton-button{
+    position: absolute;
+    display: inline-block;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    background-color: orange;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate3d(-50%, -50%, 0);
+    box-shadow: 4px 4px 10px black;
+}
+.contactButton-button-bar{
+    position: absolute;
+    display: inline-block;
+    background-color: black;
+    top: 65%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border-radius: 25%;
+    box-shadow: 4px 4px 10px black;
+}
+.contactButton-hover:hover{
+    color: white;
+    background-color: black;
+}
+.contactButton-click:active{
+    box-shadow: 2px 2px 5px black;
+}

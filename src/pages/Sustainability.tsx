@@ -1,31 +1,16 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList, IonItem } from '@ionic/react';
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { ContactButton } from '../components/ContactButton';
+import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
+import { Promotion } from '../components/Promotion';
 import { globalVar } from '../global/globalVar';
 import './Sustainability.css';
 
 const Sustainability: React.FC = () => {
     const history = useHistory();
-    const sustain = [
-        {
-            valuesAmount: "25%",
-            values: "sustainability",
-            linkName: "link name",
-            link: "#"
-        },{
-            valuesAmount: "25%",
-            values: "sustainability",
-            linkName: "link name",
-            link: "#"
-        },{
-            valuesAmount: "25%",
-            values: "sustainability",
-            linkName: "link name",
-            link: "#"
-        }
-    ];
     return (
         <IonPage>
             <IonContent>
@@ -38,13 +23,15 @@ const Sustainability: React.FC = () => {
                         <IonLabel>Resources from building a fully successful business</IonLabel>
                     </div>
                     <div className="">
-                        {sustain.map((value, key)=>(
+                        {content.objects.sustainability.list.map((value, key)=>(
                             <div className="sustainability-item-container" key={key}>
                                 <div className="sustainability-rounds">
                                     <span className="sustainability-rounds-child">{value.valuesAmount}</span>
                                 </div>
                                 <p className="sustainability-values">{value.values}</p>
-                                <Link className="sustainability-link" to={value.link}>{value.linkName}</Link>
+                                <span className="sustainability-link sustainability-hover" onClick={()=>{
+                                    history.push(value.link);
+                                }}>{value.linkName}</span>
                             </div>
                         ))}
                     </div>
@@ -62,6 +49,16 @@ const Sustainability: React.FC = () => {
                         </div>
                     </div>
                 </div>
+                <div className="sustainability-info-container">
+                    <span className="sustainability-info-header">Objective:</span>
+                    <ol>
+                        <p>{content.objects.sustainability.objective}</p>
+                        <p>{content.objects.sustainability.reason}</p>
+                    </ol>
+                </div>
+                <ContactButton/>
+                <Promotion/>
+                <ContactButton/>
                 <Footer/>
             </IonContent>
         </IonPage>

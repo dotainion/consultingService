@@ -5,6 +5,9 @@ import { tools } from '../components/tools';
 import { content } from '../components/Contents';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Vision } from '../components/onHome/Vision';
+import { Promotion } from '../components/Promotion';
+import { ContactButton } from '../components/ContactButton';
 
 
 const AboutUs: React.FC = ()=>{
@@ -21,6 +24,9 @@ const AboutUs: React.FC = ()=>{
                         ))}
                     </div>
                 </div>
+                <Promotion/>
+                <Vision/>
+                <ContactButton/>
                 <Footer/>
             </IonContent>
         </IonPage>

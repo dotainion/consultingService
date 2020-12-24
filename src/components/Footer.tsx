@@ -1,20 +1,33 @@
 import { IonButton, IonCard, IonFooter, IonInput, IonItem, IonLabel } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { tools } from './tools';
 import { content } from './Contents';
 import { images } from './Images';
 import { Link, useHistory } from 'react-router-dom';
 import { globalVar } from '../global/globalVar';
+import { AlertTemp } from './Widgets';
 
 export const Footer: React.FC = ()=>{
+    const [alert, setAlert] = useState(false);
     const history = useHistory();
     return(
         <IonFooter class="footer-main-container">
+            <AlertTemp 
+                state={alert} 
+                onClose={()=>{setAlert(false)}}
+                header="Attention!!"
+                subHeader="Development Information"
+                msg="This feature is not yet developt and will be coming soon"
+            />
             <div className="footer-app-links-container">
                 <IonLabel className="footer-app-content">Visit us on</IonLabel>
-                <images.icons.facebook color="rgb(13, 58, 102)" className="footer-app-image"/>
-                <images.icons.instagram color="rgb(170, 7, 185)" className="footer-app-image"/>
+                <images.icons.facebook color="rgb(13, 58, 102)" onClick={()=>{
+                    setAlert(true);
+                }} className="footer-app-image"/>
+                <images.icons.instagram color="rgb(170, 7, 185)" onClick={()=>{
+                    setAlert(true);
+                }} className="footer-app-image"/>
             </div>
             <div className="footer-sub-container">
                 <div className="footer-box">

@@ -19,13 +19,14 @@
     width: 33.33%;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 .sustainability-rounds{
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 1px solid var(--header-text-color);
+    border: 2px solid var(--header-text-color);
     margin-left: 50%;
     transform: translateX(-50%);
     font-size: 40px;
@@ -38,7 +39,8 @@
     transform: translate3d(-50%,-50%,0);
 }
 .sustainability-values{
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: bold;
 }
 .sustainability-link{
     font-weight: bold;
@@ -49,15 +51,15 @@
     width: 50%;
     margin: 20px;
     padding: 20px;
-    border: 5px solid rgb(59, 112, 59);
+    border: 1px solid white;
 }
 .sustainability-tag-left-container{
-    border: 1px solid var(--header-text-color);
-    padding: 5px;
+    border: 1px solid white;
+    padding: 10px;
     width: 400px;
     font-weight: bold;
-    color: black;
-    text-shadow: 1px 1px rgb(58, 57, 57);
+    color: white;
+    background-color: var(--header-text-color);
 }
 .sustainability-tag-right-container{
     position: relative;
@@ -95,6 +97,21 @@
 }
 .sustainability-tag-click:active{
     box-shadow: 1px 1px 2px black;
+}
+.sustainability-info-container{
+    font-size: 25px;
+    width: 95%;
+    margin-top: 50px;
+    margin-left: 50%;
+    margin-bottom: 50px;
+    transform: translateX(-50%);
+    color: var(--header-text-color);
+}
+.sustainability-info-header{
+    font-weight: bold;
+}
+.sustainability-hover:hover{
+    text-decoration: underline;
 }
 
 @media screen and (max-width:767px){

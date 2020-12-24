@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert } from '@ionic/react';
 import './Widgets.css';
 import { tools } from './tools';
 import { globalVar } from '../global/globalVar';
@@ -147,5 +147,31 @@ export const ErrorBox = (data:any) =>{
             </IonItem>
             <IonButton id="error-link" hidden onClick={()=>{window.open(`http://${data.link}`)}}/>
         </IonPopover>
+    )
+}
+
+export const AlertTemp = (props:any) =>{
+    let timer:any = null;
+    if (props.state){
+        timer = setTimeout(()=>{
+            if (props.onClose && props.timer !== false) props.onClose();
+            clearTimeout(timer);
+        },4000);
+    }
+    return(
+        <IonAlert
+          isOpen={props.state}
+          onDidDismiss={() =>{if (props.onClose) props.onClose()}}
+          cssClass='my-custom-class'
+          header={props.header || 'Alert'}
+          subHeader={props.subHeader || 'Subtitle'}
+          message={props.msg || 'This is an alert message.'}
+          buttons={[{
+            text: 'Okay',
+            handler: () => {
+                clearTimeout(timer);
+            }
+          }]}
+        />
     )
 }

@@ -2,9 +2,17 @@
     position: relative;
     display: flex;
 }
-.intro-thumbnail-container{
+.intro-image-video-container{
     width: 100%;
     height: 500px;
+    padding-top: 0;
+}
+.intro-slider-container{
+    height: 100%;
+}
+.intro-thumbnail{
+    width: 100%;
+    height: 100%;
 }
 .intro-sub-container{
     position: absolute;
@@ -48,30 +56,6 @@
 }
 .intro-button-hover:hover{
     background-color: black;
-}
-.intro-vedio-container{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-.intro-play-button{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 99999;
-    color: red;
-    background-color: gray;
-    font-size: 40px;
-    padding-top: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 2px;
-    border-radius: 10px;
-    transform: translate3d(-50%,-50%,0);
-}
-.intro-play-button-hover:hover{
-    background-color: green;
 }
 
 @media screen and (max-width:767px){

@@ -53,6 +53,9 @@ import benefits from '../images/benefits.jpg';
 import bgImg from '../images/bgImg.jpg';
 import bgImg2 from '../images/bgImg2.jpg';
 import sustainability from '../images/sustainability.jpg';
+import howLongGraph from '../images/howLongGraph.png';
+import peopleConsulting from '../images/peopleConsulting.jpg';
+import _404 from '../images/404-error.png';
 
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
@@ -62,6 +65,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 
 class Picture{
+    _404 = _404;
     brokerage = brokerage;
     brokerage2 = brokerage2;
     consulting = consulting;
@@ -116,6 +120,8 @@ class Picture{
     bgImg = bgImg;
     bgImg2 = bgImg2;
     sustainability = sustainability;
+    howLongGraph = howLongGraph;
+    peopleConsulting = peopleConsulting;
 
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];

@@ -1,5 +1,7 @@
 
 class Routes{
+    Test = "/testing";
+    _404 = "/404";
     Clients = "/clients";
     Design = "/design";
     Form = "/form";

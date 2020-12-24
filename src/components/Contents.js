@@ -316,21 +316,21 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.calendar,
-                route: "#",
+                route: globalVar.route.Form,//temparary
                 newTab: false
             },{
                 title: "Marketing",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.sales,
-                route: "#",
+                route: globalVar.route.Form,//temparary
                 newTab: false
             },{
                 title: "Training Service",
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.training,
-                route: "#",
+                route: globalVar.route.Form,//temparary
                 newTab: false
             }
         ],[
@@ -346,7 +346,7 @@ class Objects{
                 subTitle: "Empowerment",
                 content: "",
                 icon: images.icons.fiberOptic,
-                route: "#",
+                route: globalVar.route.Form,//temparary
                 newTab: false
             },{
                 title: "Suggest your idea",
@@ -384,6 +384,364 @@ class Objects{
             content: "Empowerment",
             image: images.picture.advertise
         }
+    ];
+    sustainability = {
+        objective: `Grenada Management Consulting Services business approach is to create long-term value by
+            taking into consideration how an organization should operate in Grenada’s ecological, social
+            and economic environment. We strongly believe that developing such strategies foster company
+            longevity and leads to sustainability.`,
+        reason: `We help companies manage their financial, social and environmental risks, obligations and
+            opportunities. These three are commonly referred to as people, planet and profits.`,
+        list: [
+            {
+                valuesAmount: "100%",
+                values: "Strategic planning and implementation",
+                linkName: "link name",
+                link: "#"
+            },{
+                valuesAmount: "90%",
+                values: "Growth and sustainability",
+                linkName: "link name",
+                link: "#"
+            },{
+                valuesAmount: "100%",
+                values: "Business Model Design",
+                linkName: "link name",
+                link: "#"
+            }
+        ]
+    }
+    FAQs = [
+        {
+            FAQ: "What dose GMCS constulting service do?",
+            answers: {
+                header: "We help entrepreneurs get ready to raise capital. This usually consists of some or all of the following services:",
+                list: [
+                    "Business plan development",
+                    "Financial forecast development",
+                    "Pitch deck (investor presentation) preparation",
+                    "Strategy development",
+                    "Market research and analysis",
+                    "Competitor research and analysis",
+                    "Financial analysis",
+                    "General coaching and advisory services",
+                    "Capital formation strategy",
+                ],
+                ans: `Please note that we cannot help our clients raise capital.`,
+                graph: ""
+            }
+        },{
+            FAQ: "What industries do you specialize in?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We take pride in our ability to learn the fundamentals of virtually any industry or technology quickly. Some of the markets we have served include green technologies, medical devices, biotechnology, Internet/e-commerce, telecommunications, distance education/e-learning, real estate, financial services, healthcare services, manufacturing, retail, food service, consumer products, media and entertainment, aerospace, artificial intelligence, enterprise software, insurance, energy, and networking. Having said that, we believe that the value we bring to the table is not industry expertise — which you already possess in abundance — but rather an understanding of what investors like to see in a potential opportunity.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Can you guarantee that you plan will raise capital?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Of course not. Nobody can make that guarantee (and if somebody ever makes that guarantee, it’s a good idea to run away quickly). A good plan is essential, but a plan alone will not get funded. Although we will do our best to help you prepare, we have no control over how well you present yourselves to investors, or how well you answer their questions. We can coach and we can mentor, but at the end of the day, it’s your business and you must close the deal.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Can you help us raise money?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We can sometimes make informal introductions to potential investors or other intermediaries. In general, only brokers licensed with the Financial Industry Regulatory Authority (FINRA) can legally arrange financing. Please seek legal counsel and make sure that any “finder” you talk to is properly licensed with FINRA before you hire them. Failing to do so may expose you and your company to significant liability.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Do you ever invest in you clients?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `No, we are management consultants, not investors.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Do we really need a business plan?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `If you run a business, then it’s probably safe to say yes. In fact, you may require more than one business plan: one for raising capital and one for running your business. The former is a compact, easily digested strategic document that is designed to persuade potential investors to pick up the phone and invite you to their offices for an initial meeting. The latter is a more detailed document serving as a day-to-day roadmap, detailing the tactics supporting your overall strategy. The former needs to be an attractive document that sells; the latter can be a collection of spreadsheets, lists, research summaries, and other documents stuffed in a binder that you refer to and update on a regular basis. We specialize in preparing the capital-raising business plan, but many of the by-products are suitable for use in the operating business plan.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Why should we hire a consultant to write you business plan instead of doing it ourselves?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `You could easily spend 500 hours or more preparing an investor-grade business plan, financial forecast, and investor presentation, even if you have an MBA. This is time you should probably be spending building your team, product, distribution channels, and customer base. In addition to our expertise in preparing these materials, we offer independent, third-party insights into your business, and may raise questions that you might not have thought to ask.`,
+                graph: ""
+            }
+        },{
+            FAQ: "what makes your business plan so special?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Most importantly, they work. In a world in which fewer than 1 in 250 business plans ever raise venture capital, we are happy to report that about half of our plans have raised capital, and a good portion of the rest resulted in an acquisition or currently have commitments for investment from prior round investors. Each plan is handcrafted to reflect the client’s specific circumstances, yet share attributes that investors find appealing.`,
+                graph: ""
+            }
+        },{
+            FAQ: "what makes your financial projections special?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Balance sheets that balance. Cash flows, income statements, and balance sheets that tie together (you’d be surprised by how many consultants who don’t get the basics right). Fully assumption-driven, so that you can do what-if analyses. Depending on your needs, we can include a lot of very sophisticated features`,
+                graph: ""
+            }
+        },{
+            FAQ: "How dose the process work?",
+            answers: {
+                header: "Every situation is unique. However, some fairly common steps include the following:",
+                list: [
+                    "Initial discussion to understand your basic needs.",
+                    "Review your existing materials (draft business plans, financials, market research, competitor research, etc.).",
+                    "Follow-up discussion to clarify details and agree upon the scope and fees for the project.",
+                    "Several in-depth discussions to better understand the details, develop strategies, and agree on all major elements of the business plan and financial model.",
+                    "Conduct additional research, as needed.",
+                    "Draft an Investor Presentation and review it with you to ensure that all parties agree on the high-level vision.",
+                    "Draft the Executive Summary and review it with you to ensure that we all agree on the next level of detail.",
+                    "Prepare a draft outline of the business plan for your review.",
+                    "Begin filling in the details on the draft. Obtain and incorporate your feedback.",
+                    "Incorporate your revenue and expense models into the financial model, and explain how it works so that you can take “ownership” of the financials.",
+                    "Finalize all deliverables.",
+                    "Coach you on the best way to deliver the investor presentation and on how to address questions.",
+                    "Provide ongoing support, including making minor updates to the deliverables at no additional charge.",
+                ],
+                ans: `Depending on how we structure the project, you should expect to spend anywhere from 10-30 hours on the process over the course of a typical engagement.`,
+                graph: ""
+            }
+        },{
+            FAQ: "How long does it take?",
+            answers: {
+                header: "For a typical engagement, consisting of a business plan, financial forecast, and investor presentation, the typical time to completion is 6-8 weeks, as illustrated below. The actual time can be influenced by the quality of your existing materials, the level of your participation, the complexity of your market and business model, and our current workload.",
+                list: [
+
+                ],
+                ans: `Some very simple projects can be completed in just a few days, and we have had other projects extend well over a year (of course these engagements involved much more than just business planning).`,
+                graph: images.picture.howLongGraph
+            }
+        },{
+            FAQ: "Cant you work any faster?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Yes, but we may need to charge a “rush” fee. We typically work on multiple projects at any point in time, and rush projects can strain our schedules or inconvenience other clients.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Will you agree with everything i say?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Only if you’re always right. One of our jobs is to help you avoid mistakes. We’ll challenge your ideas and assumptions so that you’ll be ready for the tough questions when you meet with investors.`,
+                graph: ""
+            }
+        },{
+            FAQ: "What happens after you've delivered the final documents?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We remain available, at no extra charge, to answer follow-up questions, provide advice, and to make minor changes to the documents we produced for you.`,
+                graph: ""
+            }
+        },{
+            FAQ: "How do you price your sservices?",
+            answers: {
+                header: "In general, we charge a pre-determined fixed fee. The fee is determined by:",
+                list: [
+                    "The scope of the project, in terms of the tasks and documents you require help with.",
+                    "The sophistication and specific needs of your target audience.",
+                    "The quality of your existing materials, including early drafts of business plans, financial forecasts, market research, competitive research, etc. For instance, if you have a recent, comprehensive research report from a major market research firm like Forrester, our effort can be significantly reduced.",
+                    "The clarity of your vision for your business model, marketing and distribution strategy, financial plans, etc.",
+                    "Your availability and willingness to participate in the preparation of the business plan, financial model, and investor presentation.",
+                    "The complexity of your industry and business model.",
+                    "The availability of industry information.",
+                    "The desired timing relative to our workload. In general, “rush” jobs will carry a substantial premium over projects that can be completed as our schedule permits.",
+                ],
+                ans: `Because of these factors, the fees for a typical project, consisting of the preparation of an investor-grade business plan, financial forecast, and investor presentation, can range from a few thousand dollars to several tens of thousands of dollars. By the way, if you are “price shopping,” you should know that price doesn’t tell the whole story. After all, would you choose one car over another simply because of price? Of course not – there are many dimensions you need to consider.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Are you worth the money?",
+            answers: {
+                header: "We believe we are, because:",
+                list: [
+                    "We Succeed: We are well aware that there are many low-end business plan consultants offering their services for under $5,000. Some of these consultants do fine work, but their typical client is the small business seeking SBA and bank loans, not venture capital. Consider that, even during the height of the market, fewer than 1 in 100 business plans that made it into the hands of a VC ever raised capital (and the number is probably worse than 1 in 250 today). Who do you think prepared many of those unsuccessful plans? On the other hand, well over half of our plans have raised capital.",
+                    "Your Time is Too Valuable: Let’s consider a $20,000 engagement consisting of a sophisticated VC-grade plan, financials, and pitch deck. In our experience, it would take most entrepreneurs a minimum of 500 hours to create comparable materials. If you choose to do it yourself, you are implicitly valuing your time at just $40 per hour. Surely, you can create more value per hour for your venture by focusing on your product, customers, and distribution channels!",
+                    "Professionalism Adds Value: We can complete the same engagement in about 100 hours. This implies a rate of $200 per hour. You’re probably paying your CPA at least $200 per hour, your attorney at least $300 per hour, and your name-brand management consultant at least $450 per hour. Yet these are all essentially commodities: a good attorney is easy to find, but a good business planner is very rare. We believe that our experience and specialized skills are a bargain compared to the many other professional services you employ."
+                ],
+                ans: ``,
+                graph: ""
+            }
+        },{
+            FAQ: "Will you take all or part of your fees in equity, or defer it untill after we raise capital?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Only under extraordinary circumstances, and only if you are already generating revenues.`,
+                graph: ""
+            }
+        },{
+            FAQ: "What is your refund policy?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Your initial payment is non-refundable. This is because by the time you have decided to hire us, we have already set aside time to work with you, and we may even have turned away other opportunities in order to provide you with the best possible experience. Subsequent payments are subject to a pro-rated refund if you choose to terminate the project before we have fully earned the subsequent payment. For example, suppose fees for your project are broken into three payments, each covering 20 hours of services. The initial payment covers the first 20 hours, and the second payment covers the next 20 hours. If you change your mind about the project after we have put a total of 30 hours into the project, you would be entitled to a refund for half of the second payment because we will only have earned 10 hours of it.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Will you sign a non-disclosure agreement?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Gladly. We prefer to use a Mutual NDA so that our own trade secrets can be protected as well.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Can you send us samples of your work?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We are unable to email you a sample, but you can view several of our plans on our website. If you would like a closer look, we can schedule an online screen sharing session via Skype, Google-meet, zoom, or in person in the form of a hard copy.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Where are you located and how do you wok with clients outside of your local area?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We are headquartered in Orange County, California, and have consultants in and around Boston, Los Angeles, San Francisco, Silicon Valley, New York, Austin, Seattle, Portland, Chicago, Phoenix, Orlando, Tampa, Pittsburgh, Washington DC, and other locations. We rely heavily on the phone, e-mail, fax, and online meeting tools, and have never met half of our clients. If desired, we are available to visit you at your offices for a day or two at a time.`,
+                graph: ""
+            }
+        },{
+            FAQ: "What do investors look for in a business plan?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Our views are summarized in our white paper, Why Business Plans Don’t Get Funded.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Under what circumstances dose it make sense for us to hire you?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Many of our clients are looking to raise $5 million to $20 million of Series B or Series C funding. Some are looking to raise more; others are seeking angel financing of as little as $1 million. Our clients should have a realistic view about what types of businesses have a real chance of raising capital, and should have enough fuel in the tank to be able to go 6 months to a year before raising their next round of capital.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Are your materials all that we need in order to start looking for capital?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Not necessarily. Your attorney should be able to supply supplemental materials to ensure that your offering complies with state and federal securities regulations. You will also need to assemble all of the documents that investors typically review during the due diligence process, such as corporate by-laws, employment agreements, employee stock option plan, joint venture agreements, customer and supplier agreements, patent applications, etc.`,
+                graph: ""
+            }
+        },{
+            FAQ: "What your qualifications?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We’re all experienced entrepreneurs. Many have MBAs from top schools. Most importantly, we have proven track records.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Do you have referenes?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `Certainly. We would be pleased to introduce you to our past clients. However, in order to respect the time and generosity of our past clients, we provide references as the final step before you sign the engagement letter.`,
+                graph: ""
+            }
+        },{
+            FAQ: "How long will it take us to raise capital?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `If you have everything investors are looking for, perhaps 6-12 months. A few raise capital more quickly. Some never raise any capital. A lot depends on the nature of your opportunity and the effort you put into the pursuit of capital.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Is our company at the right stage to be looking for capital?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We would be happy to assess your situation, free of charge. Please contact us.`,
+                graph: ""
+            }
+        },{
+            FAQ: "Is venture capital right for us?",
+            answers: {
+                header: "",
+                list: [
+
+                ],
+                ans: `We would be happy to assess your situation, free of charge`,
+                graph: ""
+            }
+        },{
+            FAQ: "What is the origin of GMCS consulting's name?",
+            answers: {
+                header: "GMCS Consulting is a name abbreviated 'Grenada management Consulting Service'",
+                list: [
+
+                ],
+                ans: `GMCS's founder, Clifford Browne, He formed the company in early ###.`,
+                graph: ""
+            }
+        },
     ]
 }
 class Sentence{

@@ -9,6 +9,28 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { images } from '../components/Images';
 
+
+const TempMailing = () =>{
+    return(
+        <IonModal isOpen={true} backdropDismiss={false}>
+            <form className="test-mailing">
+                <h1>Let's see if it works</h1>
+                <div>
+                <textarea
+                    id="test-mailing"
+                    name="test-mailing"
+                    onChange={()=>{}}
+                    placeholder="Post some lorem ipsum here"
+                    required
+                    value={""}
+                    style={{width: '100%', height: '150px'}}
+                />
+                </div>
+                <input type="button" value="Submit" className="btn btn--submit" onClick={()=>{}} />
+            </form>
+        </IonModal>
+    )
+}
 const Form: React.FC = () => {
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
@@ -76,6 +98,7 @@ const Form: React.FC = () => {
         <IonPage>
             <IonContent>
                 <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
+                <TempMailing/>
                 <IonList>
                     <IonCard class="form-main-container">
                         <IonItem lines="none"class="form-header-container">

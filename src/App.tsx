@@ -25,7 +25,11 @@ import { globalVar } from './global/globalVar';
 /* Theme variables */
 import './theme/variables.css';
 
+/* testing */
+import Test from './testing/Tests';
+
 /* Pages */
+import _404 from './_404/_404';
 import Home from './pages/Home';
 import Clients from './pages/Clients';
 import Offers from './pages/Offers';
@@ -42,6 +46,7 @@ return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
+          <Route path={globalVar.route.Test} component={Test} exact={true} />
           <Route path={globalVar.route.Clients} component={Clients} exact={true} />
           <Route path={globalVar.route.Benefits} component={Benefits} exact={true} />
           <Route path={globalVar.route.Pricing} component={Model} exact={true} />
@@ -53,6 +58,7 @@ return (
           <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route exact path="/" render={() => <Redirect to={globalVar.route.Home} />} />
+          <Route component={_404}/>
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

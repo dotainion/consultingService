@@ -1,0 +1,53 @@
+._404-container{
+    height: 100%;
+    user-select: none;
+    --ion-background-color: var(--header-text-color);
+}
+._404-sub-container{
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10%;
+    margin-left: 50%;
+    border-radius: 50%;
+    transform: translatex(-50%);
+    border: 1px solid orangered;
+    box-shadow: 2px 2px 20px black;
+    --ion-background-color: white;
+}
+._404-image-thumbnail{
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    transform: translatex(-50%);
+}
+._404-text-container{
+    width: 95%;
+    font-size: 20px;
+    padding-top: 30px;
+    color: var(--header-text-color);
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid orangered;
+    text-shadow: 1px 1px black;
+    --ion-background-color: orange;
+}
+._404-text-header{
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+}
+._404-text{
+    display: block;
+}
+._404-button{
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+._404-hover:hover{
+    color: gray;
+    text-decoration: underline;
+}
