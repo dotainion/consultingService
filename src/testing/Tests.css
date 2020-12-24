@@ -1,0 +1,60 @@
+.test-header{
+    font-size: 40px;
+    padding: 20px;
+    color: white;
+    user-select: none;
+    text-shadow: 1px 1px black;
+    background-color: var(--header-text-color);
+}
+.test-icon-container{
+    display: flex;
+    padding: 10px;
+    user-select: none;
+}
+.test-icon-sub{
+    width: 50%;
+    font-size: 120px;
+    text-align: center;
+    padding: 20px;
+    color: var(--header-text-color);
+}
+.test-icon-text{
+    font-size: 20px;
+}
+.test-icon-hover:hover{
+    background-color: lightgray;
+    text-decoration: underline;
+}
+.test-button-container{
+    display: flex;
+}
+.test-left-button-container{
+    width: 60%;
+    user-select: none;
+    padding-left: 10px;
+}
+.test-right-button-container{
+    width: 40%;
+}
+.test-left-button{
+    display: inline-block;
+    color: navy;
+    text-decoration: underline;
+}
+.test-right-button{
+    text-transform: none;
+    margin-top: 50px;
+}
+.test-button-icon{
+    position: absolute;
+}
+
+@media screen and (max-width:767px){
+    .test-button-container{
+        display: block;
+    }
+    .test-right-button-container{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}

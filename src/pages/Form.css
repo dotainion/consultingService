@@ -20,6 +20,28 @@
     text-align: center;
     font-size: 25px;
 }
+.form-contact-container{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--header-text-color);
+}
+.form-contact{
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    user-select: text;
+}
+.form-contact-link{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: darkgreen;
+    user-select: none;
+    font-weight: bold;
+}
+.form-contact-hover:hover{
+    color: orange;
+    text-decoration: underline;
+}
 .form-input-container{
     display: flex;
 }

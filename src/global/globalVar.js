@@ -14,6 +14,7 @@ class Routes{
     Sustainability = "/sustainability";
 }
 class SiteUrl{
+    gmail = "https://mail.google.com/";
     academy = "http://www.caribbeancodingacademygrenada.com/";
 }
 class Ids{

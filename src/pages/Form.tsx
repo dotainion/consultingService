@@ -8,6 +8,8 @@ import { content } from '../components/Contents';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { images } from '../components/Images';
+import { TempEmailPopup } from '../testing/Tests';
+import { globalVar } from '../global/globalVar';
 
 
 const Form: React.FC = () => {
@@ -77,11 +79,24 @@ const Form: React.FC = () => {
         <IonPage>
             <IonContent>
                 <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
+                <TempEmailPopup/>
                 <IonList>
                     <IonCard class="form-main-container">
                         <IonItem lines="none"class="form-header-container">
-                            <IonLabel className="form-header">Services</IonLabel>
+                            <IonLabel className="form-header">Send your mail to us</IonLabel>
                         </IonItem>
+                        <div className="form-contact-container">
+                            <IonLabel class="form-contact">{content.objects.contact.list[0].name}</IonLabel>
+                            <IonLabel class="form-contact">{content.objects.contact.list[1].name}</IonLabel>
+                            <IonLabel class="form-contact-link form-contact-hover" onClick={(e)=>{
+                                e.preventDefault();
+                                window.open(globalVar.siteUrl.gmail);
+                            }}>Gmail.com</IonLabel>
+                            <IonLabel class="form-contact-link form-contact-hover" onClick={(e)=>{
+                                e.preventDefault();
+                                window.open(`mailTo:${content.objects.contact.list[0].name}`,"_self");
+                            }}>Use desktop app</IonLabel>
+                        </div>
                         <IonCardContent>
                             <div className="form-drop-down-container">
                                 <DropDownList hidden={!dropdown} onClose={()=>{
