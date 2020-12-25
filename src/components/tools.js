@@ -1,16 +1,3 @@
-import axios from 'axios';
-
-class Email{
-    send(data){
-        axios.post("http://localhost:4000/",data)
-        .then((response)=>{
-            console.log(response);
-        })
-        .then((error)=>{
-            console.log(error);
-        });
-    }
-}
 
 class Clicks{
     byId(elementId){
@@ -66,7 +53,6 @@ class Tools{
     state = new State();
     click = new Clicks();
     open = new Clicks();
-    email = new Email();
     element = new Visible();
     compare(compareThis,withThat,returnIfTrue,returnIfFalse){
         if (compareThis === withThat) return returnIfTrue;

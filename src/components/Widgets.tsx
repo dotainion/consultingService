@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert, IonIcon, IonLoading } from '@ionic/react';
 import './Widgets.css';
 import { tools } from './tools';
 import { globalVar } from '../global/globalVar';
 import { Link } from 'react-router-dom';
+import { FaDesktop } from 'react-icons/fa';
+import { CgWebsite } from 'react-icons/cg';
+import { content } from './Contents';
+import { chevronDown, chevronUp } from 'ionicons/icons';
+import { email } from '../mail/email';
 
 
 export const DropDownList = (props:any) =>{
@@ -27,6 +32,7 @@ export const DropDownList = (props:any) =>{
 }
 
 export const SuggestionBox = () =>{
+    const [loader, setLoader] = useState(false);
     const [openSuggestion, setOpenSuggestion] = useState(false);
     const [showError, setShowError] = useState({state:false,msg:"",link: ""});
     const [mySuggestion, setMySuggestion] = useState({
@@ -50,12 +56,20 @@ export const SuggestionBox = () =>{
                 link: ""
             });
         }else{
+            setLoader(true);
             const emailData = {
                 from: suggests.email,
                 subject: suggests.subject,
                 body: suggests.suggestion
             }
-            tools.email.send(emailData);
+            email.send(emailData,(res:any)=>{
+                setLoader(false);
+                setShowError({
+                    state:true,
+                    msg: res.message,
+                    link: ""
+                });
+            });
         }
     }
     return(
@@ -66,6 +80,7 @@ export const SuggestionBox = () =>{
             msg={showError.msg}
             link={showError.link}
         />
+        <Loader state={loader} onClose={()=>{setLoader(false)}}/>
         <IonModal isOpen={openSuggestion} onDidDismiss={()=>setOpenSuggestion(false)}>
             <IonList class="suggest-close-button-container">
                 <IonLabel class="suggest-close-button suggest-hover" onClick={()=>{
@@ -138,7 +153,7 @@ export const ErrorBox = (data:any) =>{
         }} isOpen={data.isOpen}>
             <IonList class="error-box-container">
                 <IonLabel class="error-box-msg">{data.msg || "No error message"}</IonLabel>
-                <Link to="" onClick={()=>{tools.click.byId("error-link")}}>{data.link}</Link>
+                <Link to="#" onClick={()=>{tools.click.byId("error-link")}}>{data.link}</Link>
             </IonList>
             <IonItem lines="none">
                 <IonButton slot="end" onClick={()=>{
@@ -150,7 +165,7 @@ export const ErrorBox = (data:any) =>{
     )
 }
 
-export const AlertTemp = (props:any) =>{
+export const AlertPopup = (props:any) =>{
     let timer:any = null;
     if (props.state){
         timer = setTimeout(()=>{
@@ -175,3 +190,16 @@ export const AlertTemp = (props:any) =>{
         />
     )
 }
+
+export const Loader = (props:any) =>{
+    return(
+        <IonLoading
+        cssClass='my-custom-class'
+        isOpen={props.state}
+        onDidDismiss={() =>{if (props.onClose) props.onClose()}}
+        message={'Please wait...'}
+        duration={props.duraton || null}
+      />
+    )
+}
+

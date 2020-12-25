@@ -1,0 +1,89 @@
+.mail-header{
+    display: flex;
+    font-size: 40px;
+    padding: 20px;
+    color: white;
+    user-select: none;
+    text-shadow: 1px 1px black;
+    background-color: var(--header-text-color);
+}
+.mail-header-icon{
+    color: orangered;
+    text-align: center;
+}
+.mail-header-icon-text{
+    font-size: 18px;
+    padding: 3px;
+    background-color: white;
+}
+.mail-icon-container{
+    display: flex;
+    padding: 10px;
+    user-select: none;
+}
+.mail-icon-sub{
+    width: 50%;
+    font-size: 120px;
+    text-align: center;
+    padding: 20px;
+    color: var(--header-text-color);
+}
+.mail-icon-text{
+    font-size: 20px;
+    content: 'Send email using desktop app';
+}
+.mail-icon-hover:hover{
+    background-color: lightgray;
+    text-decoration: underline;
+    border: 1px solid var(--header-text-color);
+}
+.mail-button-container{
+    display: flex;
+}
+.mail-left-button-container{
+    width: 60%;
+    user-select: none;
+    padding-left: 10px;
+}
+.mail-right-button-container{
+    width: 40%;
+}
+.mail-left-button{
+    display: inline-block;
+    color: orangered;
+    text-decoration: underline;
+}
+.mail-right-button{
+    text-transform: none;
+    margin-top: 50px;
+}
+.mail-button-icon{
+    position: absolute;
+}
+.mail-detail-content-container{
+    padding-top: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 1px 1px black;
+    background-color: rgb(69, 86, 104);
+    border: 1px solid var(--header-text-color);
+}
+.mail-detail-hover:hover{
+    color: gray;
+}
+
+@media screen and (max-width:767px){
+    .mail-button-container{
+        display: block;
+    }
+    .mail-right-button-container{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .mail-icon-text{
+        font-size: 15px;
+    }
+}

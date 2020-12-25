@@ -11,14 +11,18 @@
     box-shadow: 4px 4px 10px black;
 }
 .form-header-container{
+    margin-top: 10px;
     margin-left: 30px;
     margin-right: 30px;
     border-bottom: 1px solid black;
+    font-size: 25px;
+    color: white;
+    text-shadow: 1px 1px black;
+    --ion-background-color: var(--header-text-color);
 }
 .form-header{
     width: 100%;
     text-align: center;
-    font-size: 25px;
 }
 .form-contact-container{
     text-align: center;
@@ -146,7 +150,7 @@
 
 @media screen and (max-width:767px){
     .form-main-container{
-        margin-top: 20px;
+        margin-top: 30px;
         width: 95%;
         margin-left: 50%;
         transform: translateX(-50%);
@@ -166,5 +170,8 @@
     }
     .form-side-info-content{
         display: none;
+    }
+    .form-side-info-promo-container{
+        padding-top: 45px;
     }
 }

@@ -6,14 +6,14 @@ import { content } from './Contents';
 import { images } from './Images';
 import { Link, useHistory } from 'react-router-dom';
 import { globalVar } from '../global/globalVar';
-import { AlertTemp } from './Widgets';
+import { AlertPopup } from './Widgets';
 
 export const Footer: React.FC = ()=>{
     const [alert, setAlert] = useState(false);
     const history = useHistory();
     return(
         <IonFooter class="footer-main-container">
-            <AlertTemp 
+            <AlertPopup 
                 state={alert} 
                 onClose={()=>{setAlert(false)}}
                 header="Attention!!"

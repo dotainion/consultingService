@@ -18,15 +18,6 @@ const slideOptions = {
 
 export const Intro = () =>{
     const history = useHistory();
-    const [play, setPlay] = useState(true);
-    const [muted, setMuted] = useState(false);
-
-    useEffect(()=>{
-        if (history.location.pathname !== globalVar.route.Home){
-            setPlay(false);
-            setMuted(true);
-        }else setMuted(false);
-    });
     return(
         <div className="intro-main-container">
             <IonList class="intro-image-video-container">
@@ -35,12 +26,6 @@ export const Intro = () =>{
                     options={slideOptions} 
                     id="slide" 
                     class="intro-slider-container"
-                    onIonSlideWillChange={()=>{
-                        tools.element.isVisible("intro-player-viewport",(state:any)=>{
-                            if (state) setPlay(true);
-                            else setPlay(false);
-                        })
-                    }}
                 >
                     <IonSlide>
                         <IonThumbnail class="intro-thumbnail">
@@ -64,10 +49,10 @@ export const Intro = () =>{
                                 playbackRate = {1}
                                 width = "100%"
                                 height = "100%"
-                                playing = {play}
-                                autoPlay = {true}
+                                playing = {false}
+                                autoPlay = {false}
                                 loop = {true}
-                                muted = {muted}
+                                muted = {false}
                                 onPlay={()=>{
                                     
                                 }}

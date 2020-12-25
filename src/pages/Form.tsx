@@ -2,20 +2,27 @@ import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, I
 import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { tools } from '../components/tools';
-import { DropDownList } from '../components/Widgets';
+import { DropDownList, Loader } from '../components/Widgets';
 import { chevronDown } from 'ionicons/icons';
 import { content } from '../components/Contents';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { images } from '../components/Images';
-import { TempEmailPopup } from '../testing/Tests';
+import { EmailPopup } from '../mail/EmailPopup';
 import { globalVar } from '../global/globalVar';
+import { useHistory } from 'react-router';
+import { email } from '../mail/email';
+import { ErrorBox } from '../components/Widgets';
 
 
 const Form: React.FC = () => {
+    const history = useHistory();
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
     const [borderStyle, setBorderStyle] = useState("");
+    const [deviceTextLink, setDeviceTextLink] = useState("");
+    const [loader, setLoader] = useState(false);
+    const [error, setError] = useState({state: false, msg: ""});
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
@@ -42,6 +49,7 @@ const Form: React.FC = () => {
     }
     const onSubmit = (form:any) =>{
         if (tools.isEmailValid(form.email)){
+            setLoader(true);
             const mailConfig = {
                 body: `
                     First Name: ${form.firstName}
@@ -59,9 +67,15 @@ const Form: React.FC = () => {
                 subject: "GMCS Application",
                 body: mailConfig.body
             }
-            tools.email.send(compose);
+            email.send(compose,(res:any)=>{
+                setLoader(false);
+                setError({
+                    state: true, 
+                    msg: res.message
+                });
+            });
         }else{
-            console.log("invalid email address");
+            setError({state: true, msg: "invalid email address"});
         }
     }
 
@@ -75,14 +89,32 @@ const Form: React.FC = () => {
         }
     });
 
+    useEffect(()=>{
+        setInterval(()=>{
+            if (tools.isMobile()) setDeviceTextLink("Use Mobile App");
+            else setDeviceTextLink("Use Desktop App");
+        },1000);
+    },[]);
+
     return(
         <IonPage>
             <IonContent>
                 <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
-                <TempEmailPopup/>
+                <EmailPopup/>
+                <Loader state={loader} onClose={()=>{setLoader(false)}}/>
+                <ErrorBox 
+                    isOpen={error.state} 
+                    onClose={()=>{
+                        setError({
+                            state: false, 
+                            msg: ""
+                        });
+                    }}
+                    msg={error.msg}
+                />
                 <IonList>
                     <IonCard class="form-main-container">
-                        <IonItem lines="none"class="form-header-container">
+                        <IonItem class="form-header-container" lines="none">
                             <IonLabel className="form-header">Send your mail to us</IonLabel>
                         </IonItem>
                         <div className="form-contact-container">
@@ -95,7 +127,7 @@ const Form: React.FC = () => {
                             <IonLabel class="form-contact-link form-contact-hover" onClick={(e)=>{
                                 e.preventDefault();
                                 window.open(`mailTo:${content.objects.contact.list[0].name}`,"_self");
-                            }}>Use desktop app</IonLabel>
+                            }}>{deviceTextLink}</IonLabel>
                         </div>
                         <IonCardContent>
                             <div className="form-drop-down-container">
