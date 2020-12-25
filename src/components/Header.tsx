@@ -21,8 +21,6 @@ export const Header = (headerProps:any)=>{
     });
 
     const MenuList = (props:any) =>{
-        let hiddenByProps = false;
-        if (headerProps.home === false) hiddenByProps = true;
         const checkHidden = (value:any) =>{
             if (headerProps.hidden){
                 for (var item of headerProps.hidden){

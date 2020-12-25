@@ -39,7 +39,7 @@ export const Stocks = () =>{
                     playbackRate = {1}
                     width = "100%"
                     height = "100%"
-                    playing = {true}
+                    playing = {false}
                     autoPlay = {false}
                     loop = {true}
                     muted = {false}
