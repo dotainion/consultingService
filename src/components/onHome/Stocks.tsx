@@ -10,19 +10,6 @@ import { globalVar } from '../../global/globalVar';
 
 export const Stocks = () =>{
     const history = useHistory();
-    const [muted, setMuted] = useState(true);
-    const [play, setPlay] = useState(true);
-
-    useEffect(()=>{
-        tools.element.isVisible("stocks-video-container",(mute:boolean)=>{
-            setMuted(!mute)
-        });
-    },[]);
-    
-    useEffect(()=>{
-        if (history.location.pathname === globalVar.route.Home) setPlay(true);
-        else setPlay(false);
-    });
     return(
         <div className="stocks-main-container">
             <div className="stocks-content-container">
@@ -52,10 +39,10 @@ export const Stocks = () =>{
                     playbackRate = {1}
                     width = "100%"
                     height = "100%"
-                    playing = {play}
-                    autoPlay = {true}
+                    playing = {true}
+                    autoPlay = {false}
                     loop = {true}
-                    muted = {muted}
+                    muted = {false}
                 />
                 <div className="stocks-video-contents">
                     <p className="stocks-video-texts">
