@@ -1,6 +1,7 @@
 import { IonButton, IonContent, IonImg, IonItem, IonLabel, IonList, IonPage, IonThumbnail } from '@ionic/react';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { addData, getData } from '../auth/database';
 import { images } from '../components/Images';
 import { globalVar } from '../global/globalVar';
 import './_404.css';
@@ -22,7 +23,7 @@ const _404: React.FC = () =>{
                     <IonItem class="_404-button _404-hover" lines="none">
                         <IonLabel onClick={()=>{
                             history.push(globalVar.route.Home);
-                        }} slot="end">{"<< Go to Home >>"}</IonLabel>
+                        }}>{"<< Go to Home >>"}</IonLabel>
                     </IonItem>
                 </IonList>
             </IonList>

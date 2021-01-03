@@ -152,7 +152,7 @@ export const ErrorBox = (data:any) =>{
             if (data.onClose) data.onClose();
         }} isOpen={data.isOpen}>
             <IonList class="error-box-container">
-                <IonLabel class="error-box-msg">{data.msg || "No error message"}</IonLabel>
+                <IonLabel style={{color:data.color}} class="error-box-msg">{data.msg || "No error message"}</IonLabel>
                 <Link to="#" onClick={()=>{tools.click.byId("error-link")}}>{data.link}</Link>
             </IonList>
             <IonItem lines="none">

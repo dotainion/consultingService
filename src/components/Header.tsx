@@ -120,7 +120,7 @@ export const Header = (headerProps:any)=>{
                 <MenuList id="desktop"/>
             </div>
         </IonHeader>
-        <SearchBar/>
+        {/*<SearchBar/>*/}
         </>
     )
 }

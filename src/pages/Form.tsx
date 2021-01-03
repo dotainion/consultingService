@@ -13,6 +13,7 @@ import { globalVar } from '../global/globalVar';
 import { useHistory } from 'react-router';
 import { email } from '../mail/email';
 import { ErrorBox } from '../components/Widgets';
+import { addData } from '../auth/database';
 
 
 const Form: React.FC = () => {
@@ -22,7 +23,7 @@ const Form: React.FC = () => {
     const [borderStyle, setBorderStyle] = useState("");
     const [deviceTextLink, setDeviceTextLink] = useState("");
     const [loader, setLoader] = useState(false);
-    const [error, setError] = useState({state: false, msg: ""});
+    const [error, setError] = useState({state: false, msg: "",color: ""});
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
@@ -47,35 +48,24 @@ const Form: React.FC = () => {
             other: tools.compare(cmd,"o",value,inputs.other)
         })
     }
-    const onSubmit = (form:any) =>{
+    const onSubmit = async(form:any) =>{
         if (tools.isEmailValid(form.email)){
             setLoader(true);
-            const mailConfig = {
-                body: `
-                    First Name: ${form.firstName}
-                    Last Name: ${form.lastName}
-                    Email: ${form.email}
-                    Phone: ${form.phone}
-                    Address: ${form.address}
-                    Company: ${form.company}
-                    Service: ${form.services}
-                    Details: ${form.details}
-                `
+            const prospectData = {
+                name: `${form.lastName} ${form.firstName}`,
+                email: form.email,
+                phone: form.phone,
+                address: form.address,
+                company: form.company,
+                service: form.services,
+                details: form.details
             }
-            const compose = {
-                from: form.email,
-                subject: "GMCS Application",
-                body: mailConfig.body
-            }
-            email.send(compose,(res:any)=>{
-                setLoader(false);
-                setError({
-                    state: true, 
-                    msg: res.message
-                });
-            });
+            const isSent = await addData(prospectData);
+            if (isSent) setError({state: true, color: "green", msg: "Email Sent."});
+            else setError({state: true, color: "red", msg: "Email was not sent, try again"});
+            setLoader(false);
         }else{
-            setError({state: true, msg: "invalid email address"});
+            setError({state: true, color: "", msg: "invalid email address"});
         }
     }
 
@@ -100,17 +90,19 @@ const Form: React.FC = () => {
         <IonPage>
             <IonContent>
                 <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
-                <EmailPopup/>
+                {/*<EmailPopup/>*/}
                 <Loader state={loader} onClose={()=>{setLoader(false)}}/>
                 <ErrorBox 
                     isOpen={error.state} 
+                    msg={error.msg}
+                    color={error.color}
                     onClose={()=>{
                         setError({
                             state: false, 
-                            msg: ""
+                            msg: "",
+                            color: ""
                         });
                     }}
-                    msg={error.msg}
                 />
                 <IonList>
                     <IonCard class="form-main-container">

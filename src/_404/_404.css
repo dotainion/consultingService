@@ -43,11 +43,20 @@
     display: block;
 }
 ._404-button{
+    display: inline-block;
     color: green;
     font-weight: bold;
     font-size: 20px;
+    text-align: center;
 }
 ._404-hover:hover{
     color: gray;
     text-decoration: underline;
+}
+
+@media screen and (max-width:767px){
+    ._404-sub-container{
+        width: 95%;
+        height: 80%;
+    }
 }

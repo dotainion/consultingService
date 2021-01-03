@@ -12,6 +12,7 @@ class Routes{
     Benefits = "/benefits";
     FAQs = "/FAQ's";
     Sustainability = "/sustainability";
+    admin = "/gmcs473/admin";
 }
 class SiteUrl{
     gmail = "https://mail.google.com/";

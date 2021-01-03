@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonButton, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -40,11 +40,12 @@ import Model from './pages/PriceModel';
 import Benefits from './pages/Benefits';
 import FAQs from './pages/FAQ';
 import Sustainability from './pages/Sustainability';
+import Administrator from './admin/admin';
 
 const App: React.FC = () =>{
 return (
     <IonApp>
-      <IonReactRouter>
+      <IonReactHashRouter>
         <IonRouterOutlet>
           <Route path={globalVar.route.Test} component={Test} exact={true} />
           <Route path={globalVar.route.Clients} component={Clients} exact={true} />
@@ -57,10 +58,11 @@ return (
           <Route path={globalVar.route.Home} component={Home} exact={true} />
           <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
+          <Route path={globalVar.route.admin} component={Administrator} exact={true} />
           <Route exact path="/" render={() => <Redirect to={globalVar.route.Home} />} />
           <Route component={_404}/>
         </IonRouterOutlet>
-      </IonReactRouter>
+      </IonReactHashRouter>
     </IonApp>
   );
 }
