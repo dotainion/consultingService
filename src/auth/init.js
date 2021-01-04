@@ -4,3 +4,4 @@ import firebase from 'firebase';
 export const fb = firebase.initializeApp(FIREBASE_CONFIG);
 
 export const db = fb.firestore();
+

@@ -1,21 +1,32 @@
 import { IonContent, IonHeader, IonIcon, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { isLogin, logOut } from '../auth/authenticate';
 import { people } from 'ionicons/icons';
 import React from 'react';
 import { getData } from '../auth/database';
 import { tools } from '../components/tools';
+import { globalVar } from '../global/globalVar';
 import './admin.css';
+import { fb } from '../auth/init';
+import { Redirect, useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 class Administrator extends React.Component{
-    constructor(){
-        super();
+    customers:any = [];
+    userData:any = {};
+    hideList = false;
+    intervalRef:any = null;
+    constructor(props:any){
+        super(props);
 
         this.customers = [];
         this.userData = {};
 
-        this.hideList = true;
+        this.hideList = false;
+
+        this.intervalRef = null;
     }
-    async viewCustomer(customer){this.hideInfo()
+    async viewCustomer(customer:any){this.hideInfo()
         this.userData = customer;
         this.setState({userData:this.userData});
         
@@ -44,9 +55,25 @@ class Administrator extends React.Component{
             }
         },400);
     }
+    isLoginCheckInterval(){
+        this.intervalRef = setInterval(()=>{
+            if (!isLogin()){ 
+                let element = document.getElementById("admin-redirect");
+                if (element) element.click();
+            }
+        },400);
+    }
+    async componentWillUnmount(){
+        await logOut()
+    }
     async componentDidMount(){
-        await this.getCustomers();
-        this.listener();
+        if (isLogin()){
+            await this.getCustomers();
+            this.listener();
+        }
+    }
+    async componentWillMount(){
+        this.isLoginCheckInterval();
     }
     render(){
         return(
@@ -68,7 +95,7 @@ class Administrator extends React.Component{
                             <IonList className="admin-customer-list">
                                 {
                                     this.customers.length ?
-                                    this.customers.map((customer, key)=>(
+                                    this.customers.map((customer:any, key:any)=>(
                                         <IonList key={key} onClick={()=>{
                                             this.viewCustomer(customer);
                                         }} className="admin-customers-container admin-customer-hover">
@@ -102,6 +129,7 @@ class Administrator extends React.Component{
                         </div>
                     </div>
                 </IonContent>
+                <Link to={globalVar.route.AdminLogin} id="admin-redirect"/>
             </IonPage>
         )
     }

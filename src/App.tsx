@@ -41,6 +41,7 @@ import Benefits from './pages/Benefits';
 import FAQs from './pages/FAQ';
 import Sustainability from './pages/Sustainability';
 import Administrator from './admin/admin';
+import AuthUi from './admin/authUi';
 
 const App: React.FC = () =>{
 return (
@@ -58,7 +59,8 @@ return (
           <Route path={globalVar.route.Home} component={Home} exact={true} />
           <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
-          <Route path={globalVar.route.admin} component={Administrator} exact={true} />
+          <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
+          <Route path={globalVar.route.Admin} component={Administrator} exact={true} />
           <Route component={_404}/>
           <Route exact path="/" render={()=><Redirect to={globalVar.route.Home}/>} />
         </IonRouterOutlet>

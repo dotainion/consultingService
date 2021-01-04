@@ -10,5 +10,5 @@ export const FIREBASE_CONFIG = {
 
 export const AUTH_CREDS = {
     appId: "gmcs473@gmail.com",
-    appAccess: "Gmcs-473@gmail.com-consulting-service-grenada"
+    appAccess: "gmcs473@2021"
 }

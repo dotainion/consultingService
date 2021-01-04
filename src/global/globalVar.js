@@ -12,7 +12,8 @@ class Routes{
     Benefits = "/benefits";
     FAQs = "/FAQ's";
     Sustainability = "/sustainability";
-    admin = "/gmcs473/admin";
+    Admin = "/gmcs473/admin";
+    AdminLogin = "/gmcs473/admin/access";
 }
 class SiteUrl{
     gmail = "https://mail.google.com/";
