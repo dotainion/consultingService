@@ -1,24 +1,42 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon } from '@ionic/react';
+import { IonThumbnail } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Pop.css';
-import { DropDownList } from './Widgets';
-import { tools } from './tools';
 import { useHistory } from 'react-router';
-import { checkmarkCircleOutline, chevronDown } from 'ionicons/icons';
-import { Icon } from 'ionicons/dist/types/components/icon/icon';
-import { isFunctionOrConstructorTypeNode } from 'typescript';
 import { images } from './Images';
 import { globalVar } from '../global/globalVar';
+const jwt = require('jsonwebtoken');
+
+class Token{
+    tokenKey = "somekey";
+    set(){
+        const token = jwt.sign({email:""}, this.tokenKey, { expiresIn: '120h'});
+        window.localStorage.setItem("pop-token",token);
+    }
+    isActive(){
+        try{
+            const token = window.localStorage.getItem("pop-token");
+            const res = jwt.verify(token, this.tokenKey);
+            if (res) return true;
+            return false;
+        }catch{return false;}
+    }
+}
+const token = new Token();
 
 export const Pop = (props:any)=>{
     const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
+
     useEffect(()=>{
-        setTimeout(() => {
-            setIsOpen(true);
-            if (props.onOpen) props.onOpen();
-        }, 10000);
-    },[])
+        console.log(token.isActive())
+        if (!token.isActive()){
+            setTimeout(() => {
+                setIsOpen(true);
+                if (props.onOpen) props.onOpen();
+            }, 10000);
+            token.set();
+        }
+    },[]);
     return(
         <div hidden={!isOpen} className="pop-background-container">
             <div className="test-test">

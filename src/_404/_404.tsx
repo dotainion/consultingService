@@ -1,7 +1,6 @@
 import { IonButton, IonContent, IonImg, IonItem, IonLabel, IonList, IonPage, IonThumbnail } from '@ionic/react';
 import React from 'react';
 import { useHistory } from 'react-router';
-import { addData, getData } from '../auth/database';
 import { images } from '../components/Images';
 import { globalVar } from '../global/globalVar';
 import './_404.css';

@@ -8,10 +8,8 @@ import { content } from '../components/Contents';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { images } from '../components/Images';
-import { EmailPopup } from '../mail/EmailPopup';
 import { globalVar } from '../global/globalVar';
 import { useHistory } from 'react-router';
-import { email } from '../mail/email';
 import { ErrorBox } from '../components/Widgets';
 import { addData } from '../auth/database';
 
@@ -52,12 +50,14 @@ const Form: React.FC = () => {
         if (tools.isEmailValid(form.email)){
             setLoader(true);
             const prospectData = {
+                date: tools.getDate(),
                 name: `${form.lastName} ${form.firstName}`,
                 email: form.email,
                 phone: form.phone,
                 address: form.address,
                 company: form.company,
                 service: form.services,
+                other: form.other,
                 details: form.details
             }
             const isSent = await addData(prospectData);
@@ -90,7 +90,6 @@ const Form: React.FC = () => {
         <IonPage>
             <IonContent>
                 <Header hidden={[content.objects.headerLists[5].name]} id="form"/>
-                {/*<EmailPopup/>*/}
                 <Loader state={loader} onClose={()=>{setLoader(false)}}/>
                 <ErrorBox 
                     isOpen={error.state} 

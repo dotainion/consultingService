@@ -67,6 +67,16 @@ class Tools{
         if (regix.test(email)) return true;
         return false;
     }
+    getDate(){
+        const week = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        const date = new Date();
+        const W = week[date.getDay()];
+        const D = date.getDate().toString();
+        const M = month[date.getMonth()];
+        const Y = date.getFullYear().toString();
+        return `${W}/${D}/${M}/${Y}`;
+    }
 }
 const tools = new Tools();
 export { tools }

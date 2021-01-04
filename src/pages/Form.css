@@ -97,6 +97,8 @@
     padding-left: 5px;
     height: 150px;
     margin-top: 22px;
+    font-weight: bold;
+    color: navy;
     background-color: white;
 }
 .form-input-focus:focus{

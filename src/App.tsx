@@ -59,8 +59,8 @@ return (
           <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route path={globalVar.route.admin} component={Administrator} exact={true} />
-          <Route exact path="/" render={() => <Redirect to={globalVar.route.Home} />} />
           <Route component={_404}/>
+          <Route exact path="/" render={()=><Redirect to={globalVar.route.Home}/>} />
         </IonRouterOutlet>
       </IonReactHashRouter>
     </IonApp>
