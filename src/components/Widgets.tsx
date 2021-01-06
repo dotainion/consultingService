@@ -3,12 +3,13 @@ import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNo
 import './Widgets.css';
 import { tools } from './tools';
 import { globalVar } from '../global/globalVar';
-import { Link } from 'react-router-dom';
-import { FaDesktop } from 'react-icons/fa';
-import { CgWebsite } from 'react-icons/cg';
-import { content } from './Contents';
-import { chevronDown, chevronUp } from 'ionicons/icons';
+import { Link, useHistory } from 'react-router-dom';
+import { AiOutlineClose } from 'react-icons/ai';
+import { FiAlertOctagon } from 'react-icons/fi';
+import { FaRegCheckCircle } from 'react-icons/fa';
+import { ImSpinner9 } from 'react-icons/im';
 import { email } from '../mail/email';
+import { auth } from '../auth/authenticate';
 
 
 export const DropDownList = (props:any) =>{
@@ -203,3 +204,62 @@ export const Loader = (props:any) =>{
     )
 }
 
+export const ItemLoader = (props:any) =>{
+    return(
+        <div hidden={!props.state} className="item-loader-back-drop">
+            <div className="item-loader-container">
+                <ImSpinner9 color={props.color} className="item-loader-icon"/>
+                <div className="item-loader-content" style={{color:props.color}}>Please wait...</div>
+            </div>
+        </div>
+    )
+}
+
+export const ConfirmLeave = (props:any) =>{
+    const history = useHistory();
+    const [loader, setLoader] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [status, setStatus] = useState({alert: "", good: "none", border: "rgb(136, 123, 88)"});
+    const alertcolor = "orange";
+    const goodColor = "rgb(116, 185, 25)";
+    const willSignOut = async() =>{
+        setLoader(true);
+        const state = await auth.signOut();
+        if (state){
+            setTimeout(()=>{
+                setStatus({alert: "none", good: "", border: goodColor});
+                setLoader(false);
+                setShowSuccess(true);
+                setTimeout(()=>{
+                    if (props.onClose) props.onClose();
+                    history.push(globalVar.route.AdminLogin);
+                },2000);
+            },2000);
+        }
+    }
+    return(
+        <IonList hidden={!props.state} className="confirm-leave-backdrop">
+            <ItemLoader color="blue" state={loader}/>
+            <div className="confirm-leave-container" style={{border:`2px solid ${status.border}`}}>
+                <AiOutlineClose onClick={()=>{
+                    if (props.onClose) props.onClose();
+                }} className="confirm-leave-close confirm-leave-close-hover"/>
+                <div className="confirm-leave-alert">
+                    <FiAlertOctagon style={{color:alertcolor,display:status.alert}}/>
+                    <FaRegCheckCircle style={{color:goodColor,display:status.good}}/>
+                </div>
+                <div hidden={showSuccess} className="confirm-leave-message">Are you sure you want to leave this page?</div>
+                <div hidden={showSuccess} className="confirm-leave-sub-message">This will log you out of Administration</div>
+                <div hidden={!showSuccess} className="confirm-leave-action-message">Successfully logged out</div>
+                <div className="confirm-leave-button-container">
+                    <div className="confirm-leave-no-button confirm-button-click" onClick={()=>{
+                        if (props.onClose) props.onClose();
+                    }}>Cancel</div>
+                    <div className="confirm-leave-yes-button confirm-button-click" onClick={()=>{
+                        willSignOut();
+                    }}>Confirm</div>
+                </div>
+            </div>
+        </IonList>
+    )
+}

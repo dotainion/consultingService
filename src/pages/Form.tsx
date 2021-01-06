@@ -9,13 +9,11 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { images } from '../components/Images';
 import { globalVar } from '../global/globalVar';
-import { useHistory } from 'react-router';
 import { ErrorBox } from '../components/Widgets';
 import { addData } from '../auth/database';
 
 
 const Form: React.FC = () => {
-    const history = useHistory();
     const [dropTextHolder, setDropTextHolder] = useState({margin: "", color: "black"});
     const [dropdown, setDropdown] = useState(false);
     const [borderStyle, setBorderStyle] = useState("");
@@ -32,7 +30,20 @@ const Form: React.FC = () => {
         services: "",
         details: "",
         other: ""
-    })
+    });
+    const clearinputs = () =>{
+        setInputs({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            address: "",
+            company: "",
+            services: "",
+            details: "",
+            other: ""
+        });
+    }
     const updateInputs = (cmd:any, value:any) =>{
         setInputs({
             firstName: tools.compare(cmd,"f",value,inputs.firstName),
@@ -101,6 +112,8 @@ const Form: React.FC = () => {
                             msg: "",
                             color: ""
                         });
+                        clearinputs();
+                        setDropTextHolder({margin: "", color: "black"});
                     }}
                 />
                 <IonList>

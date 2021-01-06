@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { IonApp, IonButton, IonRouterOutlet } from '@ionic/react';
 import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
 
@@ -43,30 +43,32 @@ import Sustainability from './pages/Sustainability';
 import Administrator from './admin/admin';
 import AuthUi from './admin/authUi';
 
-const App: React.FC = () =>{
-return (
-    <IonApp>
-      <IonReactHashRouter>
-        <IonRouterOutlet>
-          <Route path={globalVar.route.Test} component={Test} exact={true} />
-          <Route path={globalVar.route.Clients} component={Clients} exact={true} />
-          <Route path={globalVar.route.Benefits} component={Benefits} exact={true} />
-          <Route path={globalVar.route.Pricing} component={Model} exact={true} />
-          <Route path={globalVar.route.AboutUs} component={AboutUs} exact={true} />
-          <Route path={globalVar.route.Design} component={Design} exact={true} />
-          <Route path={globalVar.route.Form} component={Form} exact={true} />
-          <Route path={globalVar.route.Offers} component={Offers} exact={true} />
-          <Route path={globalVar.route.Home} component={Home} exact={true} />
-          <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
-          <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
-          <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
-          <Route path={globalVar.route.Admin} component={Administrator} exact={true} />
-          <Route component={_404}/>
-          <Route exact path="/" render={()=><Redirect to={globalVar.route.Home}/>} />
-        </IonRouterOutlet>
-      </IonReactHashRouter>
-    </IonApp>
-  );
+class App extends React.Component{
+  render(){
+    return (
+      <IonApp>
+        <IonReactHashRouter>
+          <Switch>
+            <Route path={globalVar.route.Test} component={Test} exact={true} />
+            <Route path={globalVar.route.Clients} component={Clients} exact={true} />
+            <Route path={globalVar.route.Benefits} component={Benefits} exact={true} />
+            <Route path={globalVar.route.Pricing} component={Model} exact={true} />
+            <Route path={globalVar.route.AboutUs} component={AboutUs} exact={true} />
+            <Route path={globalVar.route.Design} component={Design} exact={true} />
+            <Route path={globalVar.route.Form} component={Form} exact={true} />
+            <Route path={globalVar.route.Offers} component={Offers} exact={true} />
+            <Route path={globalVar.route.Home} component={Home} exact={true} />
+            <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
+            <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
+            <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
+            <Route path={globalVar.route.Admin} component={Administrator} exact={true} />
+            <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
+            <Route component={_404}/>
+          </Switch>
+        </IonReactHashRouter>
+      </IonApp>
+    );
+  }
 }
 
 export default App;

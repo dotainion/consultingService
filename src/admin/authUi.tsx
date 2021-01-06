@@ -1,7 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonInput, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { adminLogin } from '../auth/authenticate';
+import { auth } from '../auth/authenticate';
 import { tools } from '../components/tools';
 import { globalVar } from '../global/globalVar';
 import './authUi.css';
@@ -17,7 +17,7 @@ const AuthUi: React.FC = () =>{
         }else if (creds.password === ""){
             setError("Please provide a valid password");
         }else{
-            const res = await adminLogin(creds.email, creds.password);
+            const res = await auth.signIn(creds.email, creds.password);
             if (res.state){
                 history.push(globalVar.route.Admin);
             }else setError(res.message);

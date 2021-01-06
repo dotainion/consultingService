@@ -1,5 +1,6 @@
 
 class Routes{
+    Default = "/";
     Test = "/testing";
     _404 = "/404";
     Clients = "/clients";

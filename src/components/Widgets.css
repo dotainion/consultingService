@@ -1,3 +1,13 @@
+/*spinner.js global use*/
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 /*drop down lists*/
 .header-drop-down-lists-main-container{
     position: fixed;
@@ -83,4 +93,105 @@
 }
 .error-box-msg{
     color: orangered;
+}
+
+/* for ItemLoader */
+.item-loader-back-drop{
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.item-loader-container{
+    position: absolute;
+    top: 50%;
+    margin-left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.item-loader-icon{
+    position: relative;
+    animation: rotation 1s infinite linear;
+    font-size: 30px;
+    color: var(--nal-media-color);
+}
+.spinner-content{
+    font-weight: bold;
+    color: var(--nal-media-color);
+}
+
+/* for ConfirmLeave */
+.confirm-leave-backdrop{
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    user-select: none;
+    background-color: var(--header-text-color);
+}
+.confirm-leave-container{
+    position: absolute;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    border: 1px solid black;
+    transform: translate3d(-50%,-50%,0);
+    background-color: white;
+}
+.confirm-leave-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    margin: 2px;
+    color: rgb(136, 123, 88);
+}
+.confirm-leave-close-hover:hover{
+    color: red;
+}
+.confirm-leave-alert{
+    text-align: center;
+    font-size: 50px;
+    padding: 10px;
+}
+.confirm-leave-message{
+    text-align: center;
+    color: rgb(4, 36, 83);
+}
+.confirm-leave-sub-message{
+    text-align: center;
+    font-size: 15px;
+    color: orangered;
+    margin-bottom: 20px;
+}
+.confirm-leave-action-message{
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(116, 185, 25);
+}
+.confirm-leave-button-container{
+    display: flex;
+    color: white;
+    text-align: center;
+}
+.confirm-leave-no-button{
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px gray;
+    background-color: rgb(136, 123, 88);
+}
+.confirm-leave-yes-button{
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px gray;
+    background-color: rgb(116, 185, 25);
+}
+.confirm-button-click:active{
+    box-shadow: 1px 1px 2px gray;
 }
