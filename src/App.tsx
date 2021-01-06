@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import { IonApp, IonButton, IonRouterOutlet } from '@ionic/react';
 import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
 

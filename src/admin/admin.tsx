@@ -1,6 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonIcon, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { auth } from '../auth/authenticate';
-import { logOut, people } from 'ionicons/icons';
+import { people } from 'ionicons/icons';
 import React from 'react';
 import { getData } from '../auth/database';
 import { tools } from '../components/tools';
@@ -8,20 +8,27 @@ import { globalVar } from '../global/globalVar';
 import './admin.css';
 import { GoSignOut } from 'react-icons/go';
 import { ConfirmLeave } from '../components/Widgets';
+import { Link } from 'react-router-dom';
 
 
 class Administrator extends React.Component{
-    constructor(){
-        super();
+    customers:any = [];
+    userData:any = {};
+    hideList = false;
+    confirmLeave = false;
+    intervalRef:any = null;
+    constructor(props:any){
+        super(props);
 
         this.customers = [];
         this.userData = {};
 
         this.hideList = false;
-        
+        this.intervalRef = null;
         this.confirmLeave = false;
     }
-    async viewCustomer(customer){this.hideInfo()
+    async viewCustomer(customer:any){
+        this.hideInfo()
         this.userData = customer;
         this.setState({userData:this.userData});
         
@@ -43,21 +50,20 @@ class Administrator extends React.Component{
         }
     }
     listener(){
-        const { history } = this.props;
-        setInterval(()=>{
+        this.intervalRef = setInterval(()=>{
+            const element = document.getElementById("redirect-admin");
             if (!tools.isMobile()){
                 this.hideList = false;
                 this.setState({hideList:this.hideList});
             }
-            if (!auth.isLogin()) history.push(globalVar.route.AdminLogin);
         },400);
     }
     async componentWillUnmount(){
-        const { history } = this.props;
+        const element = document.getElementById("remain-admin");
         if (auth.isLogin()){
             const confirm = window.confirm("You will be sign out if you leave this page.");
-            if (!confirm){
-                history.push(globalVar.route.Admin);
+            if (!confirm && element){
+                element.click();
             }else{
                 clearInterval(this.intervalRef);
                 await auth.signOut();
@@ -65,12 +71,14 @@ class Administrator extends React.Component{
         }     
     }
     async componentDidMount(){
-        const { history } = this.props;
+        const element = document.getElementById("redirect-admin");
         if (auth.isLogin()){
             await this.getCustomers();
             this.listener();
         }else{
-            history.push(globalVar.route.AdminLogin);
+            this.setState({});
+            if (element) element.click();
+            window.location.reload();
         }
     }
     render(){
@@ -79,10 +87,10 @@ class Administrator extends React.Component{
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>Administrator</IonTitle>
-                        <GoSignOut class="admin-logout-icon" onClick={()=>{
+                        <GoSignOut className="admin-logout-icon" onClick={()=>{
                             this.confirmLeave = true;
                             this.setState({confirmLeave:this.confirmLeave});
-                        }} slot="end" icon={logOut}/>
+                        }}/>
                         <IonIcon class="admin-header-icon" onClick={()=>{
                             this.hideCustomerList();
                         }} slot="end" icon={people}/>
@@ -91,10 +99,10 @@ class Administrator extends React.Component{
                 <ConfirmLeave 
                     state={this.confirmLeave}
                     onClose={()=>{
-                        const { history } = this.props;
                         this.confirmLeave = false;
                         this.setState({confirmLeave:this.confirmLeave});
-                        history.push(globalVar.route.AdminLogin);
+                        const element = document.getElementById("redirect-admin");
+                        if (element) element.click();
                     }}
                 />
                 <IonContent>
@@ -106,7 +114,7 @@ class Administrator extends React.Component{
                             <IonList className="admin-customer-list">
                                 {
                                     this.customers.length ?
-                                    this.customers.map((customer, key)=>(
+                                    this.customers.map((customer:any, key:any)=>(
                                         <IonList key={key} onClick={()=>{
                                             this.viewCustomer(customer);
                                         }} className="admin-customers-container admin-customer-hover">
@@ -140,6 +148,8 @@ class Administrator extends React.Component{
                         </div>
                     </div>
                 </IonContent>
+                <Link to={globalVar.route.AdminLogin} id="redirect-admin"/>
+                <Link to={globalVar.route.Admin} id="remain-admin"/>
             </IonPage>
         )
     }
