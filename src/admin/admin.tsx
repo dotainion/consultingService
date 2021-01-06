@@ -8,7 +8,7 @@ import { globalVar } from '../global/globalVar';
 import './admin.css';
 import { GoSignOut } from 'react-icons/go';
 import { ConfirmLeave } from '../components/Widgets';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 class Administrator extends React.Component{
@@ -51,7 +51,6 @@ class Administrator extends React.Component{
     }
     listener(){
         this.intervalRef = setInterval(()=>{
-            const element = document.getElementById("redirect-admin");
             if (!tools.isMobile()){
                 this.hideList = false;
                 this.setState({hideList:this.hideList});
@@ -71,15 +70,8 @@ class Administrator extends React.Component{
         }     
     }
     async componentDidMount(){
-        const element = document.getElementById("redirect-admin");
-        if (auth.isLogin()){
-            await this.getCustomers();
-            this.listener();
-        }else{
-            this.setState({});
-            if (element) element.click();
-            window.location.reload();
-        }
+        await this.getCustomers();
+        this.listener();
     }
     render(){
         return(

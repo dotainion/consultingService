@@ -42,6 +42,7 @@ import FAQs from './pages/FAQ';
 import Sustainability from './pages/Sustainability';
 import Administrator from './admin/admin';
 import AuthUi from './admin/authUi';
+import AuthRouter from './AuthRoute';
 
 class App extends React.Component{
   render(){
@@ -61,7 +62,7 @@ class App extends React.Component{
             <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
             <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
             <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
-            <Route path={globalVar.route.Admin} component={Administrator} exact={true} />
+            <Route path={globalVar.route.Admin} render={()=><AuthRouter/>} exact={true} />
             <Route component={_404}/>
             <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
           </IonRouterOutlet>
