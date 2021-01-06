@@ -48,7 +48,7 @@ class App extends React.Component{
     return (
       <IonApp>
         <IonReactHashRouter>
-          <Switch>
+          <IonRouterOutlet>
             <Route path={globalVar.route.Test} component={Test} exact={true} />
             <Route path={globalVar.route.Clients} component={Clients} exact={true} />
             <Route path={globalVar.route.Benefits} component={Benefits} exact={true} />
@@ -62,9 +62,9 @@ class App extends React.Component{
             <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
             <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
             <Route path={globalVar.route.Admin} component={Administrator} exact={true} />
-            <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
             <Route component={_404}/>
-          </Switch>
+            <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
+          </IonRouterOutlet>
         </IonReactHashRouter>
       </IonApp>
     );
