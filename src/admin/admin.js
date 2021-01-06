@@ -18,9 +18,7 @@ class Administrator extends React.Component{
         this.userData = {};
 
         this.hideList = false;
-
-        this.intervalRef = null;
-
+        
         this.confirmLeave = false;
     }
     async viewCustomer(customer){this.hideInfo()
@@ -45,11 +43,13 @@ class Administrator extends React.Component{
         }
     }
     listener(){
-        this.intervalRef = setInterval(()=>{
+        const { history } = this.props;
+        setInterval(()=>{
             if (!tools.isMobile()){
                 this.hideList = false;
                 this.setState({hideList:this.hideList});
             }
+            if (!auth.isLogin()) history.push(globalVar.route.AdminLogin);
         },400);
     }
     async componentWillUnmount(){
@@ -91,8 +91,10 @@ class Administrator extends React.Component{
                 <ConfirmLeave 
                     state={this.confirmLeave}
                     onClose={()=>{
+                        const { history } = this.props;
                         this.confirmLeave = false;
                         this.setState({confirmLeave:this.confirmLeave});
+                        history.push(globalVar.route.AdminLogin);
                     }}
                 />
                 <IonContent>

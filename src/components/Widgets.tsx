@@ -216,7 +216,6 @@ export const ItemLoader = (props:any) =>{
 }
 
 export const ConfirmLeave = (props:any) =>{
-    const history = useHistory();
     const [loader, setLoader] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [status, setStatus] = useState({alert: "", good: "none", border: "rgb(136, 123, 88)"});
@@ -232,7 +231,6 @@ export const ConfirmLeave = (props:any) =>{
                 setShowSuccess(true);
                 setTimeout(()=>{
                     if (props.onClose) props.onClose();
-                    history.push(globalVar.route.AdminLogin);
                 },2000);
             },2000);
         }
