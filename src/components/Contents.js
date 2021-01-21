@@ -70,75 +70,153 @@ class Objects{
         list: [
             {
                 title: "Gain Market Sector Knowledge",
-                content: "test contents",
+                content: `We understand Grenada market in the context of how business operates and survive. We also
+                    have clear understanding of the qualities require with regards to leadership competencies,
+                    commercial orientation, and people skills.`,
+                list: [
+
+                ],
                 image: images.picture.learning
             },{
-                title: "Planning and task",
-                content: "test contents",
+                title: "Planning and Task",
+                content: `We believe in delivering service on time, we ask that you specify a specific day and time in
+                    which you want your request to be completed.`,
+                list: [
+
+                ],
                 image: images.picture.planning
             },{
                 title: "Vendor Sourcing",
-                content: "test contents",
+                content: `We will assist our customers to select the best supplies to provide and goods and services you
+                    need to run your business.`,
+                list: [
+
+                ],
                 image: images.picture.vendering2
             },{
                 title: "Custom Brokerage Services",
-                content: "test contents",
+                content: `We facilitate the shipment and delivery of goods from across the globe and the region, we will
+                    always provide the best quality services.`,
+                list: [
+
+                ],
                 image: images.picture.brokerage
             },{
                 title: "Government Tax Reporting & Compliances",
-                content: "test contents",
+                content: `This process involves being aware of and observing the state, tax laws and
+                    requirements set forth by government officials and other taxing authorities.`,
+                list: [
+
+                ],
                 image: images.picture.governmentTaxes
             },{
                 title: "Business Start-up Consultation",
-                content: "test contents",
+                content: `Do you have a great idea to start a business in Grenada, but you aren't sure how to go
+                    from ideas to implementation? Or, perhaps you are already running a business and
+                    want to take it to the next level or learn how to manage it more efficiently. Our team of
+                    entrepreneurial and small business experts have many years of experience in launching
+                    and starting businesses.`,
+                list: [
+
+                ],
                 image: images.picture.creativeStartUps
             },{
                 title: "Business Proposal Writing",
-                content: "test contents",
+                content: "",
+                list: [
+                    "Research, research, research. ...",
+                    "Determine the purpose of your plan. ...",
+                    "Create a company profile. ...",
+                    "Document all aspects of your business. ...",
+                    "Have a strategic marketing plan in place. ...",
+                    "Make it adaptable based on your audience. ..."
+                ],
                 image: images.picture.proposal
             },{
                 title: "Financial Planning and Management",
-                content: "test contents",
+                content: `We provide a comprehensive picture of your current finances, your financial goals and
+                    any strategies you've set to achieve those goals. Good financial planning should
+                    include details about your cash flow, savings, debt, investments, insurance, and any
+                    other elements of your financial life.`,
+                list: [
+
+                ],
                 image: images.picture.financialPlanning
             },{
-                title: "Business branding and marketing",
-                content: "test contents",
+                title: "Business Branding and Marketing",
+                content: `The tools we utilize to deliver the message of your brand. Tools can include social
+                    media, SEO, website, and paid search channels. So, where branding is why you or your
+                    business should buy a business's product and services, marketing is how you or your
+                    business should push the messaging out.`,
+                list: [
+
+                ],
                 image: images.picture.branding
             },{
                 title: "Payroll Management",
-                content: "test contents",
+                content: `The process of administration of a company's employee's financial records. This would
+                    include details of the employee's salaries, incentives, bonuses, deductions, and net pay.`,
+                list: [
+
+                ],
                 image: images.picture.payroll
             },{
-                title: "Customer services training",
-                content: "test contents",
+                title: "Customer Services Training",
+                content: `We focus on technical skills and high-level communication concepts. These are great
+                for introducing people to the basics of customer service, but they don't teach them how
+                to put these practices to best use.`,
+                list: [
+
+                ],
                 image: images.picture.customerService
             },{
                 title: "IT Support (website and App Development)",
-                content: "test contents",
+                content: "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.development
             },{
                 title: "Product Development",
-                content: "test contents",
+                content: "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.productDevelopment
             },{
-                title: "Business registration and Incorporation",
-                content: "test contents",
+                title: "Business Registration and Incorporation",
+                content: "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.businessRegistration
             },{
                 title: "NIS and VAT compliance services",
-                content: "test contents",
+                content: "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.vatCompliance
             },{
                 title:"Construction Project Management",
-                content:"test contents",
+                content:"Empowerment",
+            list: [
+
+            ],
                 image: images.picture.construction
             },{
                 title: "Energy Management",
-                content: "test contents",
+                content: "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.energyManagement
             },{
                 title:" Real Estate Consultation and Development",
-                content:  "test contents",
+                content:  "Empowerment",
+            list: [
+
+            ],
                 image: images.picture.realEstate
             }
         ]

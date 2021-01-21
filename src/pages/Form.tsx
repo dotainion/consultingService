@@ -61,15 +61,15 @@ const Form: React.FC = () => {
         if (tools.isEmailValid(form.email)){
             setLoader(true);
             const prospectData = {
-                date: tools.getDate(),
-                name: `${form.lastName} ${form.firstName}`,
-                email: form.email,
+                date: tools.time.getTodaysDate(),
+                name: `${tools.titleCase(form.lastName)} ${tools.titleCase(form.firstName)}`,
+                email: form.email.toLowerCase(),
                 phone: form.phone,
-                address: form.address,
-                company: form.company,
-                service: form.services,
-                other: form.other,
-                details: form.details
+                address: tools.titleCase(form.address),
+                company: tools.titleCase(form.company),
+                service: tools.titleCase(form.services),
+                other: tools.titleCase(form.other),
+                details: tools.titleCase(form.details)
             }
             const isSent = await addData(prospectData);
             if (isSent) setError({state: true, color: "green", msg: "Email Sent."});

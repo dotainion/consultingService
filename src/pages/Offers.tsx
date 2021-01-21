@@ -26,6 +26,11 @@ const Offers: React.FC = () => {
                         <div className="offer-content-container">
                             <div className="offer-title">{offers.title}</div>
                             <p className="offer-content">{offers.content}</p>
+                            <div className="offer-list">
+                                {offers.list.map((list,key)=>(
+                                    <div key={key}>{key+1}. {list}</div>
+                                ))}
+                            </div>
                         </div>
                         <div className="offer-button-container">
                             <div className="offer-button offer-button-click offer-button-hover" onClick={()=>{

@@ -1,14 +1,16 @@
-import { IonButton, IonContent, IonHeader, IonIcon, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { auth } from '../auth/authenticate';
-import { people } from 'ionicons/icons';
+import { calendarOutline, mail, mailOutline, people, trashOutline } from 'ionicons/icons';
 import React from 'react';
-import { getData } from '../auth/database';
+import { deleteData, getData } from '../auth/database';
 import { tools } from '../components/tools';
 import { globalVar } from '../global/globalVar';
 import './admin.css';
 import { GoSignOut } from 'react-icons/go';
-import { ConfirmLeave } from '../components/Widgets';
+import { ConfirmLeave, IconHoverInfo, MailingOptions, ErrorBox, AlertConfirm, Calendar } from '../components/Widgets';
 import { Link, useHistory } from 'react-router-dom';
+import { EmailPopup } from './../mail/EmailPopup';
+import { FiMail } from 'react-icons/fi';
 
 
 class Administrator extends React.Component{
@@ -17,6 +19,11 @@ class Administrator extends React.Component{
     hideList = false;
     confirmLeave = false;
     intervalRef:any = null;
+    actions:any = [];
+    mailOption = false;
+    showError:any = {};
+    confirmAlert:any = {};
+    calendar:any = {};
     constructor(props:any){
         super(props);
 
@@ -26,6 +33,62 @@ class Administrator extends React.Component{
         this.hideList = false;
         this.intervalRef = null;
         this.confirmLeave = false;
+
+        this.mailOption = false;
+        this.calendar = {
+            state: true
+        }
+
+        this.actions = [
+            {
+                icon: mailOutline,
+                name: "Send mail",
+                command: ()=>{
+                    this.mailOption = true;
+                    this.setState({mailOption:this.mailOption});
+                }
+            },{
+                icon: trashOutline,
+                name: "Delete",
+                command: async()=>{
+                    if (this.userData?.id){
+                        this.confirmAlert = {
+                            state: true,
+                            message: "Are you sure you will like to delete this record"
+                        };
+                        this.setState({confirmAlert:this.confirmAlert});
+                    }else{
+                        this.showError = {
+                            state: true,
+                            msg: "A record was not selected",
+                            link: "",
+                            color: "orangered"
+                        };
+                        this.setState({showError:this.showError});
+                    }
+                }
+            },{
+                icon: calendarOutline,
+                name: "Schedule",
+                command: async()=>{
+                    this.calendar = {
+                        state: true
+                    }
+                    this.setState({calendar:this.calendar});
+                }
+            },
+        ];
+        this.showError = {
+            state: false,
+            msg: "",
+            link: "",
+            color: ""
+        };
+
+        this.confirmAlert = {
+            state: false,
+            message: ""
+        };
     }
     async viewCustomer(customer:any){
         this.hideInfo()
@@ -79,22 +142,109 @@ class Administrator extends React.Component{
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>Administrator</IonTitle>
-                        <GoSignOut className="admin-logout-icon" onClick={()=>{
-                            this.confirmLeave = true;
-                            this.setState({confirmLeave:this.confirmLeave});
-                        }}/>
+                        <div slot="end" className="admin-logout-icon-container">
+                            <GoSignOut onClick={()=>{
+                                this.confirmLeave = true;
+                                this.setState({confirmLeave:this.confirmLeave});
+                            }} onMouseEnter={()=>{
+                                let element = document.getElementById("logout-hover");
+                                if (element) element.hidden = false;
+                            }} onMouseLeave={()=>{
+                                let element = document.getElementById("logout-hover");
+                                if (element) element.hidden = true;
+                            }} className="admin-logout-icon"/>
+                            <IconHoverInfo
+                                id="logout-hover"
+                                slot="end"
+                                top="50%"
+                                width="70px"
+                                message="SignOut"
+                                transform="translate3d(-105%,-50%,0)"
+                            />
+                        </div>
                         <IonIcon class="admin-header-icon" onClick={()=>{
                             this.hideCustomerList();
                         }} slot="end" icon={people}/>
                     </IonToolbar>
                 </IonHeader>
+                <Calendar 
+                    state={this.calendar.state}
+                    onClose={()=>{
+                        this.calendar = {
+                            state: false
+                        }
+                        this.setState({calendar:this.calendar});
+                    }}
+                    onSelect={()=>{
+                        
+                    }}
+                />
+                <AlertConfirm
+                    state={this.confirmAlert.state}
+                    header="Confirm!!!"
+                    message={this.confirmAlert.message}
+                    onClose={()=>{
+                        this.confirmAlert = {state: false,message: ""}
+                        this.setState({confirmAlert:this.confirmAlert});
+                    }}
+                    onConfirm={async()=>{
+                        const id = this.userData?.id;
+                        const deleted = await deleteData(id);
+                        this.confirmAlert = {state: false,message: ""}
+                        if (deleted){
+                            this.showError = {
+                                state: true, msg: "Deleted successfully",
+                                link: "", color: "green"
+                            };
+                            this.setState({
+                                showError:this.showError,
+                                confirmAlert:this.confirmAlert
+                            });
+                        }else{
+                            this.showError = {
+                                state: true, msg: "Record was not deleted",
+                                link: "", color: "orangered"
+                            };
+                            this.setState({
+                                showError:this.showError,
+                                confirmAlert:this.confirmAlert
+                            });
+                        }
+                    }}
+                />
+                <MailingOptions 
+                    state={this.mailOption}
+                    onClose={()=>{
+                        this.mailOption = false;
+                        this.setState({mailOption:this.mailOption});
+                    }}
+                />
+                <ErrorBox
+                    isOpen={this.showError.state} 
+                    onClose={()=>{
+                        this.showError = {
+                            state: false,
+                            msg: "",
+                            link: "",
+                            color: ""
+                        };
+                        this.setState({showError:this.showError});
+                    }} 
+                    msg={this.showError.msg}
+                    link={this.showError.link}
+                    color={this.showError.color}
+                />
                 <ConfirmLeave 
                     state={this.confirmLeave}
-                    onClose={()=>{
+                    onConfirm={()=>{
                         this.confirmLeave = false;
                         this.setState({confirmLeave:this.confirmLeave});
                         const element = document.getElementById("redirect-admin");
                         if (element) element.click();
+                    }}
+                    onClose={()=>{
+                        this.confirmLeave = false;
+                        this.setState({confirmLeave:this.confirmLeave});
                     }}
                 />
                 <IonContent>
@@ -121,6 +271,16 @@ class Administrator extends React.Component{
                         </div>
                         <div className="admin-splited-right-container">
                             <div className="admin-sub-header">Customers Information</div>
+                            <div className="admin-customer-actions-main-container">
+                                {this.actions.map((action:any, key:any)=>(
+                                    <div key={key} onClick={()=>{
+                                        action.command();
+                                    }} className="admin-customer-actions-container admin-customer-actions-hover">
+                                        <IonIcon icon={action.icon}/>
+                                        <div className="admin-customer-actions-name">{action.name}</div>
+                                    </div>
+                                ))}
+                            </div>
                             <div hidden={!this.hideInfo()} className="admin-customer-info-container">
                                 <div className="admin-info-date">{this.userData?.info?.date}</div>
                                 <div className="admin-info-name"><span className="admin-info-item-ref">Name:</span> {this.userData?.info?.name}</div>
@@ -129,8 +289,14 @@ class Administrator extends React.Component{
                                 <div className="admin-info-item"><span className="admin-info-item-ref">Email:</span> {this.userData?.info?.email}</div>
                                 <div className="admin-info-item"><span className="admin-info-item-ref">Company:</span> {this.userData?.info?.company}</div>
                                 <div className="admin-info-item"><span className="admin-info-item-ref">Service:</span> {this.userData?.info?.service}</div>
-                                <div className="admin-info-item"><span className="admin-info-item-ref">Other:</span> {this.userData?.info?.other}</div>
-                                <div className="admin-info-item"><span className="admin-info-item-ref">Details:</span> {this.userData?.info?.details}</div>
+                                <div className="admin-info-other-detail-container">
+                                    <div className="admin-info-item-ref">Other:</div>
+                                    <div className="admin-info-item">{this.userData?.info?.other}</div>
+                                </div>
+                                <div className="admin-info-other-detail-container">
+                                    <div className="admin-info-item-ref">Details:</div>
+                                    <div className="admin-info-item"> {this.userData?.info?.details}</div>
+                                </div>
                             </div>
                             <div hidden={this.hideInfo()} className="admin-customer-info-container">
                                 <div className="admin-customer-info-unavailable">

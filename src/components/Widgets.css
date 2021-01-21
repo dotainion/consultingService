@@ -49,17 +49,22 @@
 .suggest-close-button{
     position: relative;
     padding: 5px;
-    margin-right: 2px;
+    margin-right: 5px;
+    color: dodgerblue;
 }
 .suggest-hover:hover{
     color: red;
-    background-color: lightgray;
+}
+.suggest-header-container{
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 30px;
 }
 .suggest-header{
     text-align: center;
 }
 .suggest-input-header{
-
+    color: dodgerblue;
 }
 .suggest-sub-header{
      
@@ -194,4 +199,129 @@
 }
 .confirm-button-click:active{
     box-shadow: 1px 1px 2px gray;
+}
+
+/* for IconHoverInfo */
+.icon-hover-main-container{
+    position: absolute;
+    z-index: 99999999;
+    font-size: 15px;
+    user-select: none;
+    background-color: white;
+}
+.icon-hover-content{
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 0px 20px lightgray;
+}
+
+/* for MailingOptions */
+.mail-option-header-container{
+    text-align: center;
+    color: white;
+    --ion-background-color: var(--header-text-color);
+}
+.mail-option-header{
+    font-size: 20px;
+}
+.mail-option-sub-header{
+    text-align: center;
+    color: white;
+}
+.mail-option-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+}
+.mail-option-close-hover:hover{
+    color: red;
+}
+.mail-option-link-main-container{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    transform: translate3d(-50%,-50%,0);
+}
+.mail-option-link-container{
+    display: flex;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(10, 104, 88);
+    background-color: var(--header-text-color);
+}
+.mail-option-link-sub-container{
+    margin: 5px;
+    padding: 5px;
+}
+.mail-option-icon-text{
+    font-size: 15px;
+}
+.mail-option-hover:hover{
+    background-color: lightgray;
+}
+
+/* for AlertConfirm */
+.alert-confirm-main{
+    
+}
+.alert-confirm-sub{
+    
+}
+
+/* for Calendar */
+.calendar-header-container{
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+.calendar-header{
+    font-size: 30px;
+}
+.calendar-sub-header{
+    
+}
+.calendar-week-header-container{
+    display: inline-block;
+    width: 14.28%;
+    user-select: none;
+    background-color: lightgray;
+}
+.calendar-week-header{
+    margin: 1px;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    background-color: var(--header-text-color);
+}
+.calendar-week-container{
+    position: relative;
+    display: inline-block;
+    width: 13.9%;
+    height: 40px;
+    margin: 1px;
+    text-align: center;
+    user-select: none;
+    color: navy;
+    background-color: skyblue;
+}
+.calendar-week-date{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.calender-color{
+    color: white;
+    background-color: white;
+}
+.calendar-week-hover:hover{
+    background-color: lightgray;
+}
+
+@media screen and (max-width:767px){
+    .mail-option-link-sub-container{
+        width: 100px;
+    }
 }

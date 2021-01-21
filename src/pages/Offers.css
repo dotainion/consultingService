@@ -27,6 +27,9 @@
 .offer-content{
     color: black;
 }
+.offer-list{
+    text-align: left;
+}
 .offer-button-container{
     position: relative;
     width: 20%;

@@ -26,7 +26,9 @@ const AuthUi: React.FC = () =>{
     return(
         <IonPage>
             <IonList  class="auth-ui-backdrop">
-                <IonCard class="auth-ui-login-container">
+                <IonCard onKeyUp={(e)=>{
+                    if (e.key === "Enter" || e.keyCode === 13) login();
+                }} class="auth-ui-login-container">
                     <IonCardContent class="auth-ui-sub-container">
                             <div className="auth-ui-header">Login</div>
                             <div className="auth-ui-sub-header">Welcome to GMCS Administrator</div>

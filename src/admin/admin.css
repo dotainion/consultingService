@@ -8,11 +8,14 @@
     padding: 5px;
     border: 1px solid lightgray;
 }
+.admin-logout-icon-container{
+    margin-right: 30px;
+    border-radius: 50%;
+    color: var(--header-text-color);
+    border: 1px solid gray;
+    background-color: lightgray;
+}
 .admin-logout-icon{
-    position: absolute;
-    top: 50%;
-    right: 60px;
-    transform: translateY(-50%);
     font-size: 30px;
 }
 .admin-spliter-container{
@@ -58,9 +61,9 @@
 }
 .admin-customer-info-container{
     padding: 3px;
+    font-weight: bold;
     border-bottom: 2px solid gray;
-    background-color: rgb(31, 114, 146);
-    text-shadow: 1px 1px 1px black;
+    background-color: rgb(110, 115, 117);
 }
 .admin-info-date{
     text-align: center;
@@ -77,11 +80,19 @@
 }
 .admin-info-item{
     margin: 1px;
-    color: white;
+    color: blue;
     padding: inherit;
 }
 .admin-info-item-ref{
     color: navy;
+    user-select: none;
+    text-shadow: 1px 1px 1px gray;
+}
+.admin-info-other-detail-container{
+    margin: 2px;
+    padding: 2px;
+    background-color: lightgray;
+    text-shadow: 1px 1px 1px gray;
 }
 .admin-customer-info-unavailable{
     position: relative;
@@ -95,12 +106,38 @@
     font-size: 30px;
     transform: translate3d(-50%,-50%,0);
 }
+.admin-customer-actions-main-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px;
+    background-color: var(--header-text-color);
+}
+.admin-customer-actions-container{
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    width: 70px;
+    padding: 2px;
+    margin-right: 5px;
+    user-select: none;
+    color: var(--header-text-color);
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 5px lightgray;
+    background-color: white;
+}
+.admin-customer-actions-name{
+    font-size: 12px;
+    margin-top: -5px;
+}
+.admin-customer-actions-hover:hover{
+    background-color: lightgray;
+}
 
 @media screen and (max-width:767px){
     .admin-header-icon{
         display: block;
     }
-    .admin-logout-icon{
+    .admin-logout-icon-container{
         margin-right: 10px;
     }
     .admin-spliter-container{
