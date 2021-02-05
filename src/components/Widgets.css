@@ -91,6 +91,60 @@
     width: 100px;
 }
 
+
+/* for SuggestionList */
+.suggest-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    z-index: 999;
+    color: orangered;
+}
+.suggest-close-hover:hover{
+    color: red;
+}
+.suggest-list-header{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    user-select: none;
+    --ion-background-color: var(--header-background-color);
+}
+.suggest-list-container{
+    
+}
+.suggest-list-content{
+    font-size: 18px;
+    color: black;
+    border: 1px solid lightgray;
+}
+.suggest-suggestions{
+    color: var(--header-background-color);
+    height: 108px;
+    overflow: hidden;
+}
+.suggest-button-container{
+    margin-top: 20px;
+    border-top: 1px solid dodgerblue;
+    border-bottom: 1px solid dodgerblue;
+    margin-bottom: 0;
+}
+.suggest-options-update{
+    padding: 2px;
+    border-radius: 5px;
+    outline: none;
+}
+.suggest-more{
+    color: dodgerblue;
+    user-select: none;
+    padding-right: 20px;
+}
+.suggest-more-hover:hover{
+    color: gray;
+    text-decoration: underline dodgerblue;
+}
+
 /*for ErrorBox*/
 .error-box-container{
     padding: 10px;

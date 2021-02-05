@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert, IonIcon, IonLoading } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert, IonIcon, IonLoading, IonCardContent } from '@ionic/react';
 import './Widgets.css';
 import { tools } from './tools';
 import { globalVar } from '../global/globalVar';
@@ -10,12 +10,13 @@ import { FaRegCheckCircle } from 'react-icons/fa';
 import { ImSpinner9 } from 'react-icons/im';
 import { email } from '../mail/email';
 import { auth } from '../auth/authenticate';
-import { addSuggestion } from '../auth/database';
+import { addSuggestion, deleteSuggestion, updateSuggestion } from '../auth/database';
 import { SiGmail } from 'react-icons/si';
 import { CgWebsite } from 'react-icons/cg';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { content } from './Contents';
 import { closeOutline } from 'ionicons/icons';
+import { analytics } from 'firebase';
 
 
 export const DropDownList = (props:any) =>{
@@ -35,6 +36,110 @@ export const DropDownList = (props:any) =>{
                 }}>{nameCheck(list)}</IonLabel>
             ))}
         </IonList>
+    )
+}
+
+export const SuggestionList = ({state, list, onClose, onRecall}:any) =>{
+    const [showLoader, setShowLoader] = useState(false);
+    const [confirmDelete, setConfirmDelete] = useState({
+       state: false,
+       data: null 
+    } as any);
+    const showReadMore = (content:any) =>{
+        const checkLenght = (limit:number) =>{
+            if (content.split("").length > limit) return false;
+            else return true;
+        }
+        if (tools.isMobile()) return checkLenght(100);
+        else  return checkLenght(200);
+    }
+    const deleteRecord = async() =>{
+        setShowLoader(true);
+        const suggestId = confirmDelete?.data?.id;
+        await deleteSuggestion(suggestId);
+        if (onRecall) onRecall();
+        setShowLoader(false);
+    }
+    const updateRecord = async(id:string,value:string) =>{
+        setShowLoader(true);
+        await updateSuggestion(id,{status:value});
+        if (onRecall) onRecall();
+        setShowLoader(false);
+    }
+    return(
+        <IonModal onDidDismiss={()=>{
+            if (onClose) onClose();
+        }} isOpen={state}>
+            <AlertConfirm 
+                state={confirmDelete.state}
+                message="Are you sure you will like to delete this suggestion?"
+                onClose={()=>{
+                    setConfirmDelete({
+                        state: false,
+                        data: null 
+                    });
+                }}
+                onConfirm={()=>{
+                    deleteRecord();
+                }}
+            />
+            <Loader
+                state={showLoader}
+                onClose={()=>{
+                    setShowLoader(false);
+                }}
+            />
+            <IonIcon icon={closeOutline} onClick={()=>{
+                if (onClose) onClose();
+            }} class="suggest-close suggest-close-hover"/>
+            <IonItem class="suggest-list-header" lines="full">
+                <IonLabel>Suggestions</IonLabel>
+            </IonItem>
+            <IonContent>
+                <IonList class="suggest-list-container">
+                    {
+                        list.lenght?
+                        list.map((suggest:any, key:number)=>(
+                            <IonCard key={key}>
+                                <IonCardContent class="suggest-list-content">
+                                    <div>status: {suggest?.info?.status || "Pending..."}</div>
+                                    <div>{suggest?.info?.email}</div>
+                                    <div>{suggest?.info?.subject}</div>
+                                    <div className="suggest-suggestions" id={`${suggest?.id}suggest`}>{suggest?.info?.suggestion}</div>
+                                    <IonItem class="suggest-button-container">
+                                        <div slot="end" hidden={showReadMore(suggest?.info?.suggestion)} onClick={(e)=>{
+                                            let element = document.getElementById(`${suggest?.id}suggest`);
+                                            if (element){ 
+                                                element.style.height = "auto";
+                                                e.currentTarget.hidden = true;
+                                            }
+                                        }} className="suggest-more suggest-more-hover">Read more...</div>
+                                        <select slot="end" onChange={(e)=>{
+                                            updateRecord(suggest?.id,e.target.value);
+                                        }} className="suggest-options-update">
+                                            <option hidden defaultChecked>Choose Status</option>
+                                            <option>In Progress</option>
+                                            <option>On Hold</option>
+                                            <option>Completed</option>
+                                            <option>Can't Be Done</option>
+                                        </select>
+                                        <IonButton slot="end" onClick={()=>{
+                                            setConfirmDelete({
+                                                state: true,
+                                                data: suggest 
+                                            });
+                                        }} color="light">Delete</IonButton>
+                                    </IonItem>
+                                </IonCardContent>
+                            </IonCard>
+                        )):
+                        <IonItem>
+                            <IonLabel>No records available</IonLabel>
+                        </IonItem>
+                    }
+                </IonList>
+            </IonContent>
+        </IonModal>
     )
 }
 
@@ -355,8 +460,6 @@ export const MailingOptions = (props:any) =>{
                 }} className="mail-option-close mail-option-close-hover"/>
             </IonList>
             <IonContent>
-                <IonButton onClick={()=>{document.getElementById("dates")?.click()}}>Click me</IonButton>
-                <IonInput id="dates" type="date"/>
                 <IonList class="mail-option-link-main-container">
                     <IonList class="mail-option-link-container">
                         <IonList onClick={()=>{

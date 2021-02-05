@@ -1,13 +1,13 @@
 import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { auth } from '../auth/authenticate';
-import { calendarOutline, mail, mailOutline, people, trashOutline } from 'ionicons/icons';
+import { bulbOutline, calendarOutline, flaskSharp, mail, mailOutline, people, trashOutline } from 'ionicons/icons';
 import React from 'react';
-import { deleteData, getData } from '../auth/database';
+import { deleteData, getData, getSuggestion } from '../auth/database';
 import { tools } from '../components/tools';
 import { globalVar } from '../global/globalVar';
 import './admin.css';
 import { GoSignOut } from 'react-icons/go';
-import { ConfirmLeave, IconHoverInfo, MailingOptions, ErrorBox, AlertConfirm, Calendar } from '../components/Widgets';
+import { ConfirmLeave, IconHoverInfo, MailingOptions, ErrorBox, AlertConfirm, Calendar, SuggestionList, Loader } from '../components/Widgets';
 import { Link, useHistory } from 'react-router-dom';
 import { EmailPopup } from './../mail/EmailPopup';
 import { FiMail } from 'react-icons/fi';
@@ -17,6 +17,7 @@ class Administrator extends React.Component{
     customers:any = [];
     userData:any = {};
     hideList = false;
+    showLoader = false;
     confirmLeave = false;
     intervalRef:any = null;
     actions:any = [];
@@ -24,8 +25,11 @@ class Administrator extends React.Component{
     showError:any = {};
     confirmAlert:any = {};
     calendar:any = {};
+    suggestion:any = {};
     constructor(props:any){
         super(props);
+
+        this.showLoader = false;
 
         this.customers = [];
         this.userData = {};
@@ -38,6 +42,11 @@ class Administrator extends React.Component{
         this.calendar = {
             state: false,
             data: null
+        }
+
+        this.suggestion = {
+            state: false,
+            list: []
         }
 
         this.actions = [
@@ -77,7 +86,13 @@ class Administrator extends React.Component{
                     }
                     this.setState({calendar:this.calendar});
                 }
-            },
+            },{
+                icon: bulbOutline,
+                name: "Suggestion",
+                command: async()=>{
+                    this.getSuggetData();
+                }
+            }
         ];
         this.showError = {
             state: false,
@@ -90,6 +105,19 @@ class Administrator extends React.Component{
             state: false,
             message: ""
         };
+    }
+    async getSuggetData(loader:string=""){
+        if (loader !== "no loader") this.showLoader = true;
+        this.setState({showLoader:this.showLoader});
+        this.suggestion = {
+            state: true,
+            list: await getSuggestion()
+        }
+        this.showLoader = false;
+        this.setState({
+            suggestion:this.suggestion,
+            showLoader:this.showLoader
+        });
     }
     async viewCustomer(customer:any){
         this.hideInfo()
@@ -168,6 +196,20 @@ class Administrator extends React.Component{
                         }} slot="end" icon={people}/>
                     </IonToolbar>
                 </IonHeader>
+                <SuggestionList
+                    state={this.suggestion.state}
+                    list={this.suggestion.list}
+                    onClose={()=>{
+                        this.suggestion = {
+                            state: false,
+                            list: []
+                        }
+                        this.setState({suggestion:this.suggestion});
+                    }}
+                    onRecall={async()=>{
+                        await this.getSuggetData("no loader");
+                    }}
+                />
                 <Calendar 
                     state={this.calendar.state}
                     onClose={()=>{
@@ -250,6 +292,13 @@ class Administrator extends React.Component{
                     onClose={()=>{
                         this.confirmLeave = false;
                         this.setState({confirmLeave:this.confirmLeave});
+                    }}
+                />
+                <Loader
+                    state={this.showLoader}
+                    onClose={()=>{
+                        this.showLoader = false;
+                        this.setState({showLoader:this.showLoader});
                     }}
                 />
                 <IonContent>
