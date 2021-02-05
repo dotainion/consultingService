@@ -171,49 +171,73 @@ class Objects{
                 image: images.picture.customerService
             },{
                 title: "IT Support (website and App Development)",
-                content: "Empowerment",
+                content: `Our developers provide expert web application development and web application design
+                services to our clients. Grenada Management Consulting Services offer a variety of
+                website design and IT development services, from creating mobile web development
+                solutions and responsive website designs and data base, to building custom e-
+                commerce and intranet experiences using the latest and proven web technologies.`,
             list: [
 
             ],
                 image: images.picture.development
             },{
                 title: "Product Development",
-                content: "Empowerment",
+                content: `GMCS provides a complete process of delivering a new product or
+                improving an existing one for customers. The customers can be external or
+                internal within a company. We can support many different types
+                of products from software to hardware, to consumer goods and services.`,
             list: [
 
             ],
                 image: images.picture.productDevelopment
             },{
                 title: "Business Registration and Incorporation",
-                content: "Empowerment",
+                content: `Grenada Management Consulting services can take care of all your needs
+                with regards to operating a business in Grenada. We can assist with the
+                registration and the incorporation of your business, our services would include
+                preparation of the forms, liaising with the attorney and taking care of all the
+                logistic with regards successfully completing the process.`,
             list: [
 
             ],
                 image: images.picture.businessRegistration
             },{
                 title: "NIS and VAT compliance services",
-                content: "Empowerment",
+                content: `GMCS will assist your business with the process of obtaining a National
+                Insurance Scheme registration certificate and will also provide guidance with
+                regards to Government policy toward VAT and registering your business with
+                Internal Revenue Department (IRD).`,
             list: [
 
             ],
                 image: images.picture.vatCompliance
             },{
                 title:"Construction Project Management",
-                content:"Empowerment",
+                content:`We would shoulder the responsibility of keeping the project moving
+                according to plan. The goal is to manage the project so that it finishes on
+                schedule and within budget, while still meeting building codes, plans, and
+                specs.`,
             list: [
 
             ],
                 image: images.picture.construction
             },{
                 title: "Energy Management",
-                content: "Empowerment",
+                content: `We would provide a process of tracking and optimizing energy consumption
+                to conserve usage in a building. There are few steps for the process
+                of energy management: Collecting and analyzing continuous data. Identify
+                optimizations in equipment schedules, set points and flow rates to
+                improve energy efficiency.`,
             list: [
 
             ],
                 image: images.picture.energyManagement
             },{
                 title:" Real Estate Consultation and Development",
-                content:  "Empowerment",
+                content:  `Real estate development, or property development, is a business process,
+                encompassing activities that range from the renovation and re-lease of
+                existing buildings to the purchase of raw land and the sale of developed land.
+                Sometimes property developers will only undertake part of the process.`,
             list: [
 
             ],

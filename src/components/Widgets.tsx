@@ -15,6 +15,7 @@ import { SiGmail } from 'react-icons/si';
 import { CgWebsite } from 'react-icons/cg';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { content } from './Contents';
+import { closeOutline } from 'ionicons/icons';
 
 
 export const DropDownList = (props:any) =>{
@@ -348,12 +349,14 @@ export const MailingOptions = (props:any) =>{
                 <IonList class="mail-option-header">
                     <IonLabel>Mailling Options</IonLabel>
                 </IonList>
-                <IonNote class="mail-option-sub-header">sub header</IonNote>
+                <IonNote class="mail-option-sub-header">Please choose a option to send you mail from bellow</IonNote>
                 <AiOutlineClose onClick={()=>{
                     if (props.onClose) props.onClose();
                 }} className="mail-option-close mail-option-close-hover"/>
             </IonList>
             <IonContent>
+                <IonButton onClick={()=>{document.getElementById("dates")?.click()}}>Click me</IonButton>
+                <IonInput id="dates" type="date"/>
                 <IonList class="mail-option-link-main-container">
                     <IonList class="mail-option-link-container">
                         <IonList onClick={()=>{
@@ -385,9 +388,21 @@ export const Calendar = (props:any) =>{
         }
         return days;
     }
-    const hilight = (value:any) =>{
-        if (value) return "calendar-week-container calendar-week-hover";
-        else return "calendar-week-container calender-color";
+    const blocks = (dateValue:any) =>{            
+        if (dateValue) return "calendar-week-hover";
+        else return "calender-no-value";
+    }
+    const isToday = (value:any) =>{
+        try{
+            if (new Date().getDate().toString() === value.toString()){
+                return "calendar-todays-date";
+            }else{
+                return "";
+            }
+        }catch{
+            return "";
+        }
+        
     }
     return(
         <IonModal 
@@ -398,6 +413,9 @@ export const Calendar = (props:any) =>{
                 {/*onSelect*/}
             <IonContent>    
                 <IonList className="calendar-header-container">
+                    <IonIcon className="calendar-close calendar-close-hover" onClick={()=>{
+                        if (props.onClose) props.onClose();
+                    }} icon={closeOutline}/>
                     <IonLabel className="calendar-header">Calendar</IonLabel><br/>
                     <IonNote className="calendar-sub-header">{tools.time.getTodaysDate()}</IonNote>
                 </IonList>
@@ -411,9 +429,12 @@ export const Calendar = (props:any) =>{
                 <IonList style={{position:"relative"}}>
                     {monthHandler().map((month:any,key:any)=>(
                         <div key={key} onClick={()=>{
-
-                        }} className={hilight(month?.date)}>
-                            <div className="calendar-week-date">{month.date}</div>
+                            if (props.onSelect) props.onSelect(month);
+                            if (props.onClose) props.onClose();
+                        }} className={"calendar-week-container"}>
+                            <div className={`calendar-week-date ${blocks(month.date)} ${isToday(month.date)}`}>
+                                <div className="calendar-data-centered">{month.date}</div>
+                            </div>
                         </div>
                     ))}
                 </IonList>

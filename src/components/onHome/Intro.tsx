@@ -45,7 +45,7 @@ export const Intro = () =>{
                     <IonSlide>
                         <div id="intro-player-viewport" style={{width:"100%",height:"100%"}}>
                             <ReactPlayer
-                                url="https://www.youtube.com/watch?v=m1M2y3UgNWw:"//"https://youtu.be/luai0p0y2zE"
+                                url="https://www.youtube.com/watch?v=nxtaMdu55Ug"//"https://youtu.be/luai0p0y2zE"
                                 playbackRate = {1}
                                 width = "100%"
                                 height = "100%"

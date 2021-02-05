@@ -36,7 +36,8 @@ class Administrator extends React.Component{
 
         this.mailOption = false;
         this.calendar = {
-            state: true
+            state: false,
+            data: null
         }
 
         this.actions = [
@@ -171,12 +172,16 @@ class Administrator extends React.Component{
                     state={this.calendar.state}
                     onClose={()=>{
                         this.calendar = {
-                            state: false
+                            state: false,
+                            data: null
                         }
                         this.setState({calendar:this.calendar});
                     }}
-                    onSelect={()=>{
-                        
+                    onSelect={(dateValue:any)=>{
+                        this.calendar = {
+                            state: false,
+                            data: dateValue
+                        }
                     }}
                 />
                 <AlertConfirm

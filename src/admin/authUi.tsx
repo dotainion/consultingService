@@ -43,7 +43,7 @@ const AuthUi: React.FC = () =>{
                             <IonLabel position="floating">Password</IonLabel>
                             <IonInput onIonChange={(e)=>{
                                 if (e.detail.value) setCreds({email:creds.email, password: e.detail.value});
-                            }} value={creds.password}/>
+                            }} value={creds.password} type="password"/>
                         </IonItem>
                         <IonCardContent>
                             <IonItem lines="full">
