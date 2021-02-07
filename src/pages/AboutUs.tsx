@@ -8,9 +8,11 @@ import { Footer } from '../components/Footer';
 import { Vision } from '../components/onHome/Vision';
 import { Promotion } from '../components/Promotion';
 import { ContactButton } from '../components/ContactButton';
+import { useHistory } from 'react-router';
 
 
 const AboutUs: React.FC = ()=>{
+    tools.pageTitle();
     return(
         <IonPage>
             <IonContent>

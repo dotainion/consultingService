@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList, IonItem, IonNote } from '@ionic/react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
@@ -21,6 +21,7 @@ const FAQs: React.FC = () => {
       }
     }
   }
+  tools.pageTitle();
   return (
     <IonPage>
         <IonContent>

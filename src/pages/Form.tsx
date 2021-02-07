@@ -11,6 +11,7 @@ import { images } from '../components/Images';
 import { globalVar } from '../global/globalVar';
 import { ErrorBox } from '../components/Widgets';
 import { addData } from '../auth/database';
+import { useHistory } from 'react-router';
 
 
 const Form: React.FC = () => {
@@ -96,7 +97,7 @@ const Form: React.FC = () => {
             else setDeviceTextLink("Use Desktop App");
         },1000);
     },[]);
-
+    tools.pageTitle();
     return(
         <IonPage>
             <IonContent>

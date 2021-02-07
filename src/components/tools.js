@@ -1,3 +1,4 @@
+import { useHistory } from "react-router";
 
 class Clicks{
     byId(elementId){
@@ -185,6 +186,15 @@ class Tools{
             let substrings = strings.substring(1);
             return `${upCase}${substrings}`;
         }else return strings;
+    }
+    pageTitle(customTitle){
+        let title = "";
+        if (!customTitle){
+            title = useHistory().location.pathname;
+        }else title = customTitle;
+        for (let _ of title.split("")) 
+            title = title.replace("/","-");
+        document.title = `GMCS${title}`;
     }
 }
 const tools = new Tools();

@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList, IonItem } from '@ionic/react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
@@ -12,6 +12,7 @@ import './Offers.css';
 
 const Offers: React.FC = () => {
     const history = useHistory();
+    tools.pageTitle();
   return (
     <IonPage>
         <IonContent>

@@ -1,5 +1,5 @@
 import { IonButton, IonCard, IonContent, IonFooter, IonImg, IonInput, IonItem, IonLabel, IonPage, IonThumbnail } from '@ionic/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Clients.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -7,8 +7,10 @@ import { tools } from '../components/tools';
 import { content } from '../components/Contents';
 import { images } from '../components/Images';
 import { Promotion } from '../components/Promotion';
+import { useHistory } from 'react-router';
 
 const Clients: React.FC = ()=>{
+    tools.pageTitle();
     return(
         <IonPage className="clients-page-container">
             <IonContent>

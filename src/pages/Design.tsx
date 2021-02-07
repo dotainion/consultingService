@@ -1,5 +1,5 @@
 import { IonButton, IonCard, IonContent, IonFooter, IonImg, IonInput, IonItem, IonLabel, IonList, IonPage, IonThumbnail } from '@ionic/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Design.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -24,7 +24,8 @@ const Design: React.FC = ()=>{
         "Provide appropriate information",
         "Increase Customer Traffic",
         "Build sales and profits",
-    ]
+    ];
+    tools.pageTitle();
     return(
         <IonPage>
             <IonContent>
