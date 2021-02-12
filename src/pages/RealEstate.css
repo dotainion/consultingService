@@ -1,0 +1,210 @@
+.estate-header-container{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    user-select: none;
+}
+.estate-header-image{
+    width: 100%;
+    height: 100%;
+}
+.estate-header-info-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    z-index: 999999;
+    font-size: 55px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    transform: translate3d(-50%,-50%,0);
+}
+.estate-header-button-container{
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: rgb(19, 94, 160,0.3);
+}
+.estate-header-button{
+    display: inline-block;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.estate-header-button-hover:hover{
+    color: teal;
+    border-radius: 10px;
+    background-color: white;
+}
+/* for card that display list of homes*/
+.estate-card-container{
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-bottom: 80px;
+}
+.estate-card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: inline-block;
+}
+.estate-card-image{
+    animation: d-enlarge 0.3s linear;
+    width: 100%;
+    height: 100%;
+}
+.estate-card-hover:hover .estate-card-image{
+    animation: enlarge 0.3s linear;
+    animation-fill-mode: forwards;
+}
+.estate-card-content-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    color: black;
+    font-size: 20px;
+    color: white;
+    white-space: pre-wrap;
+    text-shadow: 1px 1px 1px black;
+}
+.estate-card-view-button{
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-size: 20px;
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+.estate-card-back-nav{
+    position: absolute;
+    z-index: 99999;
+    top: 50%;
+    left: 10px;
+    font-size: 35px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+}
+.estate-card-forward-nav{
+    position: absolute;
+    z-index: 99999;
+    top: 50%;
+    right: 10px;
+    font-size: 35px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+}
+.estate-card-back-nav-hover:hover{
+    background-color: gray;
+}
+.estate-card-above-header{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 60px;
+    text-align: center;
+}
+.estate-card-above-sub-header{
+    font-size: 20px;
+    width: 60%;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* for buying renting or view homes */
+.estate-home-get-header-main-container{
+    margin-top: 80px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: teal;
+}
+.estate-home-get-header-container{
+    display: flex;
+    font-size: 20px;
+    font-weight: normal;
+}
+.estate-home-get-header-sub-container{
+    position: relative;
+    text-align: center;
+    margin: 5%;
+    padding-bottom: 50px;
+}
+.estate-home-get-header{
+    font-size: 25px;
+    font-weight: bold;
+}
+.estate-home-get-button{
+    position: absolute;
+    color: white;
+    background-color: teal;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid teal;
+    user-select: none;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+.estate-home-get-button-hover:hover{
+    color: teal;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid teal;
+}
+.estate-home-get-icon{
+    font-size: 50px;
+    color: rgb(139, 70, 4);
+}
+
+@keyframes enlarge{
+    0%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
+@keyframes d-enlarge{
+    0%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+@media screen and (max-width:767px){
+    .estate-home-get-header-container{
+        display: block;
+    }
+    .estate-header-info-container{
+        width: 100%;
+        font-size: 30px;
+    }
+    .estate-header-button-container{
+        margin-top: 20px;
+    }
+    .estate-card-above-header{
+        font-size: 20px;
+    }
+    .estate-card-above-sub-header{
+        font-size: 15px;
+        width: 90%;
+        margin-top: 10px;
+    }
+}

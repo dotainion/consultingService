@@ -56,6 +56,15 @@ import sustainability from '../images/sustainability.jpg';
 import howLongGraph from '../images/howLongGraph.png';
 import peopleConsulting from '../images/peopleConsulting.jpg';
 import _404 from '../images/404-error.png';
+import estateBeach  from '../images/realEstateBeach.jpg';
+import estateLake from '../images/realEstateLake.jpg';
+import estateHouse from '../images/estateHouse.png';
+import estateWater from '../images/estateWater.png';
+import estateHeader from '../images/estateExample.jpg';
+import estatePlaceholder from '../images/estatePlaceholder.jpg';
+import estatePlaceholder1 from '../images/estatePlaceholder1.jpg';
+import estatePlaceholder2 from '../images/estatePlaceholder2.jpg';
+import estatePlaceholder3 from '../images/estatePlaceholder3.jpg';
 
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
@@ -122,6 +131,15 @@ class Picture{
     sustainability = sustainability;
     howLongGraph = howLongGraph;
     peopleConsulting = peopleConsulting;
+    estateBeach = estateBeach;
+    estateLake = estateLake;
+    estateHouse = estateHouse;
+    estateWater = estateWater;
+    estateHeader = estateHeader;
+    estatePlaceholder = estatePlaceholder;
+    estatePlaceholder1 = estatePlaceholder1;
+    estatePlaceholder2 = estatePlaceholder2;
+    estatePlaceholder3 = estatePlaceholder3;
 
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];

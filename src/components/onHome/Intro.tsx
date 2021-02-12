@@ -8,14 +8,6 @@ import { useHistory } from 'react-router';
 import { globalVar } from '../../global/globalVar';
 
 
-const slideOptions = {
-    initialSlide: 1,
-    speed: 400,
-    autoplay: {
-        delay: 142000
-    }
-};
-
 export const Intro = () =>{
     const history = useHistory();
     return(
@@ -23,7 +15,13 @@ export const Intro = () =>{
             <IonList class="intro-image-video-container">
                 <IonSlides 
                     pager={true} 
-                    options={slideOptions} 
+                    options={{
+                        initialSlide: 1,
+                        speed: 400,
+                        autoplay: {
+                            delay: 142000
+                        }
+                    }} 
                     id="slide" 
                     class="intro-slider-container"
                 >

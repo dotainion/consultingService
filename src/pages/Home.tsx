@@ -13,6 +13,7 @@ import { Vision } from '../components/onHome/Vision';
 import { Pop } from '../components/Pop';
 import { content } from '../components/Contents';
 import { SuggestionBox } from '../components/Widgets';
+import { EstateAdvertise } from '../components/onHome/EstateAdvert';
 
 const Home: React.FC = () => {
   const [opacity, setOpacity] = useState("");
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <SuggestionBox/>
+      <EstateAdvertise/>
       <Pop onOpen={()=>{setOpacity("0.3")}} onClose={()=>{setOpacity("")}}/>
       <IonContent class="home-main-content-container" style={{opacity:opacity}}>
         <Header hidden={[content.objects.headerLists[0].name]} id="home"/>

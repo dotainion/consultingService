@@ -43,6 +43,7 @@ import Sustainability from './pages/Sustainability';
 import Administrator from './admin/admin';
 import AuthUi from './admin/authUi';
 import AuthRouter from './AuthRoute';
+import RealEstate from './pages/RealEstate';
 
 const App = () =>{
   return (
@@ -62,8 +63,9 @@ const App = () =>{
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
           <Route path={globalVar.route.Admin} render={()=><AuthRouter/>} exact={true} />
-          <Route component={_404}/>
+          <Route path={globalVar.route.RealEstate} component={RealEstate} exact={true} />
           <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
+          <Route component={_404}/>
         </IonRouterOutlet>
       </IonReactHashRouter>
     </IonApp>

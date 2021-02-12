@@ -1,0 +1,93 @@
+.estate-advert-backdrop{
+    overflow-y: auto;
+    background-color: black;
+    user-select: none;
+}
+.estate-advert-container{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200px;
+    z-index: 999999;
+    transform: translateY(-50%);
+    border: 2px  solid lightgray;
+    animation: multiColor2 1s infinite linear;
+}
+.estate-hover:hover{
+    border: 2px  solid blue;
+}
+.estate-advert-close{
+    position: absolute;
+    color: black;
+    right: 0;
+    font-size: 25px;
+}
+.estate-advert-close-hover:hover{
+    color: red;
+}
+.estate-advert-header{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(15, 148, 236);
+    background-color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.estate-advert-image{
+    position: relative;
+    width: 100%;
+    height: auto;;
+}
+.estate-advert-view-more{
+    position: absolute;
+    top: 32%;
+    right: 10px;
+    color: white;
+    padding: 5px;
+    font-size: 25px;
+    z-index: 9999999;
+    box-shadow: 5px 5px 7px black;
+    background-color: var(--header-text-color);
+    animation: multiColor 1s infinite linear;
+}
+.estate-advert-shadow{
+    position: absolute;
+    top: 35%;
+    right: 25px;
+    width: 100px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: black;
+    box-shadow: 5px 5px 7px black;
+}
+.estate-advert-view-more-hover:hover{
+    background-color: black;
+}
+.estate-advert-view-more-click:active{
+    box-shadow: 1px 2px 3px black;
+}
+
+@keyframes multiColor{
+    from{
+        background-color: red;
+    }
+    to{
+        background-color: blue;
+    }
+}
+@keyframes multiColor2{
+    0%{
+        border: 2px  solid red;
+    }
+    25%{
+        border: 2px  solid blue;
+    }
+    50%{
+        border: 2px  solid green;
+    }
+    75%{
+        border: 2px  solid yellow;
+    }
+    100%{
+        border: 2px  solid black;
+    }
+}

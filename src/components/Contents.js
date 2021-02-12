@@ -51,7 +51,11 @@ class Objects{
             list: []
         },{
             name: "Contact",
-            route: "/form",
+            route: globalVar.route.Form,
+            list: []
+        },{
+            name: "Real Estate",
+            route: globalVar.route.RealEstate,
             list: []
         }
     ];
@@ -844,6 +848,45 @@ class Objects{
                 graph: ""
             }
         },
+    ];
+    realEstate = [
+        {
+            image: images.picture.estateBeach,
+            address: "unknown",
+            state: "Grenada",
+            detail: "",
+            route: null
+        },{
+            image: images.picture.estatePlaceholder,
+            address: "placeholder",
+            state: "unknown",
+            detail: "This is a place holder and not up for sale",
+            route: null
+        },{
+            image: images.picture.estateLake,
+            address: "unknown",
+            state: "Grenada",
+            detail: "",
+            route: null
+        },{
+            image: images.picture.estatePlaceholder1,
+            address: "placeholder",
+            state: "unknown",
+            detail: "This is a place holder and not up for sale",
+            route: null
+        },{
+            image: images.picture.estatePlaceholder2,
+            address: "placeholder",
+            state: "unknown",
+            detail: "This is a place holder and not up for sale",
+            route: null
+        },{
+            image: images.picture.estatePlaceholder3,
+            address: "placeholder",
+            state: "unknown",
+            detail: "This is a place holder and not up for sale",
+            route: null
+        }
     ]
 }
 class Sentence{
