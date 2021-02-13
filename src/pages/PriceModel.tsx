@@ -1,11 +1,10 @@
-import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList, IonItem, IonCard, IonNote } from '@ionic/react';
-import React, { useEffect, useRef } from 'react';
+import { IonContent, IonLabel, IonPage, IonImg, IonList, IonItem, IonCard } from '@ionic/react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { images } from '../components/Images';
-import { Promotion } from '../components/Promotion';
 import { tools } from '../components/tools';
 import { globalVar } from '../global/globalVar';
 import './PriceModel.css';

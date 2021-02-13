@@ -1,20 +1,19 @@
-import { IonIcon, IonImg, IonItem, IonLabel, IonList, IonThumbnail } from '@ionic/react';
-import { closeOutline, homeOutline } from 'ionicons/icons';
+import { IonIcon, IonImg, IonThumbnail } from '@ionic/react';
+import { closeOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { images } from '../Images';
 import './EstateAdvert.css';
-import { BsBuilding } from 'react-icons/bs';
 import { tools } from '../../components/tools';
-import { truncate } from 'fs';
 import { useHistory } from 'react-router';
 import { globalVar } from '../../global/globalVar';
-import { updateSpreadAssignment } from 'typescript';
 
 
 let isLarge = false;
+const tokenRef = "estate-popup";
+const token = tools.token;
 export const EstateAdvertise = () =>{
     const history = useHistory();
-    const [hide, setHide] = useState(false);
+    const [hide, setHide] = useState(true);
     const [hideBtn, setHideBtn] = useState(false);
     const [enlarge, setEnlarge] = useState({
         top: "", left: "", width: "", transform: "",
@@ -22,26 +21,23 @@ export const EstateAdvertise = () =>{
     } as any);
     const makeLarger = (large=true) =>{
         setEnlarge({
-            top: tools.compare(large,false,"","20px"),
-            left: tools.compare(large,false,"","50%"),
-            width: tools.compare(large,false,"","50%"),
-            transform: tools.compare(large,false,"","translateX(-50%)"),
-            animation: tools.compare(large,false,"multiColor2 1s infinite linear","none"),
-            border: tools.compare(large,false,"","1px solid transparent"),
-            backdrop: {
-                width: tools.compare(large,false,"","100%"),
-                height: tools.compare(large,false,"","100vh"),
-                position: tools.compare(large,false,"","relative")
-            }
+            container: tools.compare(large,false,"","estate-advert-container-2"),
+            backdrop: tools.compare(large,false,"","estate-advert-backdrop-2")
         });
         isLarge = large;
     }
+    useEffect(()=>{
+        if (!token.isActive(tokenRef)){
+            setHide(false);
+            token.set(tokenRef);
+        }
+    },[]);
     return(
-        <div hidden={hide} style={enlarge.backdrop} className="estate-advert-backdrop">
-            <div style={enlarge} onClick={()=>{
+        <div hidden={hide} className={`estate-advert-backdrop ${enlarge.backdrop}`}>
+            <div onClick={()=>{
                 makeLarger();
                 setHideBtn(true);
-            }} className="estate-advert-container estate-hover">
+            }} className={`estate-advert-container estate-hover ${enlarge.container}`}>
                 <IonIcon icon={closeOutline} onClick={(e)=>{
                     e.stopPropagation();
                     if (!isLarge) setHide(true);
@@ -55,7 +51,7 @@ export const EstateAdvertise = () =>{
                         e.stopPropagation();
                         setHideBtn(false);
                         makeLarger(false);
-                        history.push(globalVar.route.RealEstate);
+                        history.push(globalVar.route.PropertyDevelper);
                     }} className={
                         `estate-advert-view-more
                         estate-advert-view-more-click

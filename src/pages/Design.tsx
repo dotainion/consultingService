@@ -1,13 +1,11 @@
-import { IonButton, IonCard, IonContent, IonFooter, IonImg, IonInput, IonItem, IonLabel, IonList, IonPage, IonThumbnail } from '@ionic/react';
-import React, { useEffect } from 'react';
+import { IonContent, IonImg, IonList, IonPage, IonThumbnail } from '@ionic/react';
+import React from 'react';
 import './Design.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { tools } from '../components/tools';
 import { content } from '../components/Contents';
 import { images } from '../components/Images';
-import { Promotion } from '../components/Promotion';
-import { FaLeaf } from 'react-icons/fa';
 import { useHistory } from 'react-router';
 import { globalVar } from '../global/globalVar';
 

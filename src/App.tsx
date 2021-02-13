@@ -40,10 +40,11 @@ import Model from './pages/PriceModel';
 import Benefits from './pages/Benefits';
 import FAQs from './pages/FAQ';
 import Sustainability from './pages/Sustainability';
-import Administrator from './admin/admin';
 import AuthUi from './admin/authUi';
 import AuthRouter from './AuthRoute';
-import RealEstate from './pages/RealEstate';
+import RealEstate from './realEstate/RealEstate';
+import Neighborhood from './realEstate/Neighborhood';
+import Architechture from './realEstate/Architechture';
 
 const App = () =>{
   return (
@@ -63,7 +64,9 @@ const App = () =>{
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
           <Route path={globalVar.route.Admin} render={()=><AuthRouter/>} exact={true} />
-          <Route path={globalVar.route.RealEstate} component={RealEstate} exact={true} />
+          <Route path={globalVar.route.PropertyDevelper} component={RealEstate} exact={true} />
+          <Route path={globalVar.route.Neighborhood} component={Neighborhood} exact={true} />
+          <Route path={globalVar.route.Architechture} component={Architechture} exact={true} />
           <Route exact path={globalVar.route.Default} render={()=><Redirect to={globalVar.route.Home}/>} />
           <Route component={_404}/>
         </IonRouterOutlet>

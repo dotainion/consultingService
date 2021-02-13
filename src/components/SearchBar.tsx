@@ -1,5 +1,5 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon, IonPopover, IonInput } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import {  IonIcon } from '@ionic/react';
+import React, { useState } from 'react';
 import './SearchBar.css';
 import { search } from 'ionicons/icons';
 

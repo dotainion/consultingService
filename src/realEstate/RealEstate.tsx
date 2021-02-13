@@ -1,6 +1,6 @@
 import { IonCard, IonCardContent, IonContent, IonIcon, IonImg, IonList, IonPage, IonThumbnail } from '@ionic/react';
 import { chevronBackOutline, chevronForwardOutline, homeOutline } from 'ionicons/icons';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -9,10 +9,23 @@ import './RealEstate.css';
 import { FcHome } from 'react-icons/fc';
 import { RiHomeHeartFill } from 'react-icons/ri';
 import { GiTreeSwing } from 'react-icons/gi';
+import { ViewDetails } from './EstateDetails';
+import { globalVar } from '../global/globalVar';
+import { useHistory } from 'react-router';
+import { SeeVission } from './SeeVission';
+import { tools } from '../components/tools';
+
 
 
 const RealEstate: React.FC = () =>{
+    const history = useHistory();
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [openVission, setOpenVission] = useState(false);
+    const [openViewDetail, setOpenViewDetail] = useState({
+        state: false,
+        data: null
+    } as any);
+
     const scrollTo = (direction: any) =>{
         const refs = scrollRef.current;
         if (refs){
@@ -27,6 +40,24 @@ const RealEstate: React.FC = () =>{
     // help website https://www.trulia.com/
     return(
         <IonPage>
+            <ViewDetails 
+                state={openViewDetail.state} 
+                info={openViewDetail.data}
+                onClose={()=>{
+                    setOpenViewDetail({
+                        state: false,
+                        data: null
+                    });
+                }}
+            />
+
+            <SeeVission
+                state={openVission}
+                onClose={()=>{
+                    setOpenVission(false);
+                }}
+            />
+
             <IonContent>
                 <Header hidden={[content.objects.headerLists[6].name]} id="real-estate"/>
                     <div className="estate-header-container">
@@ -42,6 +73,9 @@ const RealEstate: React.FC = () =>{
                                 <div className="estate-header-button estate-header-button-hover">Sold</div>
                             </div>
                         </div>
+                        <div className="estate-header-button-architecture estate-header-button-architecture-hover" onClick={()=>{
+                            history.push(globalVar.route.Architechture);
+                        }}>Architecture</div>
                     </div>
 
                     <div className="estate-home-get-header-main-container">
@@ -54,7 +88,10 @@ const RealEstate: React.FC = () =>{
                                     With the homes thats available on the website, 
                                     Gmcs can match you with a house you will want to call home.
                                 </p>
-                                <div className="estate-home-get-button estate-home-get-button-hover">Find a home</div>
+                                <div onClick={()=>{
+                                    tools.state.set({other: "Find a home"});
+                                    history.push(globalVar.route.Form);
+                                }} className="estate-home-get-button estate-home-get-button-hover">Find a home</div>
                             </div>
                             <div className="estate-home-get-header-sub-container">
                                 <RiHomeHeartFill className="estate-home-get-icon"/>
@@ -63,16 +100,21 @@ const RealEstate: React.FC = () =>{
                                     With eazy to navigate and easy to use interface, 
                                     GMCS can help you easily find a home or apartment for rent that you'll love.
                                 </p>
-                                <div className="estate-home-get-button estate-home-get-button-hover">Find a rental</div>
+                                <div onClick={()=>{
+                                    tools.state.set({other: "Find a rental"});
+                                    history.push(globalVar.route.Form);
+                                }} className="estate-home-get-button estate-home-get-button-hover">Find a rental</div>
                             </div>
                             <div className="estate-home-get-header-sub-container">
                                 <GiTreeSwing className="estate-home-get-icon"/>
-                                <div className="estate-home-get-header">See neighborhoods</div>
+                                <div className="estate-home-get-header">Your Vission</div>
                                 <p>
-                                    With more neighborhood insights than any other real estate website in grenada,
-                                    we've captured the color and diversity of communities.
+                                    Buy, rent or have a home built for your comfort. Homes are build with hard wood
+                                    that guarantee to last and afordable and fast.
                                 </p>
-                                <div className="estate-home-get-button estate-home-get-button-hover">Learn more</div>
+                                <div onClick={()=>{
+                                    setOpenVission(true);
+                                }} className="estate-home-get-button estate-home-get-button-hover">Learn more</div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +130,15 @@ const RealEstate: React.FC = () =>{
                             <div ref={scrollRef} className="estate-card-container">
                                 {
                                     content.objects.realEstate.map((estate, key)=>(
-                                        <IonCard class="estate-card estate-card-hover" key={key}>
+                                        <IonCard key={key} onMouseEnter={()=>{
+                                            const el = document.getElementById(`${estate}${key}estate-list`);
+                                            if (el) el.hidden = false;
+                                        }} onMouseLeave={()=>{
+                                            const el = document.getElementById(`${estate}${key}estate-list`);
+                                            if (el) el.hidden = true;
+                                        }} onClick={()=>{
+                                            setOpenViewDetail({state:true,data:estate});
+                                        }} class="estate-card estate-card-hover">
                                             <IonThumbnail class="estate-card-image">
                                                 <IonImg src={estate.image}/>
                                             </IonThumbnail>
@@ -96,7 +146,10 @@ const RealEstate: React.FC = () =>{
                                                 <div>{estate.address}</div>
                                                 <div>{estate.state}</div>
                                                 <div style={{fontSize:"15px"}}>{estate.detail}</div>
-                                                <div className="estate-card-view-button">{"View Neighborhood >"}</div>
+                                                <div hidden id={`${estate}${key}estate-list`} onClick={(e)=>{
+                                                    e.stopPropagation();
+                                                    setOpenViewDetail({state:true,data:estate});
+                                                }} className="estate-card-view-button estate-card-view-button-hover">View detail</div>
                                             </IonCardContent>
                                         </IonCard>
                                     ))

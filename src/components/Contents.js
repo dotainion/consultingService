@@ -1,4 +1,3 @@
-import React from 'react';
 import { images } from './Images';
 import '../components/onHome/Stocks.css';
 import { globalVar } from '../global/globalVar';
@@ -54,8 +53,8 @@ class Objects{
             route: globalVar.route.Form,
             list: []
         },{
-            name: "Real Estate",
-            route: globalVar.route.RealEstate,
+            name: "Property Developer",
+            route: globalVar.route.PropertyDevelper,
             list: []
         }
     ];

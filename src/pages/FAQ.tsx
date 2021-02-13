@@ -1,6 +1,6 @@
-import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList, IonItem, IonNote } from '@ionic/react';
-import React, { useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { IonContent, IonPage, IonImg, IonThumbnail, IonList } from '@ionic/react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { content } from '../components/Contents';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';

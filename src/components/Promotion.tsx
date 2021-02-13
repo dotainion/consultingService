@@ -1,4 +1,4 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon } from '@ionic/react';
+import { IonImg, IonThumbnail } from '@ionic/react';
 import React from 'react';
 import './Promotion.css';
 import { useHistory } from 'react-router';

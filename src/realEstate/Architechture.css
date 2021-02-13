@@ -1,0 +1,23 @@
+.architechture-viewer-container{
+    --ion-background-color: rgb(38, 103, 168);
+}
+.architechture-viewer-card{
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+}
+.architechture-viewer-files{
+    width: 100%;
+    height: auto;
+    
+    
+}
+
+@media screen and (max-width:767px){
+    .architechture-viewer-card{
+        margin: 0px;
+        margin-top: 10px;
+        border-radius: 0px;
+        box-shadow: 5px 5px 10px black;
+    }
+}

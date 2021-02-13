@@ -1,9 +1,9 @@
-import { IonContent, IonHeader, IonLabel, IonPage, IonImg, IonThumbnail, IonSlide, IonSlides, IonTitle, IonToolbar, IonList } from '@ionic/react';
-import React, { useEffect, useRef, useState } from 'react';
+import { IonContent, IonPage } from '@ionic/react';
+import React, { useState } from 'react';
 import './Home.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { tools } from '../components/tools';
 import { Intro } from '../components/onHome/Intro';
 import { Offers } from '../components/onHome/Offers';

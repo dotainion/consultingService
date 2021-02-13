@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonSlides, IonSlide } from '@ionic/react';
+import React from 'react';
+import { IonImg, IonList, IonThumbnail, IonSlides, IonSlide } from '@ionic/react';
 import './Intro.css';
-import { tools } from '../tools';
 import ReactPlayer from 'react-player';
 import { images } from '../Images';
 import { useHistory } from 'react-router';
-import { globalVar } from '../../global/globalVar';
 
 
 export const Intro = () =>{

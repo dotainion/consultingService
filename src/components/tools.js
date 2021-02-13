@@ -1,4 +1,48 @@
 import { useHistory } from "react-router";
+const jwt = require('jsonwebtoken');
+
+class Token{
+    tokenKey = "somekey";
+    storagekey = "pop-token";
+    set(ref="",hour=120){
+        const token = jwt.sign({email:ref}, this.tokenKey, { expiresIn: `${hour}h`});
+        const getToken = this.get();
+        if (getToken){
+            let tokenList = [];
+            for (let tok of getToken) tokenList.push(tok);
+            tokenList.push(token);
+            window.localStorage.setItem(this.storagekey,JSON.stringify(tokenList));
+        }else window.localStorage.setItem(this.storagekey,JSON.stringify([token]));
+    }
+    get(){
+        const token = window.localStorage.getItem(this.storagekey);
+        if (token) return JSON.parse(token);
+        return [];
+    }
+    detete(ref){
+        let storeSave = [];
+        for (let token of this.get()){
+            if (token !== ref) storeSave.push(token);
+        }
+        window.localStorage.setItem(this.storagekey,JSON.stringify(storeSave));
+    }
+    isActive(ref=""){
+        try{
+            const tokens = this.get();
+            for (let token of tokens){
+                const res = jwt.verify(token, this.tokenKey);
+                if (res){
+                    if (res.email === ref) return true;
+                }else this.detete(token);
+            }
+            return false;
+        }catch{return false;}
+    }
+    clear(key="all"){
+        if (key.toLowerCase() === "all") window.localStorage.clear();
+        else window.localStorage.removeItem(key);
+    }
+}
 
 class Clicks{
     byId(elementId){
@@ -167,6 +211,7 @@ class Tools{
     click = new Clicks();
     open = new Clicks();
     element = new Visible();
+    token = new Token();
     compare(compareThis,withThat,returnIfTrue,returnIfFalse){
         if (compareThis === withThat) return returnIfTrue;
         else return returnIfFalse;
@@ -196,6 +241,14 @@ class Tools{
             title = title.replace("/","-");
         document.title = `GMCS${title}`;
     }
+    async toBase64(file){
+        return await new Promise((res, rej) => {
+            const reader = new FileReader();
+            reader.onload = e => res(e.target.result);
+            reader.onerror = e => rej(e);
+            reader.readAsDataURL(file);
+        });
+    };
 }
 const tools = new Tools();
 export { tools }

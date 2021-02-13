@@ -1,13 +1,11 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonButton, IonIcon, IonPopover, IonInput } from '@ionic/react';
+import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonThumbnail, IonPopover } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { DropDownList } from './Widgets';
 import { tools } from './tools';
 import { useHistory } from 'react-router';
-import { chevronDown, search } from 'ionicons/icons';
 import { images as Images } from './Images';
 import { content } from './Contents';
-import { SearchBar } from './SearchBar';
 
 export const Header = (headerProps:any)=>{
     const history = useHistory();

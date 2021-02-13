@@ -15,7 +15,9 @@ class Routes{
     Sustainability = "/sustainability";
     Admin = "/gmcs473/admin";
     AdminLogin = "/gmcs473/admin/access";
-    RealEstate = "/real/estate";
+    PropertyDevelper = "/property/developer";
+    Neighborhood = "/neighborhood";
+    Architechture = "/architechture";
 }
 class SiteUrl{
     gmail = "https://mail.google.com/";

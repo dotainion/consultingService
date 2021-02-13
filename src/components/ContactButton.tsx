@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent } from '@ionic/react';
+import React from 'react';
 import './ContactButton.css';
 import { useHistory } from 'react-router';
 import { globalVar } from '../global/globalVar';

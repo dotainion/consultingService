@@ -1,4 +1,4 @@
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle,IonThumbnail, IonCard, IonModal, IonContent, IonInput, IonButton, IonCardContent, IonTextarea, IonSelect, IonSelectOption, IonIcon, IonPage } from '@ionic/react';
+import { IonImg, IonItem, IonLabel, IonList, IonThumbnail, IonCard, IonContent, IonInput, IonButton, IonCardContent, IonTextarea, IonIcon, IonPage } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { tools } from '../components/tools';
@@ -11,7 +11,6 @@ import { images } from '../components/Images';
 import { globalVar } from '../global/globalVar';
 import { ErrorBox } from '../components/Widgets';
 import { addData } from '../auth/database';
-import { useHistory } from 'react-router';
 
 
 const Form: React.FC = () => {

@@ -1,0 +1,109 @@
+.see-vission-backdrop{
+    position: absolute;
+    z-index: 9999999999;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgb(36, 36, 71,0.8);
+}
+.see-vission-tool-bar{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    border-radius: 10px;
+    z-index: 9999999999999;
+    transform: translateX(-50%);
+    background-color: rgb(36, 36, 71,0.5);;
+}
+.see-vission-tool-bar div{
+    display: inline-block;
+    margin: 15px;
+    width: 100px;
+    padding: 5px;
+    border-radius: inherit;
+    text-align: center;
+    user-select: none;
+    color: white;
+    background-color: rgba(53, 143, 233, 0.8);
+    box-shadow: 4px 4px 8px black;
+}
+.see-vission-tool-bar div:active{
+    box-shadow: 2px 2px 4px black;
+}
+.see-vission-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: auto;
+    padding: 20px;
+    transform: translateX(-50%);
+    background-color: white;
+}
+.see-vission-container div{
+    font-size: 25px;
+    margin-top: 10px;
+}
+.see-vission-container p{
+    font-size: 18px;
+    padding-left: 20px;
+}
+.see-vission-container b{
+    color: teal;
+}
+.see-vission-close{
+    position: fixed;
+    z-index: 99999;
+    top: 20px;
+    right: 40px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(206, 203, 203);
+}
+.see-vission-close-hover:hover{
+    color: red;
+    background-color: rgb(224, 220, 220);
+}
+.see-vission-image{
+    width: 100%;
+    height: auto;
+    user-select: none;
+}
+.see-vission-model-container div{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid teal;
+}
+.see-vission-model-container h1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.see-vission-model-container li{
+    font-size: 20px;
+}
+.see-vission-model-container h2{
+    color: var(--header-text-color);
+    text-align: center;
+    border-top: 2px solid teal;
+}
+
+@media screen and (max-width:767px){
+    .see-vission-container{
+        width: 95%;
+    }
+    .see-vission-close{
+        top: 10px;
+        right: 10px;
+    }
+    .see-vission-tool-bar{
+        width: 80%;
+        left: 0;
+        transform: translateX(0%);
+    }
+}

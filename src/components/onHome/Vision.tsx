@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent } from '@ionic/react';
+import React from 'react';
 import './Vision.css';
-import { tools } from '../tools';
 import { images } from '../Images';
 import { useHistory } from 'react-router';
 

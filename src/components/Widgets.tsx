@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonImg, IonItem, IonLabel, IonList, IonCard, IonTitle, IonNote, IonThumbnail, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert, IonIcon, IonLoading, IonCardContent } from '@ionic/react';
+import { IonItem, IonLabel, IonList, IonCard, IonNote, IonContent, IonPopover, IonInput, IonTextarea, IonModal, IonButton, IonAlert, IonIcon, IonLoading, IonCardContent } from '@ionic/react';
 import './Widgets.css';
 import { tools } from './tools';
 import { globalVar } from '../global/globalVar';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FiAlertOctagon } from 'react-icons/fi';
 import { FaRegCheckCircle } from 'react-icons/fa';
 import { ImSpinner9 } from 'react-icons/im';
-import { email } from '../mail/email';
 import { auth } from '../auth/authenticate';
 import { addSuggestion, deleteSuggestion, updateSuggestion } from '../auth/database';
 import { SiGmail } from 'react-icons/si';
-import { CgWebsite } from 'react-icons/cg';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { content } from './Contents';
 import { closeOutline } from 'ionicons/icons';
-import { analytics } from 'firebase';
 
 
 export const DropDownList = (props:any) =>{
