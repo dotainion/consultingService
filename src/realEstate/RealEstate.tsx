@@ -36,7 +36,7 @@ const RealEstate: React.FC = () =>{
             }
         }
     }
-
+    tools.pageTitle();
     // help website https://www.trulia.com/
     return(
         <IonPage>

@@ -1,12 +1,14 @@
-import { IonContent, IonIcon, IonImg, IonItem, IonList, IonPage, IonThumbnail } from '@ionic/react';
-import { arrowBackOutline, arrowForwardOutline, cashOutline, closeOutline, homeOutline, pricetagOutline } from 'ionicons/icons';
+import { IonIcon, IonImg, IonThumbnail } from '@ionic/react';
+import { closeOutline } from 'ionicons/icons';
 import React from 'react';
 import './EstateDetails.css';
 import { FaMoneyCheckAlt, FaTags, FaSign, FaHome } from 'react-icons/fa';
 import { BsArrowRight } from 'react-icons/bs';
+import { tools } from '../components/tools';
 
 
 export const ViewDetails = ({state,info,onClose}:any) =>{
+    tools.pageTitle();
     return(
         <div hidden={!state} className="view-detail-backdrop">
             <div className="view-detail-container">

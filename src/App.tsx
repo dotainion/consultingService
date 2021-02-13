@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Link, Redirect, Route, Switch, useHistory } from 'react-router-dom';
-import { IonApp, IonButton, IonRouterOutlet } from '@ionic/react';
-import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonReactHashRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -59,10 +59,10 @@ const App = () =>{
           <Route path={globalVar.route.Design} component={Design} exact={true} />
           <Route path={globalVar.route.Form} component={Form} exact={true} />
           <Route path={globalVar.route.Offers} component={Offers} exact={true} />
-          <Route path={globalVar.route.Home} component={Home} exact={true} />
           <Route path={globalVar.route.FAQs} component={FAQs} exact={true} />
           <Route path={globalVar.route.Sustainability} component={Sustainability} exact={true} />
           <Route path={globalVar.route.AdminLogin} component={AuthUi} exact={true} />
+          <Route path={globalVar.route.Home} component={Home} exact={true} />
           <Route path={globalVar.route.Admin} render={()=><AuthRouter/>} exact={true} />
           <Route path={globalVar.route.PropertyDevelper} component={RealEstate} exact={true} />
           <Route path={globalVar.route.Neighborhood} component={Neighborhood} exact={true} />

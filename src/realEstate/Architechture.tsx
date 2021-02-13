@@ -28,9 +28,10 @@ import img24 from './images/pdf24.png';
 import img25 from './images/pdf25.png';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { tools } from '../components/tools';
 
 
-const Architechture = () =>{
+const Architechture: React.FC  = () =>{
     const fileRenderer = [
         img1,
         img2,
@@ -58,6 +59,7 @@ const Architechture = () =>{
         img24,
         img25,
     ];
+    tools.pageTitle();
     return(
         <IonPage>
             <IonContent>

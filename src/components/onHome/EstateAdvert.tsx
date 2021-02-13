@@ -29,7 +29,6 @@ export const EstateAdvertise = () =>{
     useEffect(()=>{
         if (!token.isActive(tokenRef)){
             setHide(false);
-            token.set(tokenRef);
         }
     },[]);
     return(
@@ -40,7 +39,10 @@ export const EstateAdvertise = () =>{
             }} className={`estate-advert-container estate-hover ${enlarge.container}`}>
                 <IonIcon icon={closeOutline} onClick={(e)=>{
                     e.stopPropagation();
-                    if (!isLarge) setHide(true);
+                    if (!isLarge){
+                        setHide(true);
+                        token.set(tokenRef);
+                    } 
                     setHideBtn(false);
                     makeLarger(false);
                 }} class="estate-advert-close estate-advert-close-hover"/>

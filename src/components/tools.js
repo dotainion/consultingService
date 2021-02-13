@@ -6,13 +6,17 @@ class Token{
     storagekey = "pop-token";
     set(ref="",hour=120){
         const token = jwt.sign({email:ref}, this.tokenKey, { expiresIn: `${hour}h`});
-        const getToken = this.get();
-        if (getToken){
-            let tokenList = [];
-            for (let tok of getToken) tokenList.push(tok);
-            tokenList.push(token);
-            window.localStorage.setItem(this.storagekey,JSON.stringify(tokenList));
-        }else window.localStorage.setItem(this.storagekey,JSON.stringify([token]));
+        try{
+            const getToken = this.get();
+            if (getToken){
+                let tokenList = [];
+                for (let tok of getToken) tokenList.push(tok);
+                tokenList.push(token);
+                window.localStorage.setItem(this.storagekey,JSON.stringify(tokenList));
+            }else window.localStorage.setItem(this.storagekey,JSON.stringify([token]));
+        }catch{
+            window.localStorage.setItem(this.storagekey,JSON.stringify([token]));
+        }
     }
     get(){
         const token = window.localStorage.getItem(this.storagekey);

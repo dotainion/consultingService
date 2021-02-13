@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import './SeeVission.css';
 import image from './images/woodenHouse.jpg';
 import { closeOutline } from 'ionicons/icons';
+import { tools } from '../components/tools';
 
 
 export const SeeVission = ({onClose, state}:any) =>{
@@ -25,6 +26,7 @@ export const SeeVission = ({onClose, state}:any) =>{
             setTabs({material: {state: false, bg: ""}, model: {state: true, bg: "black"}});
         }
     }
+    tools.pageTitle();
     return(
         <div hidden={!state} ref={scrollRef} className="see-vission-backdrop">
             <IonIcon class="see-vission-close see-vission-close-hover" onClick={()=>{
