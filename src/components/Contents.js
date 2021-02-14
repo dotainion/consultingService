@@ -53,7 +53,7 @@ class Objects{
             route: globalVar.route.Form,
             list: []
         },{
-            name: "Property Developer",
+            name: "Property Development",
             route: globalVar.route.PropertyDevelper,
             list: []
         }
@@ -856,6 +856,24 @@ class Objects{
             detail: "Contact us for more detail",
             route: null
         },{
+            image: images.picture.woodenArch,
+            address: "Best Wooden Homes",
+            state: "Build to your specification",
+            detail: "Contact us for more detail",
+            route: null
+        },{
+            image: images.picture.woodenHouse,
+            address: "Wooden Homes",
+            state: "Build or Customize",
+            detail: "Contact us for more detail",
+            route: null
+        },{
+            image: images.picture.woodenHouse1,
+            address: "Wooden Homes",
+            state: "Build or Customize",
+            detail: "Contact us for more detail",
+            route: null
+        },{
             image: images.picture.estatePlaceholder,
             address: "Dark brown",
             state: "",
@@ -883,6 +901,12 @@ class Objects{
             image: images.picture.estateLake,
             address: "Available",
             state: "Grenada",
+            detail: "Contact us for more detail",
+            route: null
+        },{
+            image: images.picture.woodenHouse2,
+            address: "Wooden Homes",
+            state: "Build or Customize",
             detail: "Contact us for more detail",
             route: null
         }

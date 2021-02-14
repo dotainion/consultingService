@@ -123,9 +123,10 @@ const RealEstate: React.FC = () =>{
                             <div>Discover a place</div>
                             <div>you'll love to live</div>
                             <div className="estate-header-button-container">
-                                <div className="estate-header-button estate-header-button-hover">Buy</div>
-                                <div className="estate-header-button estate-header-button-hover">Rent</div>
-                                <div className="estate-header-button estate-header-button-hover">Sold</div>
+                                <div className="estate-header-button estate-header-button-hover" onClick={()=>{
+                                    history.push(globalVar.route.Form);
+                                }}>Investment Opportunity<div style={{fontSize:"15px"}}>(Contact us today)</div></div>
+                                {/* more button can be added, will be place horizontally and hover change */}
                             </div>
                         </div>
                         <div className="estate-header-button-architecture estate-header-button-architecture-hover" onClick={()=>{
@@ -140,8 +141,8 @@ const RealEstate: React.FC = () =>{
                             looking for an affordable property investment or a vacation home in the Caribbean.
                         </p>
                         <p>
-                            We give you the option to design your home, the minimum square feet allow is 450
-                            square feet. The house is imported from Belie based on your design.
+                            We give you the option to design your home, the minimum allow is 450
+                            square feet. The house is imported from Belize based on your design.
                         </p>
                         <p>
                             The lot of Ocean Font is available in 3000 and 5000 square feet.
@@ -169,21 +170,22 @@ const RealEstate: React.FC = () =>{
                     </div>
 
                     <div className="estate-home-get-header-main-container">
-                        <div>Lest see how GMCS can help you</div>
+                        <div>Let's see how GMCS can help you</div>
                         <div className="estate-home-get-header-container">
                             <div className="estate-home-get-header-sub-container">
                                 <FcHome className="estate-home-get-icon"/>
                                 <div className="estate-home-get-header">Buy a home</div>
                                 <p>
-                                    With the homes thats available on the website, 
-                                    Gmcs can match you with a house you will want to call home.
+                                    aS available on the website, 
+                                    or customize your own design.
+                                    GMCS can match you with a house you will want to call home.
                                 </p>
                                 <div onClick={()=>{
                                     tools.state.set({other: "Find a home"});
                                     history.push(globalVar.route.Form);
                                 }} className="estate-home-get-button estate-home-get-button-hover">Find a home</div>
                             </div>
-                            <div className="estate-home-get-header-sub-container">
+                            {/*<div className="estate-home-get-header-sub-container">
                                 <RiHomeHeartFill className="estate-home-get-icon"/>
                                 <div className="estate-home-get-header">Rent a home</div>
                                 <p>
@@ -194,13 +196,14 @@ const RealEstate: React.FC = () =>{
                                     tools.state.set({other: "Find a rental"});
                                     history.push(globalVar.route.Form);
                                 }} className="estate-home-get-button estate-home-get-button-hover">Find a rental</div>
-                            </div>
+                            </div>*/}
                             <div className="estate-home-get-header-sub-container">
                                 <GiTreeSwing className="estate-home-get-icon"/>
                                 <div className="estate-home-get-header">Your Vission</div>
                                 <p>
-                                    Buy, rent or have a home built for your comfort. Homes are build with hard wood
-                                    that guarantee to last and afordable and fast.
+                                    Buy a home build for your comfort. 
+                                    Homes are affordable and built with hardwood that gurantee to last.
+                                    
                                 </p>
                                 <div onClick={()=>{
                                     setOpenVission(true);
@@ -210,11 +213,10 @@ const RealEstate: React.FC = () =>{
                     </div>
 
                     <div>
-                        <div className="estate-card-above-header">Explore neighborhoods in Grenada</div>
+                        <div className="estate-card-above-header">Explore neighborhoods in Grenada:</div>
                         <div className="estate-card-above-sub-header">
-                            Take a deep dive and browse original photos,
-                            and or drone footage, resident reviews and local insights to see 
-                            if the homes for sale are right for you.
+                            Browse original photos, and or drone footage, 
+                            to see if the locations are right for you.
                         </div>
                         <div style={{position:"relative"}}>
                             <div ref={scrollRef} className="estate-card-container">

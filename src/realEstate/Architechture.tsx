@@ -27,6 +27,7 @@ import img23 from './images/pdf23.png';
 import img24 from './images/pdf24.png';
 import img25 from './images/pdf25.png';
 import { closeOutline } from 'ionicons/icons';
+import { images } from '../components/Images';
 
 export const Architechture = ({state,onClose}:any) =>{
     const fileRenderer = [
@@ -67,6 +68,16 @@ export const Architechture = ({state,onClose}:any) =>{
                     <p>
                         we build homes that are fast and affordable with the best design
                     </p>
+                </div>
+                <div className="architechture-left-info">
+                    <div>
+                        <h1>Customize your design</h1>
+                        <img src={images.picture.woodenArch}/>
+                        <p>
+                            you can use our architechtrue design or have your own customize
+                            to your specification.
+                        </p>
+                    </div>
                 </div>
                 <IonList class="architechture-viewer-container">
                     {fileRenderer.map((file:any, key:number)=>(

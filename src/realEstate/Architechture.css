@@ -44,24 +44,48 @@
     --ion-background-color: rgb(38, 103, 168,0.8);
 }
 .architechture-viewer-card{
-    width: 80%;
-    margin-left: 50%;
+    width: 70%;
+    margin-left: 100%;
     border-radius: 20px;
-    transform: translateX(-50%);
+    transform: translateX(-100%);
     box-shadow: 5px 5px 10px black;
 }
 .architechture-viewer-files{
     width: 100%;
     height: auto;
-    
-    
 }
+.architechture-left-info{
+    position: fixed;
+    z-index: 9999;
+    width: 30%;
+    top: 150px;
+    color: white;
+}
+.architechture-left-info div{
+    position: absolute;
+    z-index: 9999;
+    width: 95%;
+}
+.architechture-left-info h1, p{
+    padding-left: 10px;
+}
+
 
 @media screen and (max-width:767px){
     .architechture-viewer-card{
-        margin: 0px;
-        margin-top: 10px;
-        border-radius: 0px;
-        box-shadow: 5px 5px 10px black;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .architechture-viewer-header{
+        font-size: 25px;
+    }
+    .architechture-viewer-header p{
+        font-size: 15px;
+    }.architechture-viewer-close{
+        top: 10px;
+        right: 10px;
+    }
+    .architechture-left-info{
+        display: none;
     }
 }

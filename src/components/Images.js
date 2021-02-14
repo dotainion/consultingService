@@ -65,6 +65,10 @@ import estatePlaceholder from '../images/estatePlaceholder.jpg';
 import estatePlaceholder1 from '../images/estatePlaceholder1.jpg';
 import estatePlaceholder2 from '../images/estatePlaceholder2.jpg';
 import estatePlaceholder3 from '../images/estatePlaceholder3.jpg';
+import woodenHouse from '../images/woodenHouse.jpg';
+import woodenHouse1 from '../images/woodenHouse1.png';
+import woodenHouse2 from '../images/woodenHouse2.png';
+import woodenArch from '../images/woodenArch.jpeg';
 
 
 import { peopleCircle, pricetag, pricetagOutline, rocketOutline } from 'ionicons/icons';
@@ -140,6 +144,10 @@ class Picture{
     estatePlaceholder1 = estatePlaceholder1;
     estatePlaceholder2 = estatePlaceholder2;
     estatePlaceholder3 = estatePlaceholder3;
+    woodenHouse = woodenHouse;
+    woodenHouse1 = woodenHouse1;
+    woodenHouse2 = woodenHouse2;
+    woodenArch = woodenArch;
 
     grenada(){
         return [grenada1,grenada2,grenada3,grenada4,grenada5];
