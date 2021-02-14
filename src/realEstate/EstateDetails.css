@@ -13,6 +13,7 @@
     width: 95%;
     height: 90%;
     padding: 10px;
+    overflow-y: auto;
     border-radius: 10px;
     background-color: white;
     transform: translate3d(-50%,-50%,0);
@@ -31,6 +32,10 @@
     color: red;
     background-color: rgb(224, 220, 220);
 }
+.view-detail-sub-container{
+    display: flex;
+    position: relative;
+}
 .view-detail-price-container{
     display: flex;
     position: relative;
@@ -40,9 +45,16 @@
     padding-right: 10px;
     border-radius: 50%;
     color: teal;
+    user-select: none;
+}
+.view-detail-prices-flex-price-main-container{
+    width: 50%;
+}
+.view-detail-price-image{
+    width: 50%;
+    height: auto;
 }
 .view-detail-price-container-hover:hover{
-    user-select: none;
     background-color: rgb(0, 128, 128,0.2);
 }
 .view-detail-icon{
@@ -65,7 +77,48 @@
     display: flex;
 }
 
+/* content info */
+.view-detail-content-info{
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.view-detail-content-info div{
+    margin-left: 10px;
+    font-size: 22px;
+}
+/* content bottom info */
+.view-detail-bottom-info-container{
+    position: relative;
+    top: 50px;
+    width: 100%;
+    height: auto;
+}
+.view-detail-bottom-info{
+    font-size: 40px;
+    text-align: center;
+    color: teal;
+    font-weight: bold;
+}
+.view-detail-bottom-info div{
+    font-size: 20px;
+}
+.view-detail-bottom-info div span{
+    padding-left: 5px;
+    padding-right: 20px;
+}
+.view-detail-bottom-info label:hover{
+    color: dodgerblue;
+    border-bottom: 1px solid;
+    user-select: none;
+}
+
 @media screen and (max-width:767px){
+    .view-detail-prices-flex-price-main-container{
+        width: 100%;
+    }
+    .view-detail-price-image{
+        width: 100%;
+    }
     .view-detail-price-header{
         font-size: 20px;
         margin-top: 30px;
@@ -75,11 +128,11 @@
         padding-left: 5px;
         padding-right: 0px;
     }
-    .view-detail-prices-flex{
-        display: block;
-    }
     .view-detail-icon-2{
-        right: 0px;
         color: blue;
+    }
+    .view-detail-sub-container{
+        display: block;
+        position: relative;
     }
 }

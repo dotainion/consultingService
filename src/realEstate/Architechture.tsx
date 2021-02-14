@@ -81,8 +81,8 @@ export const Architechture = ({state,onClose}:any) =>{
                 </div>
                 <IonList class="architechture-viewer-container">
                     {fileRenderer.map((file:any, key:number)=>(
-                        <IonCard className="architechture-viewer-card">
-                            <IonThumbnail key={key} className="architechture-viewer-files">
+                        <IonCard className="architechture-viewer-card" key={key}>
+                            <IonThumbnail className="architechture-viewer-files">
                                 <IonImg src={file}/>
                             </IonThumbnail>
                         </IonCard>
