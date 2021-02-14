@@ -851,39 +851,39 @@ class Objects{
     realEstate = [
         {
             image: images.picture.estateBeach,
-            address: "unknown",
+            address: "Available",
             state: "Grenada",
-            detail: "",
+            detail: "Contact us for more detail",
             route: null
         },{
             image: images.picture.estatePlaceholder,
-            address: "placeholder",
-            state: "unknown",
-            detail: "This is a place holder and not up for sale",
-            route: null
-        },{
-            image: images.picture.estateLake,
-            address: "unknown",
-            state: "Grenada",
-            detail: "",
+            address: "Dark brown",
+            state: "",
+            detail: "beautiful dark Interior design",
             route: null
         },{
             image: images.picture.estatePlaceholder1,
-            address: "placeholder",
-            state: "unknown",
-            detail: "This is a place holder and not up for sale",
+            address: "White Interior",
+            state: "Call us today",
+            detail: "beautiful white Interior design",
             route: null
         },{
             image: images.picture.estatePlaceholder2,
-            address: "placeholder",
-            state: "unknown",
-            detail: "This is a place holder and not up for sale",
+            address: "Vanish homes",
+            state: "Best quality homes",
+            detail: "Modern build with wood style finish",
             route: null
         },{
             image: images.picture.estatePlaceholder3,
             address: "placeholder",
-            state: "unknown",
-            detail: "This is a place holder and not up for sale",
+            state: "",
+            detail: "Wooden home build to last",
+            route: null
+        },{
+            image: images.picture.estateLake,
+            address: "Available",
+            state: "Grenada",
+            detail: "Contact us for more detail",
             route: null
         }
     ]

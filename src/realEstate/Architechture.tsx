@@ -1,4 +1,4 @@
-import { IonCard, IonContent, IonImg, IonList, IonPage, IonThumbnail } from '@ionic/react';
+import { IonCard, IonContent, IonIcon, IonImg, IonList, IonPage, IonThumbnail } from '@ionic/react';
 import React from 'react';
 import './Architechture.css';
 import img1 from './images/pdf1.png';
@@ -26,12 +26,9 @@ import img22 from './images/pdf22.png';
 import img23 from './images/pdf23.png';
 import img24 from './images/pdf24.png';
 import img25 from './images/pdf25.png';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { tools } from '../components/tools';
+import { closeOutline } from 'ionicons/icons';
 
-
-const Architechture: React.FC  = () =>{
+export const Architechture = ({state,onClose}:any) =>{
     const fileRenderer = [
         img1,
         img2,
@@ -59,11 +56,18 @@ const Architechture: React.FC  = () =>{
         img24,
         img25,
     ];
-    tools.pageTitle();
     return(
-        <IonPage>
-            <IonContent>
-                <Header/>
+        <div hidden={!state} className="architechtrue-backdrop">
+            <div>
+                <IonIcon icon={closeOutline} onClick={()=>{
+                    if (onClose) onClose();
+                }} class="architechture-viewer-close architechture-viewer-close-hover"/>
+                <div className="architechture-viewer-header">
+                    <div>Architechtral Designs</div>
+                    <p>
+                        we build homes that are fast and affordable with the best design
+                    </p>
+                </div>
                 <IonList class="architechture-viewer-container">
                     {fileRenderer.map((file:any, key:number)=>(
                         <IonCard className="architechture-viewer-card">
@@ -73,9 +77,8 @@ const Architechture: React.FC  = () =>{
                         </IonCard>
                     ))}
                 </IonList>
-                <Footer/>
-            </IonContent>
-        </IonPage>
+            </div>
+        </div>
     )
 }
 

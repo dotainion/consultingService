@@ -17,7 +17,6 @@ class Routes{
     AdminLogin = "/gmcs473/admin/access";
     PropertyDevelper = "/property/developer";
     Neighborhood = "/neighborhood";
-    Architechture = "/architechture";
 }
 class SiteUrl{
     gmail = "https://mail.google.com/";
