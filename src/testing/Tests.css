@@ -1,0 +1,43 @@
+.test{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    user-select: none;
+    text-align: center;
+}
+.test h1{
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    box-shadow: 4px 4px 10px black;
+    border: 1px solid red;
+}
+.test h1::after{
+    content: "";
+    background: green;
+    display: block;
+    position: absolute;
+    padding-top: 30%;
+    padding-right: 110%;
+    margin-left: -20px!important;
+    margin-top: -25%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.test h1:active::after{
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+.test h1:active{
+    box-shadow: 2px 2px 4px black;
+}

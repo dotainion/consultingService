@@ -16,17 +16,35 @@ import { render } from '@testing-library/react';
 import { NumericLiteral } from 'typescript';
 
 
-
-class Test extends React.Component{   
-    
-    render(){;
-        return(
-            <IonPage>
-                <IonContent>
-                    
-                </IonContent>
-            </IonPage>
-        )
+let interval: any;
+const Test = () =>{   
+    const history = useHistory();
+    const [count, setCount] = useState(0);
+    const [width, setWidth] = useState("0%");
+    const [color, setColor] = useState("");
+    const counter = () =>{
+        if (count < 100){
+            setCount(count + 1);
+            setWidth(`${count}%`);
+            if (count === 99) setColor("green")
+        }else{
+            setCount(0);
+            setWidth("");
+            setColor("");
+            history.push(globalVar.route.Home);
+        }
     }
+    return(
+        <IonPage>
+            <div className="test">
+                <div style={{border:"1px solid red",padding:"2px",overflow:"hidden"}}>
+                    <div style={{height:"40px",width:width,backgroundColor:"blue"}}></div>
+                </div>
+                <span>{count}%</span>
+                <div>This is a test page</div>
+                <h1 style={{backgroundColor:color}} onClick={counter}>go to home</h1>
+            </div>
+        </IonPage>
+    )
 }
 export default Test;
