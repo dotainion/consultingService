@@ -135,4 +135,10 @@
         display: block;
         position: relative;
     }
+    .view-detail-bottom-info{
+        font-size: 20px;
+    }
+    .view-detail-bottom-info div{
+        font-size: 15px;
+    }
 }
